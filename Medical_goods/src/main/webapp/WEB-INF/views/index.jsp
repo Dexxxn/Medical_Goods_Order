@@ -23,6 +23,7 @@
     <link href="/resources/assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/resources/css/style.css" rel="stylesheet">
+    <link href="/resources/css/chart.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="/resources/css/pages/dashboard1.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
@@ -58,7 +59,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
@@ -116,24 +117,33 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                        <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">자산관리</span></a>
+                        	<a href="#;"><span class="detailPage_nav">재고현황</span></a>
+                        	<a href="#;"><span class="detailPage_nav">자가사용입력(읽)</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Profile</span></a>
+                        <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
+                        	<a href="#;"><span class="detailPage_nav">발주계획서 작성</span></a>
+                        	<a href="#;"><span class="detailPage_nav">발주내역서 조회</span></a>
+                        	<a href="#;"><span class="detailPage_nav">거래 내역 조회</span></a>
+                        	<a href="#;"><span class="detailPage_nav">담당자별 구매 이력 조회</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Tables</span></a>
+                        <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">서류관리</span></a>
+                        	<a href="#;"><span class="detailPage_nav">거래 명세서</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="icon-fontawesome.html" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">Icons</span></a>
+                        <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
+                        	<a href="#;"><span class="detailPage_nav">발주요청서 작성(읽)</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">Map</span></a>
+                        <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">조정관리</span></a>
+                        	<a href="/chart"><span class="detailPage_nav">안전재고 통계</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
+                     <!--    <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu">404</span></a>
-                        </li>
+                        </li> -->
                     </ul>
-                    <div class="text-center m-t-30">
+                   <!--  <div class="text-center m-t-30">
                         <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn-info hidden-md-down"> Upgrade to Pro</a>
-                    </div>
+                    </div> -->
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -145,14 +155,10 @@
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
+     <!--   <div class="page-wrapper">
+
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
+       
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">Dashboard</h3>
@@ -161,18 +167,10 @@
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
+                
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Sales Chart and browser state-->
-                <!-- ============================================================== -->
+             
                 <div class="row">
-                    <!-- Column -->
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="card-body">
@@ -191,8 +189,8 @@
                                 <div class="" id="sales-chart" style="height: 355px;"></div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Column -->
+                    </div> -->
+                    <!-- Column
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
@@ -214,15 +212,16 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- ============================================================== -->
+                </div> -->
+                
+          <!-- ============================================================== -->
                 <!-- End Sales Chart -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
                 <!-- Projects of the Month -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <!-- Column -->
+               <!--  <div class="row">
+                    Column
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="card-body">
@@ -290,8 +289,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Column -->
-                    <!-- Column -->
+                    Column
+                    Column
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="up-img" style="background-image:url(assets/images/big/img1.jpg)"></div>
@@ -310,37 +309,37 @@
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Projects of the Month -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Notification And Feeds -->
-                <!-- ============================================================== -->
+                ==============================================================
+                End Projects of the Month
+                ==============================================================
+                ==============================================================
+                Notification And Feeds
+                ==============================================================
                 <div class="row">
-                    <!-- Start Notification -->
+                    Start Notification
                     <div class="col-lg-6 col-md-12">
                         <div class="card card-body mailbox">
                             <h5 class="card-title">Notification</h5>
                             <div class="message-center ps ps--theme_default ps--active-y" data-ps-id="a045fe3c-cb6e-028e-3a70-8d6ff0d7f6bd">
-                                <!-- Message -->
+                                Message
                                 <a href="#">
                                     <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
                                     <div class="mail-contnet">
                                         <h5>Luanch Admin</h5> <span class="mail-desc">Just see the my new admin!</span> <span class="time">9:30 AM</span> </div>
                                 </a>
-                                <!-- Message -->
+                                Message
                                 <a href="#">
                                     <div class="btn btn-success btn-circle"><i class="fa fa-calendar-check-o"></i></div>
                                     <div class="mail-contnet">
                                         <h5>Event today</h5> <span class="mail-desc">Just a reminder that you have event</span> <span class="time">9:10 AM</span> </div>
                                 </a>
-                                <!-- Message -->
+                                Message
                                 <a href="#">
                                     <div class="btn btn-info btn-circle"><i class="fa fa-cog"></i></div>
                                     <div class="mail-contnet">
                                         <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span> </div>
                                 </a>
-                                <!-- Message -->
+                                Message
                                 <a href="#">
                                     <div class="btn btn-primary btn-circle"><i class="fa fa-user"></i></div>
                                     <div class="mail-contnet">
@@ -349,8 +348,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End Notification -->
-                    <!-- Start Feeds -->
+                    End Notification
+                    Start Feeds
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
@@ -378,22 +377,22 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End Feeds -->
+                    End Feeds
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Notification And Feeds -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- End Page Content -->
-                <!-- ============================================================== -->
-            </div>
+                ==============================================================
+                End Notification And Feeds
+                ==============================================================
+                ==============================================================
+                End Page Content
+                ==============================================================
+            </div> -->
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer"> © 2018 Adminwrap by wrappixel.com </footer>
+            <footer class="footer"> Made by Team_KSH / © 2018 Adminwrap by wrappixel.com </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

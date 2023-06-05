@@ -1,0 +1,12 @@
+/*******************/
+/*Guage chart*/
+/*******************/
+.gaugejs-box {
+  position: relative;
+  margin: 0 auto; }
+
+.gaugejs-box canvas.gaugejs {
+  width: 100% !important;
+  height: auto !important; }
+
+/*******************/
