@@ -133,7 +133,7 @@
                         	<a href="#;"><span class="detailPage_nav">담당자별 구매 이력 조회</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">서류관리</span></a>
-                        	<a href="#;"><span class="detailPage_nav">거래 명세서</span></a>
+                        	<a href="/spe"><span class="detailPage_nav">거래 명세서</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
                         	<a href="#;"><span class="detailPage_nav">발주요청서 작성[희영/성언(읽)]</span></a>

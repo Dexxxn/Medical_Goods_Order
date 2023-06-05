@@ -40,22 +40,30 @@ public class HomeController {
 	public String login() {
 		return "login";
 	}
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index() {
 		return "index";
 	}
+
 	@RequestMapping(value = "/chart", method = RequestMethod.GET)
 	public String chart() {
 		return "chart";
 	}
+
 	@RequestMapping(value = "/modal", method = RequestMethod.GET)
 	public String modal() {
 		return "modal";
 	}
+
 	@RequestMapping(value = "/notice", method = RequestMethod.GET)
 	public String notice() {
 		return "notice";
 	}
-	
+
+	@RequestMapping(value = "/spe", method = RequestMethod.GET)
+	public String spe() {
+		return "spe";
+	}
+
 }
