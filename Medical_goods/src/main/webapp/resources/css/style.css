@@ -805,7 +805,7 @@ sidebar navigation
       list-style: none; }
       .sidebar-nav ul li a {
         color: #8d97ad;
-        padding: 7px 35px 3px 15px;
+        padding: 10px 5px 0px 15px;
         display: block;
         font-size: 15px;
         font-weight: 400; }
@@ -972,7 +972,7 @@ File: scss
   position: relative; }
 
 .container-fluid {
-  padding: 25px 25px; }
+  padding: 46px 25px; }
 
 .card {
   margin-bottom: 30px; }
@@ -4486,7 +4486,9 @@ File: scss
   -ms-touch-action: auto;
   touch-action: auto;
   overflow: hidden !important;
-  -ms-overflow-style: none; }
+  -ms-overflow-style: none; 
+  margin-top: 23px;
+  }
 
 @supports (-ms-overflow-style: none) {
   .ps {
@@ -5873,3 +5875,11 @@ File: scss
     text-align: center;
     margin-top: 10px;
     overflow: hidden; } }
+    
+    
+    
+    #top_bar{position:relative; margin-left:260px; height:40px; background-color:#035AA6;}
+    
+	#notice_anchor{font-size: 15px; color:#fff; line-height: 2.5; padding-left:25px;}
+	#notice_anchor:hover{color:#007bff}
+	#index_mention{color: black; margin:180px 280px;}

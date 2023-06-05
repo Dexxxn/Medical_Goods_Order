@@ -53,5 +53,9 @@ public class HomeController {
 	public String modal() {
 		return "modal";
 	}
+	@RequestMapping(value = "/notice", method = RequestMethod.GET)
+	public String notice() {
+		return "notice";
+	}
 	
 }
