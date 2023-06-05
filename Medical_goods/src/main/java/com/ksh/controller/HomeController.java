@@ -49,4 +49,9 @@ public class HomeController {
 	public String chart() {
 		return "chart";
 	}
+	@RequestMapping(value = "/modal", method = RequestMethod.GET)
+	public String modal() {
+		return "modal";
+	}
+	
 }
