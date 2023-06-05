@@ -12,7 +12,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/resources/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+    <title>KSH병원 발주 프로세스</title>
     <!-- Bootstrap Core CSS -->
     <link href="/resources/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
