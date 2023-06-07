@@ -10,14 +10,14 @@ body{
 	font-size: 14px;
 }
 
-i{
+.modal1 i{
 	color: #fff;
 	font-size: 14px;
 	margin: 0 10px;
 	cursor: pointer;
 }
 
-button{
+button, input[type="button"]{
 	padding: 2px;
 	border: 1px solid #BDBDBD;
 	cursor: pointer;
