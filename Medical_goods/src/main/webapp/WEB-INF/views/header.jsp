@@ -38,6 +38,10 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 	<script src="https://kit.fontawesome.com/0f537ad086.js" crossorigin="anonymous"></script>
+	
+	<!-- 모달 & 테이블 -->
+	<link href="/resources/css/modal.css" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/0f537ad086.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
