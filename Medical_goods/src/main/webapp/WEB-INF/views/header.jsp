@@ -26,6 +26,7 @@
     <link href="/resources/css/style.css" rel="stylesheet">
     <link href="/resources/css/chart.css" rel="stylesheet">
     <link href="/resources/css/notice.css" rel="stylesheet">
+    <link href="/resources/css/form.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="/resources/css/pages/dashboard1.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
@@ -107,7 +108,14 @@
                     </ul>
                 </div>
             </nav>
-                <div id="top_bar"><a href="/notice" id="notice_anchor">공지사항</a></div>
+                  <div class="top_bar"><a href="/notice" id="notice_anchor">공지사항</a></div>
+                <div id="rearrange">
+	                <div class="pageTab"></div>
+	                <div class="pageTab tab2"></div>
+	                <div class="pageTab tab2"></div>
+                </div>
+	                <div><hr id="line" /></div>
+
                 
                 
         </header>

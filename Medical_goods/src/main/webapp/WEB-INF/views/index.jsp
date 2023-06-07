@@ -3,6 +3,6 @@
     
     <%@ include file = "header.jsp" %>    
 
-<p id="index_mention">메인페이지~~</p>
+ <%@ include file = "form.jsp" %> 
 
  <%@ include file = "footer.jsp" %> 
