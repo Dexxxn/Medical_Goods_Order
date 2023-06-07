@@ -23,7 +23,9 @@
     <!--c3 CSS -->
     <link href="/resources/assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
+    
     <link href="/resources/css/style.css" rel="stylesheet">
+    <link href="/resources/css/index.css" rel="stylesheet">
     <link href="/resources/css/chart.css" rel="stylesheet">
     <link href="/resources/css/notice.css" rel="stylesheet">
     <link href="/resources/css/form.css" rel="stylesheet">

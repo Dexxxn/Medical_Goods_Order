@@ -1681,7 +1681,7 @@ ul.list-inline li {
 /*******************
 Table td vertical middle
 *******************/
-.vm.table td,
+/* .vm.table td,
 .vm.table th {
   vertical-align: middle; }
 
@@ -1690,7 +1690,7 @@ Table td vertical middle
 
 .table.no-border tbody td {
   border: 0px; }
-
+ */
 /*******************
 Other comon js for all pages
 *******************/
@@ -1703,11 +1703,11 @@ Other comon js for all pages
   .calendar-events i {
     margin-right: 8px; }
 
-.table-responsive {
+/* .table-responsive {
   display: block;
   width: 100%;
   overflow-x: auto;
-  -ms-overflow-style: -ms-autohiding-scrollbar; }
+  -ms-overflow-style: -ms-autohiding-scrollbar; } */
 
 .single-column .left-sidebar {
   display: none; }
@@ -1741,9 +1741,9 @@ body .jqstooltip {
   border-radius: 60px; }
 
 /*******************
-Notification page Jquery toaster
+Notification page Jquery toasters
 ******************/
-.jq-icon-info {
+/* .jq-icon-info {
   background-color: #20aee3;
   color: #ffffff; }
 
@@ -1758,7 +1758,7 @@ Notification page Jquery toaster
 .jq-icon-warning {
   background-color: #ff9041;
   color: #ffffff; }
-
+ */
 /*******************
 c3 chart global
 ******************/
