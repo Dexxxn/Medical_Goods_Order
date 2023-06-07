@@ -14,6 +14,7 @@ i{
 	color: #fff;
 	font-size: 14px;
 	margin: 0 10px;
+	cursor: pointer;
 }
 
 button{
@@ -22,12 +23,19 @@ button{
 	cursor: pointer;
 }
 
-button:hover{
-	
+hr {
+	margin: 6px 0;
+	border-top:1px solid rgba(0,0,0,.1)
 }
 
-.btn{
+.basicB{
 	margin: 4px;
+}
+
+.pointB{
+	color: #fff;
+	background-color: #035AA6;
+	border: 1px solid #034AA6;
 }
 
 .modal1{
@@ -38,7 +46,7 @@ button:hover{
 	transform: translate(-50%, -50%);
 	border: 1px solid #035AA6;
 	border-top: none;
-	box-shadow: 0 0 10px;
+	box-shadow: 0 0 15px gray;
 }
 
 .header{
@@ -75,10 +83,4 @@ button:hover{
 
 .table td:nth-child(5){
 	text-align: right;
-}
-
-.pointB{
-	color: #fff;
-	background-color: #035AA6;
-	border: 1px solid #034AA6;
 }
