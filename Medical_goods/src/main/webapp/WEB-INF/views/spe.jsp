@@ -18,7 +18,7 @@
 					<tr>
 						<td>검색 일자</td>
 						<td><input type="date" name="startday"></td>
-						<td></td>
+						<td><input type="button" value="검색"></td>
 					</tr>
 					<tr>
 						<td>1</td>

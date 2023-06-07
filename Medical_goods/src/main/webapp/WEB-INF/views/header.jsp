@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +13,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/resources/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+    <title>KSH병원 발주 프로세스</title>
     <!-- Bootstrap Core CSS -->
     <link href="/resources/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
@@ -133,7 +134,7 @@
                         	<a href="#;"><span class="detailPage_nav">담당자별 구매 이력 조회</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">서류관리</span></a>
-                        	<a href="/spe"><span class="detailPage_nav">거래 명세서</span></a>
+                        	<a href="/spe"><span class="detailPage_nav">거래 명세서[기원짱]</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
                         	<a href="#;"><span class="detailPage_nav">발주요청서 작성[희영/성언(읽)]</span></a>
