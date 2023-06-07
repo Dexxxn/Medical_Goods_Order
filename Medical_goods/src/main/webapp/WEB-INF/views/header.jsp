@@ -143,9 +143,9 @@
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
                         	<a href="#;"><span class="detailPage_nav">발주계획서 작성</span></a>
-                        	<a href="#;"><span class="detailPage_nav">발주내역서 조회</span></a>
+                        	<a href="/purchase_order"><span class="detailPage_nav">발주내역서 조회</span></a>
                         	<a href="#;"><span class="detailPage_nav">거래 내역 조회</span></a>
-                        	<a href="#;"><span class="detailPage_nav">담당자별 구매 이력 조회</span></a>
+                        	<a href="#;"><span class="detailPage_nav">담당자별 구매이력 조회[기원]</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">서류관리</span></a>
                         	<a href="/spe"><span class="detailPage_nav">거래 명세서[기원짱]</span></a>

@@ -65,5 +65,9 @@ public class HomeController {
 	public String spe() {
 		return "spe";
 	}
+	@RequestMapping(value = "/purchase_order", method = RequestMethod.GET)
+	public String pur() {
+		return "purchase";
+	}
 
 }

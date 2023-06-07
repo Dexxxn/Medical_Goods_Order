@@ -5,7 +5,7 @@
 		
 		<div id="mainframe">
 			<div class="posit">
-				<label>일자</label><input type="date" class="date_width">
+				<label>일자</label><input type="date" class="date_width" id="dateMargin">
 			
 				<label>희망입고일자</label><input type="date" class="date_width">
 			

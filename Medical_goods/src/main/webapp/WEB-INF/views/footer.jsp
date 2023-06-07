@@ -39,6 +39,8 @@
     <script src="/resources/assets/node_modules/c3-master/c3.min.js"></script>
     <!-- Chart JS -->
     <script src="/resources/js/dashboard1.js"></script>
+    <!-- 작업 JS -->
+    <script src="/resources/js/purchase.js"></script>
 </body>
 
 </html>
