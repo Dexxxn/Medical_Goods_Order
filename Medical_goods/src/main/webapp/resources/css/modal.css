@@ -30,7 +30,7 @@ button:hover{
 	margin: 4px;
 }
 
-.modal{
+.modal1{
 	z-index: 100;
 	position: absolute;
 	left: 50%;
@@ -54,7 +54,7 @@ button:hover{
 }
 
 .table{
-	width: 500px;
+	width: 600px;
 	margin: 4px;
 	border-collapse: collapse;
 }

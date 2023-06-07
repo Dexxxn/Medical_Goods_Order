@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 	<!-- 모달창 기본 틀 -->
-	<div class="modal">
+	<div class="modal1">
 		<div class="header">
 			상단 제목
 			<div style="display:flex;">
