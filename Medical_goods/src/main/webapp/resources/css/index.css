@@ -1,8 +1,10 @@
  /* header.jsp - 탭 */
     .top_bar{position:relative; margin-left:260px; height:40px; background-color:#035AA6;}
-    .pageTab{padding:0px; margin-top:10px; background-color: #fff; height:0; width:140px; border-bottom: 30px solid #f5f5f5; border-left: 20px solid transparent; border-right: 20px solid transparent;}
-    .tab2{}
-    #rearrange{position:absolute; display:inline-flex; margin-left:270px;}
-    #line{position:absolute; width:80%; padding:0; margin:40px 0 0 270px;}
+    .pageTab{padding:2px; margin-top:10px; background-color: #fff; height:0; width:165px; border-bottom: 30px solid #f5f5f5; border-left: 20px solid transparent; border-right: 20px solid transparent;}
+   
+    
+    #background_invisible{background-color: #fff; width:1670px; height:50px; position:absolute; margin-left:260px;}
+    #rearrange{position:absolute; display:inline-flex; margin-left:20px;}
+    #line{position:absolute; width:98%; padding:0; margin:44px 0 0 20px;}
 	#notice_anchor{font-size: 15px; color:#fff; line-height: 2.5; padding-left:25px;}
 	#notice_anchor:hover{color:#007bff}

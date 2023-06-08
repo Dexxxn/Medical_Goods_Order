@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,6 +38,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+<script src="https://ajax.googlseapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/0f537ad086.js" crossorigin="anonymous"></script>
 	
 	<!-- 모달 & 테이블 -->
@@ -114,16 +115,17 @@
                     </ul>
                 </div>
             </nav>
+              <!-- ============================================================== -->
+                  <!-- 탭 -->
                   <div class="top_bar"><a href="/notice" id="notice_anchor">공지사항</a></div>
+                <div id="background_invisible">  
                 <div id="rearrange">
-	                <div class="pageTab"></div>
-	                <div class="pageTab tab2"></div>
-	                <div class="pageTab tab2"></div>
+	                <div class="pageTab" id="tab1"><span class="tab_span">재고현황</span><div class="icon_posit"><i class="fas fa-light fa-x"></i></div></div>
+	                <div class="pageTab" id="tab2"><span class="tab_span">거래명세서</span><div class="icon_posit"><i class="fas fa-light fa-x"></i></div></div>
+	                <div class="pageTab" id="tab3"><span class="tab_span">발주계획</span><div class="icon_posit"><i class="fas fa-light fa-x"></i></div></div>
                 </div>
 	                <div><hr id="line" /></div>
-
-                
-                
+                </div>
         </header>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
@@ -138,36 +140,66 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">자산관리</span></a>
-                        	<a href="#;"><span class="detailPage_nav">재고현황[희영/성언(읽)]</span></a>
-                        	<a href="#;"><span class="detailPage_nav">자가사용입력[희영/성언(읽)]</span></a>
+                        	<a href="#;"><span class="detailPage_nav">재고현황-희,읽</span></a>
+                        	<a href="#;"><span class="detailPage_nav">사용입력-희,읽</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
                         	<a href="#;"><span class="detailPage_nav">발주계획서 작성</span></a>
                         	<a href="/purchase_order"><span class="detailPage_nav">발주내역서 조회</span></a>
                         	<a href="#;"><span class="detailPage_nav">거래 내역 조회</span></a>
-                        	<a href="#;"><span class="detailPage_nav">담당자별 구매이력 조회[기원]</span></a>
+                        	<a href="#;"><span class="detailPage_nav">담당자별 구매이력-원</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">서류관리</span></a>
-                        	<a href="/spe"><span class="detailPage_nav">거래 명세서[기원짱]</span></a>
+                        	<a href="/spe"><span class="detailPage_nav">거래 명세서-원</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
-                        	<a href="#;"><span class="detailPage_nav">발주요청서 작성[희영/성언(읽)]</span></a>
+                        	<a href="#;"><span class="detailPage_nav">발주요청서-희,읽</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">조정관리</span></a>
-                        	<a href="/chart"><span class="detailPage_nav">안전재고 통계[희영/성언]</span></a>
+                        	<a href="/chart"><span class="detailPage_nav">안전재고 통계-희,읽</span></a>
                         </li>
-                     <!--    <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu">404</span></a>
-                        </li> -->
                     </ul>
-                   <!--  <div class="text-center m-t-30">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn-info hidden-md-down"> Upgrade to Pro</a>
-                    </div> -->
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
         </aside>
-    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
 
+// 열린 탭 창 닫기
+	$(document).ready(function() {
+		$("#tab1 .fa-x").click(function() {
+			$("#tab1").hide();
+		});
+		$("#tab2 .fa-x").click(function() {
+			$("#tab2").hide();
+		});
+		$("#tab3 .fa-x").click(function() {
+			$("#tab3").hide();
+		});
+	});
+
+
+	$(document).ready(function() {
+		  // 각 span 요소 클릭 시 .pageTab div 동적 생성
+		  $("nav.sidebar-nav li span").click(function(event) {
+		    event.preventDefault(); // 기본 동작 중지
+		    
+		    var text = $(this).text(); // 클릭한 span 요소의 텍스트 내용 가져오기
+		    var pageTab = $("<div>", { class: "pageTab" }); // 새로운 .pageTab div 생성
+		    var tabSpan = $("<span>", { class: "tab_span", text: text }); // 새로운 .tab_span span 생성 및 텍스트 설정
+		    var iconDiv = $("<div>", { class: "icon_posit" }); // 새로운 .icon_posit div 생성
+		    var icon = $("<i>", { class: "fas fa-light fa-x" }); // 새로운 아이콘 생성
+		    iconDiv.append(icon); // iconDiv에 icon 추가
+		    pageTab.append(tabSpan, iconDiv); // pageTab에 tabSpan과 iconDiv 추가
+		    $("#rearrange").append(pageTab); // #rearrange에 pageTab 추가
+		    
+		    // 아이콘 클릭 시 해당 탭 숨기기
+		    icon.click(function() {
+		      $(this).closest(".pageTab").hide();
+		    });
+		  });
+		});
+
+</script>

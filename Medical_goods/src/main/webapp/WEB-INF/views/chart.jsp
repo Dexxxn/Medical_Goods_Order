@@ -9,10 +9,10 @@
        
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Dashboard</h3>
+                        <h3 class="text-themecolor">안전재고수 통계</h3>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">부서</a></li>
+                            <li class="breadcrumb-item active">병동 A/B/C</li>
                         </ol>
                     </div>
                    
@@ -63,4 +63,6 @@
                     </div>
                 </div> 
                 
+                <!-- 안전재고수 통계 결과 테이블 -->
+               
                  <%@ include file = "footer.jsp" %> 
