@@ -75,4 +75,14 @@ public class HomeController {
 	public String ts() {
 		return "ts";
 	}
+
+	@RequestMapping(value = "/ph", method = RequestMethod.GET)
+	public String ph() {
+		return "ph";
+	}
+
+	@RequestMapping(value = "/ph_detail", method = RequestMethod.GET)
+	public String ph1() {
+		return "ph1";
+	}
 }

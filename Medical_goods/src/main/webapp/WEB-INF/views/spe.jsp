@@ -18,8 +18,7 @@
 					<tr><td class="tb-top"style="font-size:25px; color:#035AA6">Trading statement</td></tr>
 					<tr>
 						<td style="color:#035AA6">검색 일자</td>
-						<td><input class="date" type="date" name="startday" style="background-color:#f6f9fa"></td>
-						<td><input type="button" value="초기화" onclick="resetDate()"></td>						
+						<td><input class="date" type="date" name="startday" style="background-color:#f6f9fa"></td>												
 					</tr>
 					<tr>
 						<td style="color:#035AA6">물품코드</td>
@@ -45,13 +44,16 @@
 				</table>
 				
 			</div>
-		<a href="/ts">	<button class="btn" id="searchButton">검색</button></a> 
-		<button class="btn" id="printButton">인쇄</button>
+			<div class="spe-1">
+		<a href="/ts">	<button class="btn" id="searchButton">검색</button></a> 			
+		
+			</div>
 		</div>
 		</div>
 	</div>
 </div>
 <style>
+.spe-1{padding-top:30px;padding-right:15px}
 
 .tb-top{margin-bottom:20px}
 .search-table{padding:40px 40px}
@@ -61,12 +63,5 @@ td{padding:10px 20px}
 .row-page-title{margin-top:30px}
 </style>
 
-<script>
-
-function resetDate() {
-	  document.getElementById('startday').value = '';
-	}
-
-</script>
 
 <%@ include file = "footer.jsp" %>

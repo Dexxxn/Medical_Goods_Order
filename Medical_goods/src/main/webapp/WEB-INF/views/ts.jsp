@@ -6,7 +6,7 @@
 <div class="page-wrapper">
 	<div class="ts-1" style="padding:70px 25px">
 		<div class="ts-2">
-			<h2 class="text-themecolor" style="line-height:30px; font-size:30px; margin-top:30px; margin-bottom:30px;">거래 명세서</h2>
+			<h3 class="text-themecolor" style="line-height:30px; font-size:25px; margin-top:30px; margin-bottom:30px;">거래 명세서</h3>
 		</div>
 		<div class="ts-3" style="background-color:white; color:black">
 		<p>거래 명세서</p>
@@ -79,21 +79,27 @@
 					<td>합계</td>
 					<td>총 단가</td>
 					<td>인수</td>
-					<td> </td>					
+					<td></td>					
 				</tr>
 			</table>
 			</div>
-		</div>		
+		</div>
+		<div class="ts-9">
+		<button class="btn" id="printButton">인쇄</button>		
+		</div>
 	</div>
 </div> 
  
  <style>
 <!--
+.ts-3{padding:20px 40px}
 .ts-6{padding-top:75px;padding-bottom:40px}
 .ts-7{padding-bottom:50px}
+.ts-9{padding-top:30px}
 .ts-4{padding-top:15px;padding-bottom:15px;padding-left:20px;}
 td{padding:20px 30px;text-align:center;}
-p{padding-top:30px;padding-bottom:15px;padding-left:100px;font-size:19px; font-weight:bold;}
+p{padding-top:30px;padding-bottom:15px;padding-left:100px;font-size:30px; font-weight:bold;}
+.btn{padding:5px 20px}
 -->
 </style>
  <%@ include file = "footer.jsp" %>
