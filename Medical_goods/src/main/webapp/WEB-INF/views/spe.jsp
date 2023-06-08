@@ -45,7 +45,8 @@
 				</table>
 				
 			</div>
-			<button class="btn" id="searchButton">검색</button> <button class="btn" id="printButton">인쇄</button>
+		<a href="/ts">	<button class="btn" id="searchButton">검색</button></a> 
+		<button class="btn" id="printButton">인쇄</button>
 		</div>
 		</div>
 	</div>
