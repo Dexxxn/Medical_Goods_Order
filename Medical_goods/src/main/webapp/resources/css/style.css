@@ -1004,7 +1004,7 @@ File: scss
     padding: 0px;
     border-bottom: 1px solid rgba(120, 130, 140, 0.13); }
   .topbar .top-navbar {
-    min-height: 70px;
+    height: 67px;
     padding: 0px; }
     .topbar .top-navbar .dropdown-toggle::after {
       display: none; }
@@ -3369,7 +3369,7 @@ File: scss
   touch-action: auto;
   overflow: hidden !important;
   -ms-overflow-style: none; 
-  margin-top: 23px;
+  margin: 8px 0 0 20px;
   }
 
 @supports (-ms-overflow-style: none) {
@@ -4722,6 +4722,10 @@ File: scss
 	#notice_anchor:hover{color:#007bff}
 	
 	.fa-x:hover{color:black;} /* 닫기 X 아이콘 호버시 컬러변경 */
+	
+	#mainLogo{font-size: 30px; color:#20aee3; font-family: fantasy;}
+	#logo_posit{margin-top: 20px;}
+	#logo_png{margin: -10px -1px 0 20px;}
 	
 	
 	
