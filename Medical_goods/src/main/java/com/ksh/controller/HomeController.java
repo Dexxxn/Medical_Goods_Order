@@ -51,10 +51,10 @@ public class HomeController {
 		return "chart";
 	}
 
-	@RequestMapping(value = "/modal", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/modal", method = RequestMethod.GET)
 	public String modal() {
 		return "modal";
-	}
+	}*/
 
 	@RequestMapping(value = "/notice", method = RequestMethod.GET)
 	public String notice() {
