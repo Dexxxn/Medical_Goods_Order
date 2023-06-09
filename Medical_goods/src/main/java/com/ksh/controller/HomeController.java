@@ -36,15 +36,15 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String index() {
 		return "login";
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index() {
-		return "index";
-	}
+	/*
+	 * @RequestMapping(value = "/index", method = RequestMethod.GET) public String
+	 * index() { return "index"; }
+	 */
 
 	@RequestMapping(value = "/chart", method = RequestMethod.GET)
 	public String chart() {

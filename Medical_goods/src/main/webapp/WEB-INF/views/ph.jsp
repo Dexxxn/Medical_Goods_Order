@@ -11,22 +11,22 @@
 				<tr><td style="font-size:25px; color:#035AA6;margin-bottom:20px">Purchase history</td></tr>
 				<tr>
 					<td style="color:#035AA6">부서</td>
-					<td><select id="deptSelect" style="background-color:#f6f9fa">
-							  <option value="blanck"> </option>
-							  <option value="dept1">병동A</option>
-							  <option value="dept2">병동B</option>
-							  <option value="dept3">병동C</option>
-							  <option value="dept3">처치실</option>
-							  <option value="dept3">수술실</option>
+					<td><select id="Select_dept" style="background-color:#f6f9fa" name="dept" >
+							  <option>선택</option>
+							  <option value="병동A">병동A</option>
+							  <option value="병동B">병동B</option>
+							  <option value="병동C">병동C</option>
+							  <option value="처치실">처치실</option>
+							  <option value="수술실">수술실</option>
 							</select></td>
 				</tr>
 				<tr>
 					<td style="color:#035AA6">담당자</td>
-					<td><select id="categorySelect" style="background-color:#f6f9fa">
-							  <option value="blanck"> </option>
+					<td><select id="Select_name" style="background-color:#f6f9fa" name="name">
+							 <!--  <option value="blanck"> </option>
 							  <option value="manager1">정기원</option>
 							  <option value="manager2">이성언</option>
-							  <option value="manager3">장희영</option>
+							  <option value="manager3">장희영</option> -->
 							</select></td>
 				</tr>
 				<tr>
@@ -41,6 +41,7 @@
 	</div>
 </div>
 <style>
+.ph-2{padding:20px 40px}
 td{padding:10px 20px}
 .btn{padding:5px 20px}
 .ph-3{padding-top:30px}

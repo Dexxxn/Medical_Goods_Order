@@ -223,8 +223,8 @@
 			<h1>Welcome</h1>
 			<!-- 로그인 폼 -->
 			<form id="loginForm" action="/login" method="post">
-				<input type="text" name="s_id" placeholder="Username">
-				<input type="password" name="s_password" placeholder="Password">
+				<input type="text" name="id" placeholder="Username">
+				<input type="password" name="password" placeholder="Password">
 				<button type="submit" id="login-button">Login</button>
 			</form>
 		</div>
