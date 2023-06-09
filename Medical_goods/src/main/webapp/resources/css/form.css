@@ -1,9 +1,10 @@
 /* index.jsp - 내용 */
- 	#main_contents_section{position: relative; /* background-color:#f5f5f5; */ width: 1200px; height:750px; margin:160px 0 0 270px; } 
+ 	#main_contents_section{position: relative; width: 1200px; margin:160px 0 0 270px; } 
  	#mainframe{background-color: #f6f9fa;; width:1050px; height:100px; padding:20px; margin-left:20px;}
-	#mainframe .posit{display:flex; justify-content:space-between; width:635px; margin-bottom:13px;} 
-	#mainframe .posit .date_width{width: 140px;}
-	#mainframe .posit .in_width{width:70px;}
-	.sel_h{height:30px; margin-right: -60px;}
-	
+	#mainframe .posit{display:flex; flex-wrap:wrap; /* justify-content:space-between; */ width:586px; margin-bottom:13px;} 
+	#mainframe .posit .date_width{width: 146px;}
+	#mainframe .posit .in_width{width:75px; height:27px;}
+	.sel_h{height:27px; width:72px; margin-left:4px;}
+	.label_margin{margin: 0 20px 0 20px}
+	.connect{margin:2px;}
 	#dateMargin{margin-left:81px;}

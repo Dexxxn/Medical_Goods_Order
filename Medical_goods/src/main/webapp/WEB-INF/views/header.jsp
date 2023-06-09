@@ -38,6 +38,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script src="https://ajax.googlseapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/0f537ad086.js" crossorigin="anonymous"></script>
@@ -46,6 +47,9 @@
 	<link href="/resources/css/modal.css" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/0f537ad086.js" crossorigin="anonymous"></script>
 	<script src="/resources/js/modal.js" type="text/javascript"></script>
+	
+	<!-- 안전재고통계(chart) ajax 연결 -->
+	<script src="/resources/js/chart.js" type="text/javascript"></script>
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -139,23 +143,23 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark"  aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">자산관리</span></a>
-                        	<a href="#;"><span class="detailPage_nav">재고현황-희,읽</span></a>
-                        	<a href="#;"><span class="detailPage_nav">사용입력-희,읽</span></a>
+                        	<a href="#;"><span class="detailPage_nav" data-href="/inventory-status">재고현황-희,읽</span></a>
+                        	<a href="#;"><span class="detailPage_nav" data-href="/usage-input">사용입력-희,읽</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
-                        	<a href="#;"><span class="detailPage_nav">발주계획서 작성</span></a>
-                        	<a href="/purchase_order"><span class="detailPage_nav">발주내역서 조회</span></a>
-                        	<a href="#;"><span class="detailPage_nav">거래 내역 조회</span></a>
-                        	<a href="/ph"><span class="detailPage_nav">구매이력 조회</span></a>
+                        	<a href="#;"><span class="detailPage_nav" data-href="/purchase-planning">발주계획서 작성</span></a>
+                        	<a href="/purchase_order"><span class="detailPage_nav" data-href="/purchase_order">발주내역서 조회</span></a>
+                        	<a href="#;"><span class="detailPage_nav"  data-href="/transaction-history">거래 내역 조회</span></a>
+                        	<a href="/ph"><span class="detailPage_nav" data-href="/ph">구매이력 조회</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">서류관리</span></a>
-                        	<a href="/spe"><span class="detailPage_nav">거래 명세서-원</span></a>
+                        	<a href="/spe"><span class="detailPage_nav" data-href="/transaction-statement">거래 명세서-원</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
-                        	<a href="#;"><span class="detailPage_nav">발주요청서-희,읽</span></a>
+                        	<a href="#;"><span class="detailPage_nav" data-href="/purchase-request">발주요청서-희,읽</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">조정관리</span></a>
-                        	<a href="/chart"><span class="detailPage_nav">안전재고통계</span></a>
+                        	<a href=""><span class="detailPage_nav" data-href="/chart">안전재고통계</span></a>
                         </li>
                     </ul>
                 </nav>
@@ -180,66 +184,6 @@
 	});
 
 
-
-				
-		/* 		$(document).ready(function() {
-					  // 페이지 로드 시 pageTab div를 숨김
-					  $("#rearrange .pageTab").hide();
-
-					  // 이미 생성된 pageTab의 텍스트를 저장하는 배열
-					  var createdTabs = [];
-
-					  // 각 .detailPage_nav 요소 클릭 시 .pageTab div 동적 생성
-					  $("nav.sidebar-nav li .detailPage_nav").click(function(event) {
-					    event.preventDefault(); // 기본 동작 중지
-
-					    var text = $(this).text(); // 클릭한 .detailPage_nav 요소의 텍스트 내용 가져오기
-
-					    // 이미 pageTab이 존재하는지 확인
-					    if (!isPageTabExist(text)) {
-					      var pageTab = $("<div>", { class: "pageTab" }); // 새로운 .pageTab div 생성
-					      var tabSpan = $("<span>", { class: "tab_span", text: text }); // 새로운 .tab_span span 생성 및 텍스트 설정
-					      var iconDiv = $("<div>", { class: "icon_posit" }); // 새로운 .icon_posit div 생성
-					      var icon = $("<i>", { class: "fas fa-light fa-x" }); // 새로운 아이콘 생성
-					      iconDiv.append(icon); // iconDiv에 icon 추가
-					      pageTab.append(tabSpan, iconDiv); // pageTab에 tabSpan과 iconDiv 추가
-					      $("#rearrange").append(pageTab); // #rearrange에 pageTab 추가
-
-					      // 아이콘 클릭 시 해당 탭 숨기기 및 배열에서 제거
-					      icon.click(function() {
-					        var pageTab = $(this).closest(".pageTab");
-					        pageTab.hide();
-					        removePageTab(pageTab);
-					      });
-
-					      // 생성된 pageTab의 텍스트를 배열에 추가
-					      createdTabs.push(text);
-					    } else {
-					      // 이미 pageTab이 있는 경우 깜빡이는 효과 적용
-					      var tabSpan = $(this).find(".tab_span");
-					      var originalColor = tabSpan.css("color");
-					      tabSpan.css("color", "red");
-					      setTimeout(function() {
-					        tabSpan.css("color", originalColor);
-					      }, 500);
-					    }
-					  });
-
-					  // pageTab이 이미 존재하는지 확인하는 함수
-					  function isPageTabExist(text) {
-					    return createdTabs.includes(text);
-					  }
-
-					  // pageTab을 배열에서 제거하는 함수
-					  function removePageTab(pageTab) {
-					    var text = pageTab.find(".tab_span").text();
-					    var index = createdTabs.indexOf(text);
-					    if (index !== -1) {
-					      createdTabs.splice(index, 1);
-					    }
-					  }
-					}); */
-		
 					$(document).ready(function() {
 						  // 페이지 로드 시 pageTab div를 숨김
 						  $("#rearrange .pageTab").hide();
@@ -252,7 +196,8 @@
 						    event.preventDefault(); // 기본 동작 중지
 
 						    var text = $(this).text(); // 클릭한 .detailPage_nav 요소의 텍스트 내용 가져오기
-
+						    var href = $(this).data("href"); // Read the data-href attribute value
+						    
 						    // 이미 pageTab이 존재하는지 확인
 						    if (!isPageTabExist(text)) {
 						      var pageTab = $("<div>", { class: "pageTab" }); // 새로운 .pageTab div 생성
@@ -272,6 +217,12 @@
 
 						      // 생성된 pageTab의 텍스트를 배열에 추가
 						      createdTabs.push(text);
+						      
+						      // 페이지 이동 처리
+						      $(this).click(function() {
+						        window.location.href = href; // Use the data-href value for navigation
+						        });
+						      
 						    } else {
 						      // 이미 pageTab이 있는 경우 깜빡이는 효과 적용
 						      var tabSpan = $(this).find(".tab_span");
