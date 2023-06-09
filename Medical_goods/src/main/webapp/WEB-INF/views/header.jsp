@@ -50,6 +50,7 @@
 	
 	<!-- 안전재고통계(chart) ajax 연결 -->
 	<script src="/resources/js/chart.js" type="text/javascript"></script>
+	<script src="resources/js/ph.js" type="text/javascript"></script>
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -113,7 +114,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/resources/assets/images/users/1.jpg" alt="user" class="" /> <span class="hidden-md-down">Mark Sanders &nbsp;</span> </a>
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="hidden-md-down"><b>${logIn.name}</b>님 Have a good day!</span> </a>
                         </li>
                     </ul>
                 </div>
@@ -151,7 +152,7 @@
                         	<a href="/ph"><span class="detailPage_nav" data-href="/ph">구매이력 조회</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">서류관리</span></a>
-                        	<a href="/spe"><span class="detailPage_nav" data-href="/transaction-statement">거래 명세서-원</span></a>
+                        	<a href="/spe"><span class="detailPage_nav" data-href="/spe">거래 명세서-원</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
                         	<a href="#;"><span class="detailPage_nav" data-href="/purchase-request">발주요청서-희,읽</span></a>
