@@ -775,7 +775,7 @@ use profile section
 .sidebar-nav .user-profile > ul {
   padding-left: 40px; }
 
-#sidebarnav .detailPage_nav{color: rgb(127, 127, 127); font-size: 13px; margin-left:50px; padding:2px;}
+#sidebarnav .detailPage_nav{color: rgb(127, 127, 127); font-size:14px; margin-left:50px; padding:5px; display:inline-block;}
 #sidebarnav .detailPage_nav:hover{color:blue;}
 
 /*******************
@@ -804,7 +804,7 @@ sidebar navigation
       .sidebar-nav ul li a {
         color: #8d97ad;
         padding: 10px 5px 0px 15px;
-        display: block;
+       /*  display: block; */
         font-size: 15px;
         font-weight: 400; }
         .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
@@ -850,10 +850,9 @@ sidebar navigation
     margin-bottom: 8px;
     margin-top: 8px; }
     .sidebar-nav > ul > li.active > a {
-      color: #20aee3;
       font-weight: 500; }
       .sidebar-nav > ul > li.active > a i {
-        color: #20aee3; }
+        }
   .sidebar-nav .waves-effect {
     transition: none;
     -webkit-transition: none;
@@ -4717,6 +4716,9 @@ File: scss
    #rearrange .tab_span{position:absolute; margin:10px 0 0 6px; color:rgb(127, 127, 127); font-size:12px;}
     
     #line{position:absolute; width:80%; padding:0; margin:40px 0 0 270px;}
+    
+    #sidebarnav .hide-menu{color:#20aee3; font-size:17px; }
+    
 	#notice_anchor{font-size: 15px; color:#fff; line-height: 2.5; padding-left:25px;}
 	#notice_anchor:hover{color:#007bff}
 	

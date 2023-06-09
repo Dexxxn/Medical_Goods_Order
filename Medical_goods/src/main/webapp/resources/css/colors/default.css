@@ -91,10 +91,10 @@ a.link:hover, a.link:focus {
   background: #20aee3; }
 
 .sidebar-nav > ul > li.active > a {
-  color: #20aee3;
+  
    }
   .sidebar-nav > ul > li.active > a i {
-    color: #20aee3; }
+     }
 
 .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
   color: #20aee3; }
@@ -102,4 +102,4 @@ a.link:hover, a.link:focus {
     color: #20aee3; }
 
 .sidebar-nav > ul > li > a i {
-  color: #787f91; }
+  color:#20aee3; }

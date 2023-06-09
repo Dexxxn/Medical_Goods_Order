@@ -140,23 +140,23 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark"  aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">자산관리</span></a>
+                        <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">자산관리</span></a>
                         	<a href="#;"><span class="detailPage_nav" data-href="/inventory-status">재고현황-희,읽</span></a>
                         	<a href="#;"><span class="detailPage_nav" data-href="/usage-input">사용입력-희,읽</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
+                        <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
                         	<a href="#;"><span class="detailPage_nav" data-href="/purchase-planning">발주계획서 작성</span></a>
                         	<a href="/purchase_order"><span class="detailPage_nav" data-href="/purchase_order">발주내역서 조회</span></a>
                         	<a href="#;"><span class="detailPage_nav"  data-href="/transaction-history">거래 내역 조회</span></a>
                         	<a href="/ph"><span class="detailPage_nav" data-href="/ph">구매이력 조회</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">서류관리</span></a>
+                        <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">서류관리</span></a>
                         	<a href="/spe"><span class="detailPage_nav" data-href="/transaction-statement">거래 명세서-원</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
+                        <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
                         	<a href="#;"><span class="detailPage_nav" data-href="/purchase-request">발주요청서-희,읽</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="#;" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">조정관리</span></a>
+                        <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">조정관리</span></a>
                         	<a href=""><span class="detailPage_nav" data-href="/chart">안전재고통계</span></a>
                         </li>
                     </ul>
@@ -167,6 +167,27 @@
         </aside>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+// 사이드메뉴 드롭다운 
+ $(document).ready(function() {
+  // Hide detailPage_nav spans on page load
+  $('.detailPage_nav').hide();
+
+  // Toggle detailPage_nav spans when hide-menu span is clicked
+  $('.hide-menu').click(function() {
+    var detailPageNav = $(this).closest('li').find('.detailPage_nav');
+
+    if (detailPageNav.is(':visible')) {
+        detailPageNav.each(function(index) {
+          $(this).slideUp(30 * (index + 1));
+        });
+      } else {
+        detailPageNav.each(function(index) {
+          $(this).slideDown(90 * (index + 1));
+        });
+      }
+    });
+  });
+
 
 // 열린 탭 창 닫기
 	$(document).ready(function() {
