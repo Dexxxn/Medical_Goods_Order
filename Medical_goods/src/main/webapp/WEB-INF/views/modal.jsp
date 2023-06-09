@@ -1,8 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+	<div id="formAll">
+		<form>
+		<div class="mainForm">
+			<div>
+				<label>사용일자</label>
+				<input type="date">
+			</div>
+				<div>
+				<label>진료과</label>
+				<input type="text">
+			</div>
+			<div>
+				<label>담당자</label>
+				<input type="text">
+			</div>
+			<div>
+				<label>특이사항</label>
+				<input type="text">
+			</div>
+<!-- 		이런식으로 div 추가/변경...
+			<div>
+				<label>거래처</label>
+				<input type="text">
+			</div> -->
+		</div>
+		</form>
+	</div>
+	<br><br><br><br><br><br>
+
 	<!-- 모달창 기본 틀 -->
-	<div class="modal1">
+	<!-- 모달 창이 열려 있을 때 -->
+	<div class="modal-overlay"></div>
+	<div class="modal1" style="width:750px; height:550px;">
 		<div class="header">
 			상단 제목
 			<div style="display:flex;">
@@ -19,7 +50,7 @@
 				<button>재고 불러오기</button>
 			</div>
 			<div>
-				<table class="table" border="1">
+				<table class="table checkbox" border="1">
 				    <thead>
 				        <tr>
 				            <th><input type="checkbox" name="checkbox" onclick="selectAll(this)"></th>
@@ -55,17 +86,17 @@
 				            <td>30</td>
 				            <td>유통기한 확인 요망</td>
 				        </tr>
-		
 				    </tbody>
 				</table>
 			</div>
-			<hr>
 			<div class="basicB bottom">
+				<hr>
 				<button class="pointB">전체 적용</button>
 				<button class="closeB">닫기</button>
 			</div>
 		</div>			
 	</div>
+	
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
@@ -85,6 +116,7 @@
 		// x 아이콘 클릭 시 모달 닫기
 		$(".closeB").click(function() {
 			$(".modal1").hide();
+			$(".modal-overlay").hide();
 		});
 	});
 </script>
