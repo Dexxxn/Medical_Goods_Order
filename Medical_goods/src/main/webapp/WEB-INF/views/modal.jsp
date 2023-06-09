@@ -1,35 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-	<div id="formAll">
-		<form>
-		<div class="mainForm">
-			<div>
-				<label>사용일자</label>
-				<input type="date">
-			</div>
-				<div>
-				<label>진료과</label>
-				<input type="text">
-			</div>
-			<div>
-				<label>담당자</label>
-				<input type="text">
-			</div>
-			<div>
-				<label>특이사항</label>
-				<input type="text">
-			</div>
-<!-- 		이런식으로 div 추가/변경...
-			<div>
-				<label>거래처</label>
-				<input type="text">
-			</div> -->
-		</div>
-		</form>
-	</div>
-	<br><br><br><br><br><br>
-
 	<!-- 모달창 기본 틀 -->
 	<!-- 모달 창이 열려 있을 때 -->
 	<div class="modal-overlay"></div>
@@ -97,26 +68,35 @@
 		</div>			
 	</div>
 	
+
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
-	//checkbox 전체 선택 기능
-	function selectAll(selectAll)  {
-		const checkboxes 
-			= document.getElementsByName('checkbox');
-	  
-		checkboxes.forEach((checkbox) => {
-		checkbox.checked = selectAll.checked;
-		})
-	};
-	
-	// 모달 닫기
-	$(document).ready(function() {
-		// x 아이콘 클릭 시 모달 닫기
-		$(".closeB").click(function() {
-			$(".modal1").hide();
-			$(".modal-overlay").hide();
-		});
+//checkbox 전체 선택 기능
+function selectAll(selectAll)  {
+	const checkboxes 
+		= document.getElementsByName('checkbox');
+  
+	checkboxes.forEach((checkbox) => {
+	checkbox.checked = selectAll.checked;
+	})
+};
+
+// 모달 열기
+$(document).ready(function() {
+	$("#modalShow").click(function() {
+		$(".modal1").show();
+		$(".modal-overlay").show();
 	});
+});
+
+// 모달 닫기
+$(document).ready(function() {
+	// x 아이콘 클릭 시 모달 닫기
+	$(".closeB").click(function() {
+		$(".modal1").hide();
+		$(".modal-overlay").hide();
+	});
+});
 </script>

@@ -1,10 +1,40 @@
+/* 폼 */
+#formAll{
+	position: relative;
+	width: 700px;
+	background-color: #f6f9fa;
+	left: 280px;
+	padding: 15px 15px 10px 15px;
+}
+
+.mainForm{
+	justify-content: space-between;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.mainForm div:nth-child(1), .mainForm div:nth-child(2){
+	margin-bottom: 5px;
+}
+
+.mainForm label{
+	width: 140px;
+}
+
+.mainForm input{
+	width: 130px;
+	height: 26px;
+}
+
+#main_contents_section{position: relative; width: 1200px; margin-top:160px;}
+
 /* index.jsp - 내용 */
- 	#main_contents_section{position: relative; width: 1200px; margin:160px 0 0 270px; } 
+/*  #main_contents_section{position: relative; width: 1200px; margin:160px 0 0 270px; } 
  	#mainframe{background-color: #f6f9fa;; width:1050px; height:100px; padding:20px; margin-left:20px;}
-	#mainframe .posit{display:flex; flex-wrap:wrap; /* justify-content:space-between; */ width:586px; margin-bottom:13px;} 
+	#mainframe .posit{display:flex; flex-wrap:wrap; justify-content:space-between; width:586px; margin-bottom:13px;} 
 	#mainframe .posit .date_width{width: 146px;}
 	#mainframe .posit .in_width{width:75px; height:27px;}
 	.sel_h{height:27px; width:72px; margin-left:4px;}
 	.label_margin{margin: 0 20px 0 20px}
 	.connect{margin:2px;}
-	#dateMargin{margin-left:81px;}
+	#dateMargin{margin-left:81px;} */

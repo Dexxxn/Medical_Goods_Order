@@ -1,7 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    <div id="main_contents_section"> <!-- 메인내용 들어갈 자리 시작 -->
+
+<div id="main_contents_section"> <!-- 메인내용 들어갈 자리 시작 -->
+	<div id="formAll">
+		<form>
+		<div class="mainForm">
+			<div>
+				<label>사용일자</label>
+				<input type="date">
+			</div>
+				<div>
+				<label>진료과</label>
+				<input type="text">
+			</div>
+			<div>
+				<label>담당자</label>
+				<input type="text">
+			</div>
+			<div>
+				<label>특이사항</label>
+				<input type="text">
+			</div>
+<!-- 		이런식으로 div 추가/변경...
+			<div>
+				<label>거래처</label>
+				<input type="text">
+			</div> -->
+		</div>
+		</form>
+	</div>
+</div> <!-- main_contents_section 메인내용 들어갈 자리 끝 --> 
+
+<!--     
+    <div id="main_contents_section"> 메인내용 들어갈 자리 시작
 		
 		<div id="mainframe">
 			<div class="posit">
@@ -11,9 +42,7 @@
 			<div class="connect">
 				<label class="label_margin">희망입고일자</label><input type="date" class="date_width">
 			</div>
-		
-					
-			
+				
 				<div class="connect"><label class="label_margin">입고받을 진료과</label>
 					<select class="sel_h">
 						<option>선택</option>
@@ -35,11 +64,10 @@
 				</div>
 			</div>
 			
-		</div><!-- mainframe  -->
+		</div>mainframe 
 		
-		
-	</div><!-- main_contents_section 메인내용 들어갈 자리 끝  -->
+	</div>main_contents_section 메인내용 들어갈 자리 끝 
 
 <div id="chart_show"></div>
-
+ -->
 	

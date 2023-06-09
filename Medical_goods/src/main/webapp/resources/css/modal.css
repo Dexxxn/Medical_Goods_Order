@@ -10,6 +10,10 @@ body{
 	font-size: 14px;
 }
 
+th, td{
+	height: 30px;
+}
+
 .modal1 i{
 	color: #fff;
 	font-size: 14px;
@@ -29,8 +33,8 @@ hr {
 }
 
 .tableAll{
-	margin-bottom: 100px;
-	margin-left: 500px;
+	margin-top: 20px;
+	margin-left: 280px;
 }
 
 .basicB button{
@@ -57,6 +61,7 @@ hr {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* 불투명한 배경색 */
     z-index: 1; /* 다른 요소보다 상위에 표시되도록 설정 */
+    display: none;
 }
 
 .modal1{
@@ -69,6 +74,7 @@ hr {
 	border: 1px solid #035AA6;
 	border-top: none;
 	box-shadow: 0 0 15px gray;
+	display: none;
 }
 
 .modal-overlay {
@@ -120,34 +126,4 @@ hr {
 
 .table.only td:nth-child(4){
 	text-align: right;
-}
-
-
-
-/* 폼 */
-#formAll{
-	position: relative;
-	width: 700px;
-	background-color: #f6f9fa;
-	left: 300px;
-	padding: 15px 15px 10px 15px;
-}
-
-.mainForm{
-	justify-content: space-between;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.mainForm div:nth-child(1), .mainForm div:nth-child(2){
-	margin-bottom: 5px;
-}
-
-.mainForm label{
-	width: 140px;
-}
-
-.mainForm input{
-	width: 130px;
-	height: 26px;
 }

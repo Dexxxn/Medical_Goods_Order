@@ -7,7 +7,7 @@
 			<button>정렬</button>
 			<button>재고 불러오기</button>
 		</div>
-		<div style="width: 600px;">
+		<div style="width: 800px;">
 			<table class="table checkbox" border="1">
 			    <thead>
 			        <tr>
@@ -52,7 +52,10 @@
 			<button class="pointB">전체 적용</button>
 			<button>닫기</button>
 		</div>
+		<br><br>
 	</div>
+			
+	<button id="modalShow" style="margin-left: 280px;">모달 열기</button>
 			
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
@@ -66,6 +69,14 @@
 		checkbox.checked = selectAll.checked;
 		})
 	};
+	
+	// 모달 열기
+	$(document).ready(function() {
+		$("#modalShow").click(function() {
+			$(".modal1").show();
+			$(".modal-overlay").show();
+		});
+	});
 	
 	// 모달 닫기
 	$(document).ready(function() {
