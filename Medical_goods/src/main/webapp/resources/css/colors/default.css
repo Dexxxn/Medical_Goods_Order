@@ -92,7 +92,7 @@ a.link:hover, a.link:focus {
 
 .sidebar-nav > ul > li.active > a {
   color: #20aee3;
-  border-color: #20aee3; }
+   }
   .sidebar-nav > ul > li.active > a i {
     color: #20aee3; }
 

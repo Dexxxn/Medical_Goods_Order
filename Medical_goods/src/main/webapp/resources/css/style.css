@@ -32,8 +32,7 @@ Template Name: Admin Pro Admin
 Author: Wrappixel
 Email: niravjoshi87@gmail.com
 File: scss
-*/
-/**
+*//**
  * Table Of Content
  *
  *  1. Globals
@@ -846,7 +845,7 @@ sidebar navigation
     .sidebar-nav > ul > li > a.active {
       font-weight: 400;
       color: #26c6da;
-      border-left: 3px solid #20aee3; }
+       }
   .sidebar-nav > ul > li {
     margin-bottom: 8px;
     margin-top: 8px; }
