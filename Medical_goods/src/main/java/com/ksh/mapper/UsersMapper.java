@@ -8,5 +8,7 @@ public interface UsersMapper {
 
 	public ArrayList<UsersVO> users(UsersVO users);
 
+	public ArrayList<UsersVO> users1(UsersVO users);
+
 	public UsersVO logIn(UsersVO users);
 }

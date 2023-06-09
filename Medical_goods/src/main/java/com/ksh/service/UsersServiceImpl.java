@@ -15,8 +15,8 @@ public class UsersServiceImpl implements UsersService {
 	UsersMapper um;
 
 	@Override
-	public ArrayList<UsersVO> users(UsersVO users) {
-		return um.users(users);
+	public ArrayList<UsersVO> users1(UsersVO users) {
+		return um.users1(users);
 	}
 
 	public UsersVO logIn(UsersVO users) {

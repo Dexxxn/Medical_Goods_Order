@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     
 <%@ include file = "header.jsp" %>
+<script src="resources/js/ph.js" type="text/javascript"></script>
+
 
 <div class="page-wrapper">
 	<div class="ph-1" style="padding:70px 25px">
@@ -18,15 +20,13 @@
 							  <option value="병동C">병동C</option>
 							  <option value="처치실">처치실</option>
 							  <option value="수술실">수술실</option>
+							  <option value="총무팀A">총무팀</option>
 							</select></td>
 				</tr>
 				<tr>
 					<td style="color:#035AA6">담당자</td>
 					<td><select id="Select_name" style="background-color:#f6f9fa" name="name">
-							 <!--  <option value="blanck"> </option>
-							  <option value="manager1">정기원</option>
-							  <option value="manager2">이성언</option>
-							  <option value="manager3">장희영</option> -->
+							
 							</select></td>
 				</tr>
 				<tr>

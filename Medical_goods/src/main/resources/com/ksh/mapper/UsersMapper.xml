@@ -5,7 +5,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
  <mapper namespace="com.ksh.mapper.UsersMapper">
-  	<select id="users" resultType="com.ksh.model.UsersVO">
+ 
+ 	<select id="users" resultType="com.ksh.model.UsersVO">
+ 		SELECT dept, name
+  		FROM Medical_Goods_Order.Users
+  		WHERE id like 'B%'
+ 	</select>
+ 
+  	<select id="users1" resultType="com.ksh.model.UsersVO">
   		SELECT dept, name
   		FROM Medical_Goods_Order.Users
   		WHERE id like 'B%'
@@ -22,6 +29,9 @@
   				</when>
   				<when test="dept=='처치실'.toString()">
   					and dept='처치실'
+  				</when>
+  				<when test="dept=='총무팀A'.toString()">
+  					and dept='총무팀A'
   				</when>
   				<otherwise>
 					and dept='수술실'
