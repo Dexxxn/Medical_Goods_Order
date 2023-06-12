@@ -8,3 +8,10 @@
     #line{position:absolute; width:98%; padding:0; margin:44px 0 0 20px;}
 	#notice_anchor{font-size: 15px; color:#fff; line-height: 2.5; padding-left:25px;}
 	#notice_anchor:hover{color:#007bff}
+	
+	
+	/* index.jsp  */
+	#mainContents{/* background-color: pink; */ 
+   /*  width: 1400px;
+    height: 1000px; */
+    /* position: inherit; */}

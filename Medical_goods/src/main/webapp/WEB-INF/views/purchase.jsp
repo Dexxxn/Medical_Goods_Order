@@ -1,10 +1,9 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <!-- 발주내역서 조회  -->
+    <!-- 발주내역서 조회 (비동기로 연결완료) -->
     
     <%-- <%@ include file = "spe.jsp" %> --%>
-    
-    <%@ include file = "header.jsp" %>
+<%--    <%@ include file = "header.jsp" %>  헤더 필요없음!!!--%>
 
 <div class="page-wrapper">
 
@@ -12,7 +11,7 @@
 	
 		<div class="row-page-title">
 			<div class="page-title">
-				<h3 class="text-themecolor" style="line-height:30px; font-size:21px;">발주내역서 검색</h3>
+				<h3 class="text-themecolor" id="purrr" style="line-height:30px; font-size:21px;">발주내역서 검색</h3>
 			</div>
 		
 		<div class="page-search">
@@ -68,7 +67,7 @@ td{padding:10px 20px}
 function resetDate() {
 	  document.getElementById('startday').value = '';
 	}
+	</script>
 
-</script>
 
-<%@ include file = "footer.jsp" %>
+<%--  <%@ include file = "footer.jsp" %>  푸터 필요없음!!!!--%>
