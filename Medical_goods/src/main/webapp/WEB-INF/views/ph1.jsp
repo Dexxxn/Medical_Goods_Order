@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ include file = "header.jsp" %>
+<%-- <%@ include file = "header.jsp" %> --%>
 <div class="page-wrapper">
 	<div class="ph1-1" style="padding:70px 25px">
 		<h3 class="text-themecolor" style="line-height:40px; font-size:21px; margin-top:30px; margin-bottom:30px;"><span id="purchaseDate">ooo님 구매이력 (oooo년 oo월 oo일)</span></h3>
@@ -43,4 +43,4 @@ td{padding:15px 66px;text-align:center;}
 .btn{padding:5px 20px}
 .ph1-5{padding-top:30px}
 </style>
-<%@ include file = "footer.jsp" %>
+<%-- <%@ include file = "footer.jsp" %> --%>

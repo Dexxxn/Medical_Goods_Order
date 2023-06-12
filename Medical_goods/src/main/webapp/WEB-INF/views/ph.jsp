@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ include file = "header.jsp" %>
+<%-- <%@ include file = "header.jsp" %> --%>
 <!-- <script src="resources/js/ph.js" type="text/javascript"></script> -->
 
 
@@ -48,4 +48,4 @@ td{padding:10px 20px}
 .btn{padding:5px 20px}
 .ph-3{padding-top:30px}
 </style>
-<%@ include file = "footer.jsp" %>
+<%-- <%@ include file = "footer.jsp" %> --%>

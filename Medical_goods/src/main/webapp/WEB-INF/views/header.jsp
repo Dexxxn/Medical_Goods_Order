@@ -192,21 +192,7 @@
   });
 
 
-// 열린 탭 창 닫기
 	$(document).ready(function() {
-		$("#tab1 .fa-x").click(function() {
-			$("#tab1").hide();
-		});
-		$("#tab2 .fa-x").click(function() {
-			$("#tab2").hide();
-		});
-		$("#tab3 .fa-x").click(function() {
-			$("#tab3").hide();
-		});
-	});
-
-
-				/* 	$(document).ready(function() {
 						  // 페이지 로드 시 pageTab div를 숨김
 						  $("#rearrange .pageTab").hide();
 
@@ -241,9 +227,9 @@
 						      createdTabs.push(text);
 						      
 						      // 페이지 이동 처리
-						       $(this).click(function() {
+						      /*  $(this).click(function() {
 						        window.location.href = href; // Use the data-href value for navigation
-						        });
+						        }); */
 						      
 						    } else {
 						      // 이미 pageTab이 있는 경우 깜빡이는 효과 적용
@@ -271,7 +257,7 @@
 						      createdTabs.splice(index, 1);
 						    }
 						  }
-						}); */
+						}); 
 					
 					
 					
@@ -341,6 +327,36 @@
 						            function purchaseHisPageOpen() {
 						                $.ajax({
 						                    url: "ph", // URL of the purchase.jsp page
+						                    type: "GET",
+						                    success: function(data) {
+						                        // Update the content of the chartContent element with the response from purchase.jsp
+						                        $("#mainContents").html(data);
+						                    },
+						                    error: function(xhr, status, error) {
+						                        alert("An error occurred while loading the page. Error: " + error);
+						                        console.log("XHR status: " + status);
+						                        console.log("Error details: " + error);
+						                    }
+						                });
+						            }
+						            function purchase_detailPageOpen() {
+						                $.ajax({
+						                    url: "ph_detail", // URL of the purchase.jsp page
+						                    type: "GET",
+						                    success: function(data) {
+						                        // Update the content of the chartContent element with the response from purchase.jsp
+						                        $("#mainContents").html(data);
+						                    },
+						                    error: function(xhr, status, error) {
+						                        alert("An error occurred while loading the page. Error: " + error);
+						                        console.log("XHR status: " + status);
+						                        console.log("Error details: " + error);
+						                    }
+						                });
+						            }
+						            function trading_detailPageOpen() {
+						                $.ajax({
+						                    url: "ts", // URL of the purchase.jsp page
 						                    type: "GET",
 						                    success: function(data) {
 						                        // Update the content of the chartContent element with the response from purchase.jsp

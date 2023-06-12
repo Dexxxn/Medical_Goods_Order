@@ -776,7 +776,7 @@ use profile section
   padding-left: 40px; }
 
 #sidebarnav .detailPage_nav{color: rgb(127, 127, 127); font-size:14px; margin-left:50px; padding:5px; display:inline-block;}
-#sidebarnav .detailPage_nav:hover{color:blue;}
+#sidebarnav .detailPage_nav:hover{color:blue; cursor:pointer;}
 
 /*******************
 sidebar navigation

@@ -66,7 +66,7 @@ public class HomeController {
 		return "spe";
 	}
 
-	@RequestMapping(value = "/purchase_order", method = RequestMethod.GET)
+	@RequestMapping(value = "/purchase", method = RequestMethod.GET)
 	public String pur() {
 		return "purchase";
 	}
@@ -85,4 +85,23 @@ public class HomeController {
 	public String ph1() {
 		return "ph1";
 	}
+	
+	
+	
+	@RequestMapping(value = "/table", method = RequestMethod.GET)
+	public String table() {
+		return "table";
+	}
+	
+	@RequestMapping(value = "/table_only", method = RequestMethod.GET)
+	public String table_only() {
+		return "table_only";
+	}
+	
+	@RequestMapping(value = "/modal_alert", method = RequestMethod.GET)
+	public String modal_alert() {
+		return "modal_alert";
+	}
+	
+	
 }
