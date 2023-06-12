@@ -1,12 +1,10 @@
-// checkbox 전체 선택 기능
-function selectAll(selectAll)  {
-	const checkboxes 
-		= document.getElementsByName('checkbox');
-  
-	checkboxes.forEach((checkbox) => {
-	checkbox.checked = selectAll.checked;
-	})
-}
+// 모달 열기
+$(document).ready(function() {
+	$("#modalShow").click(function() {
+		$(".modal1").show();
+		$(".modal-overlay").show();
+	});
+});
 
 // 모달 닫기
 $(document).ready(function() {
@@ -17,43 +15,67 @@ $(document).ready(function() {
 });
 
 
+function link(url){
 
-// ajax
-$("#replyPage").on("click",function(e){
-	alert("aaa")
-	var bnoValue=$("input[name='bno']").val();
-	var pageValue = $(this).attr("href");
-	console.log(bnoValue)
-	console.log(pageValue)
-	list({bno:bnoValue,page:pageValue});
-})
+    // ajax option
 
-//비동기식 경우, vo역할을 하는 것이 json
-function list(param){// list함수 선언 시작
-	//alert(bno);
-	var bno = param.bno;
-	var page = param.page;
-	
-	console.log(bno)
-	console.log(page)
-	
-	$.getJSON("/replies/"+bno+"/"+page+".json",function(data){
-		console.log(data.replycnt)
-		console.log(data.list)
-		
-		var str="";
-		
-		for(var i=0;i<data.list.length;i++){
-			str+="<li>"+data.list[i].id+"</li>"
-			str+="<li><textarea id='replycontent"+data.list[i].rno+"'>"+data.list[i].reply+"</textarea></li>"
-			str+="<li>"
-			str+="<input class='update' type='button' value='수정' data-rno="+data.list[i].rno+">"
-			str+="<input class='remove' type='button' value='삭제' data-rno="+data.list[i].rno+">"
-			str+="</li>"
-		}
-		
-		$("#replyUL").html(str);
-		
-		showReplyPage(data.replycnt,page);
-	});
-}// list함수 선언 끝
+    var ajaxOption = {
+
+            url : url,
+
+            async : true,
+
+            type : "GET",
+
+            dataType : "html",
+            cache : false
+
+    };
+
+    
+
+    $.ajax(ajaxOption).done(function(data){
+
+        // Contents 영역 삭제
+
+        $('#publicTable').children().remove();
+
+        // Contents 영역 교체
+
+        $('#publicTable').html(data);
+
+    });
+
+}
+/*
+
+// 재고 리스트 불러오기
+$(document).ready(function() {
+    $.ajax({
+        url: '/modal',
+        type: 'GET',
+        dataType: 'html',
+        success: function(response) {
+            var data = response.data;
+            var str = "";
+            
+            for (var i = 0; i < data.list.length; i++) {
+                str += "<tr>";
+                str += "<td><input type='checkbox' name='checkbox' onclick='selectAll(this)'></td>";
+                str += "<td>" + data.list[i].item_id + "</td>";
+                str += "<td>" + data.list[i].item_name + "</td>";
+                str += "<td>" + data.list[i].unit + "</td>";
+                str += "<td>" + data.list[i].current_amount + "</td>";
+                str += "</tr>";
+            }
+            	
+            $("#publicTable tbody").html(str);
+            
+            //showIndexPage(data.index, page);
+        },
+        error: function(xhr, status, error) {
+            // Ajax 요청이 실패한 경우 처리할 코드를 작성합니다.
+            alert("실패");
+        }
+    });
+});*/

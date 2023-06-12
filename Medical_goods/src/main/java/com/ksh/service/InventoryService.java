@@ -1,4 +1,4 @@
-/*package com.ksh.service;
+package com.ksh.service;
 
 import java.util.ArrayList;
 
@@ -8,4 +8,3 @@ public interface InventoryService {
 
 	public ArrayList<InventoryVO> select1(InventoryVO inven);
 }
-*/

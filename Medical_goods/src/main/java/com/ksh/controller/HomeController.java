@@ -46,48 +46,40 @@ public class HomeController {
 	 * index() { return "index"; }
 	 */
 
+	@RequestMapping(value = "/chart", method = RequestMethod.GET)
+	public String chart() {
+		return "chart";
+	}
 
-/*	@RequestMapping(value = "/modal", method = RequestMethod.GET)
+	@RequestMapping(value = "/modal", method = RequestMethod.GET)
 	public String modal() {
 		return "modal";
-	}*/
+	}
 
 	@RequestMapping(value = "/notice", method = RequestMethod.GET)
 	public String notice() {
 		return "notice";
 	}
 
-	
-	// 비동기식 페이지 연결(성언)-발주내역서
-	@RequestMapping(value = "/purchase", method = RequestMethod.GET)
-	public String pur() {
-		return "purchase";
-	}
-	
-	// 비동기식 페이지 연결(성언)-안전재고통계
-	@RequestMapping(value = "/chart", method = RequestMethod.GET)
-	public String chart() {
-		return "chart";
-	}
-	
-	// 비동기식 페이지 연결(성언)-거래명세서
 	@RequestMapping(value = "/spe", method = RequestMethod.GET)
 	public String spe() {
 		return "spe";
 	}
-	
-	// 비동기식 페이지 연결(성언) -담당자별구매이력
-	@RequestMapping(value = "/ph", method = RequestMethod.GET)
-	public String ph() {
-		return "ph";
+
+	@RequestMapping(value = "/purchase_order", method = RequestMethod.GET)
+	public String pur() {
+		return "purchase";
 	}
-	
-	
+
 	@RequestMapping(value = "/ts", method = RequestMethod.GET)
 	public String ts() {
 		return "ts";
 	}
 
+	@RequestMapping(value = "/ph", method = RequestMethod.GET)
+	public String ph() {
+		return "ph";
+	}
 
 	@RequestMapping(value = "/ph_detail", method = RequestMethod.GET)
 	public String ph1() {

@@ -1,4 +1,4 @@
-/*package com.ksh.mapper;
+package com.ksh.mapper;
 
 import java.util.ArrayList;
 
@@ -8,4 +8,3 @@ public interface InventoryMapper {
 	
 	public ArrayList<InventoryVO> select1(InventoryVO inven);
 }
-*/
