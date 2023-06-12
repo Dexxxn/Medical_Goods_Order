@@ -4,7 +4,7 @@
 <%@ include file = "header.jsp" %>
 <div class="page-wrapper">
 	<div class="ph1-1" style="padding:70px 25px">
-		<h3 class="text-themecolor" style="line-height:40px; font-size:21px; margin-top:30px; margin-bottom:30px;">정기원 님 구매이력</h3>
+		<h3 class="text-themecolor" style="line-height:40px; font-size:21px; margin-top:30px; margin-bottom:30px;"><span id="purchaseDate">ooo님 구매이력 (oooo년 oo월 oo일)</span></h3>
 		<div class="ph1-2" style="border:1px; background-color:white; font-size:15px; color:black">
 			<table class="ph1-3" border="2" style="border:1px solid; background-color:white; font-size:15px; color:black ">
 				<tr>

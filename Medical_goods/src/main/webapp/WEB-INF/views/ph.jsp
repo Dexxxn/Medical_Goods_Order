@@ -36,7 +36,9 @@
 			</table>
 		</div>
 		<div class="ph-3">
-		<a href="/ph_detail"><button class="btn" id="searchButton">검색</button></a>
+			<a href="#" id="searchLink">
+  				<button class="btn" id="searchButton">검색</button>
+			</a>
 		</div>
 	</div>
 </div>
