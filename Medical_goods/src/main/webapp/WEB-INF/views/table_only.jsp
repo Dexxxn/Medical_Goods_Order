@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+ <%@ include file = "form.jsp" %>
 <!-- checkbox가 없는 테이블 -->
 <div class="tableAll" id="onlyTable">
 	<div class="basicB top">

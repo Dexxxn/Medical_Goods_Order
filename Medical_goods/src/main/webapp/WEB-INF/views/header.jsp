@@ -142,7 +142,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">자산관리</span></a>
-                        	<span class="detailPage_nav" onclick="list('/table_only')">재고현황-희,읽</span>
+                        	<span class="detailPage_nav" onclick="list('/table_only')" id="table_only">재고현황-희,읽</span>
                         	<span class="detailPage_nav" id="" >사용입력-희,읽</span> <!-- data-href="/usage-input" -->
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
@@ -311,6 +311,8 @@
 								 //$("#").click(purchaseHis_DetailPageOpen); 
 								 // 공지사항
 								 $("#notice_anchor").click(noticePageOpen);
+								 //재고현황
+								 $("#table_only").click(table_onlyPageOpen);
 								 
 								 
 								 
@@ -423,6 +425,23 @@
 						            function noticePageOpen() {
 						                $.ajax({
 						                    url: "notice", // URL of the purchase.jsp page
+						                    type: "GET",
+						                    success: function(data) {
+						                        // Update the content of the chartContent element with the response from purchase.jsp
+						                        $("#mainContents").html(data);
+						                    },
+						                    error: function(xhr, status, error) {
+						                        alert("An error occurred while loading the page. Error: " + error);
+						                        console.log("XHR status: " + status);
+						                        console.log("Error details: " + error);
+						                    }
+						                });
+						            }
+						            
+						            //재고현황 페이지 연결
+						            function table_onlyPageOpen() {
+						                $.ajax({
+						                    url: "table_only", // URL of the purchase.jsp page
 						                    type: "GET",
 						                    success: function(data) {
 						                        // Update the content of the chartContent element with the response from purchase.jsp
