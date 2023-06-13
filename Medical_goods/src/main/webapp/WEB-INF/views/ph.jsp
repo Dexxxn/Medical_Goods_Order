@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%-- <%@ include file = "header.jsp" %> --%>
-<!-- <script src="resources/js/ph.js" type="text/javascript"></script> -->
+ <script src="resources/js/ph.js" type="text/javascript"></script> 
 
 
 <div class="page-wrapper">

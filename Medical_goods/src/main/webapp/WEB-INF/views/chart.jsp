@@ -62,7 +62,26 @@
                         </div>
                     </div>
                 </div> 
-                
+
+<script>
+/*   $(document).ready(function() {
+    function loadContent() {
+      $.ajax({
+        url: "/chart", // Replace with the correct path to your chart.html file
+        dataType: "html",
+        success: function(data) {
+          $("#mainContents").html(data); // Insert the retrieved HTML content into the #chartContent element
+        },
+        error: function(xhr, status, error) {
+          console.log(error);
+        }
+      });
+    }
+
+    loadContent();
+  }); */
+</script>
+
                 <!-- 안전재고수 통계 결과 테이블 -->
                
                 <%--  <%@ include file = "footer.jsp" %>  --%>

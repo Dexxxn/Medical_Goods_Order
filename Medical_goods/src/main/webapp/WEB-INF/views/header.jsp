@@ -50,7 +50,7 @@
 	
 	<!-- 안전재고통계(chart) ajax 연결 -->
 	<script src="/resources/js/chart.js" type="text/javascript"></script>
-	<script src="resources/js/ph.js" type="text/javascript"></script>
+<!-- 	<script src="/resources/js/ph.js" type="text/javascript"></script>  ph.jsp 상단에 표기 -->
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -121,10 +121,10 @@
             </nav>
               <!-- ============================================================== -->
                   <!-- 탭 -->
-                  <div class="top_bar"><a href="/notice" id="notice_anchor">공지사항</a></div>
+                  <div class="top_bar"><a id="notice_anchor">공지사항</a></div>
                 <div id="background_invisible">  
                 <div id="rearrange">
-	                <div class="pageTab" id="tab3"><span class="tab_span"></span><div class="icon_posit"><i class="fas fa-light fa-x"></i></div></div>
+	                <div class="pageTab" ><span class="tab_span"></span><div class="icon_posit"><i class="fas fa-light fa-x"></i></div></div>
                 </div>
 	                <div><hr id="line" /></div>
                 </div>
@@ -143,19 +143,19 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">자산관리</span></a>
                         	<span class="detailPage_nav" onclick="link('/modal')">재고현황-희,읽</span>
-                        	<span class="detailPage_nav" data-href="/usage-input">사용입력-희,읽</span>
+                        	<span class="detailPage_nav" id="" >사용입력-희,읽</span> <!-- data-href="/usage-input" -->
+                        </li>
+                        <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
+                        	<span class="detailPage_nav" id="" >발주요청서-희,읽</span> <!--  data-href="/purchase-request"  -->
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
-                        	<span class="detailPage_nav" data-href="/purchase-planning">발주계획서 작성</span>
+                        	<span class="detailPage_nav" id="" >발주계획서 작성</span> <!-- data-href="/purchase-planning" -->
                  <span class="detailPage_nav" id="purchase_order">발주내역서 조회</span>
-                        	<span class="detailPage_nav"  data-href="/transaction-history">거래 내역 조회</span>
+                        	<span class="detailPage_nav"  id="" >거래 내역 조회</span> <!-- data-href="/transaction-history" -->
                         	<span class="detailPage_nav" id="purHisPageButton">구매이력 조회</span>
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">서류관리</span></a>
                  <span class="detailPage_nav" id="spePageButton">거래 명세서-원</span>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
-                        	<span class="detailPage_nav" data-href="/purchase-request">발주요청서-희,읽</span>
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">조정관리</span></a>
                   <span class="detailPage_nav"  id="chartPageButton">안전재고통계</span>
@@ -191,7 +191,7 @@
     });
   });
 
-
+//상단 pageTab들
 	$(document).ready(function() {
 						  // 페이지 로드 시 pageTab div를 숨김
 						  $("#rearrange .pageTab").hide();
@@ -204,7 +204,8 @@
 						    event.preventDefault(); // 기본 동작 중지
 
 						    var text = $(this).text(); // 클릭한 .detailPage_nav 요소의 텍스트 내용 가져오기
-						    var href = $(this).data("href"); // Read the data-href attribute value
+						    //var href = $(this).data("href"); // Read the data-href attribute value
+						     //var pageUrl = ""; // 페이지의 URL을 지정해야 함
 						    
 						    // 이미 pageTab이 존재하는지 확인
 						    if (!isPageTabExist(text)) {
@@ -219,18 +220,50 @@
 						      // 아이콘 클릭 시 해당 탭 숨기기 및 배열에서 제거
 						      icon.click(function() {
 						        var pageTab = $(this).closest(".pageTab");
+						       // var mainContents = $("#mainContents");
 						        pageTab.hide();
 						        removePageTab(pageTab);
+						        //removeMainContents(mainContents);
+						        //연결된 index의 <div id="mainContents"> 의 내용도 지우기?
 						      });
 
-						      // 생성된 pageTab의 텍스트를 배열에 추가
+						      // 생성된 pageTab의 텍스트를 배열에 추가s
 						      createdTabs.push(text);
 						      
-						      // 페이지 이동 처리
-						      /*  $(this).click(function() {
+					// 페이지 이동 처리
+						       /*  $(this).click(function() {
 						        window.location.href = href; // Use the data-href value for navigation
+						        });  */
+						      /* tabSpan.click(function() {
+						          window.location.href = pageUrl; // 페이지의 URL로 이동
 						        }); */
-						      
+						     //여기서 부터 해야돼애애ㅐㅐㅐㅐㅐㅐㅐ  
+						        var pur = $("#purchase_order");
+						        if(text === "발주내역서 조회"){
+						        	 //"발주내역서" 
+									 pur.click(purchasePageOpen);
+						        	 
+									 //발주내역서 조회
+							            function purchasePageOpen() {
+							                $.ajax({
+							                    url: "purchase", // URL of the purchase.jsp page
+							                    type: "GET",
+							                    success: function(data) {
+							                        // Update the content of the chartContent element with the response from purchase.jsp
+							                        $("#mainContents").html(data);
+							                    },
+							                    error: function(xhr, status, error) {
+							                        alert("An error occurred while loading the page. Error: " + error);
+							                        console.log("XHR status: " + status);
+							                        console.log("Error details: " + error);
+							                    }
+							                });
+							            }
+						        } 
+						        
+						        
+						        
+						        
 						    } else {
 						      // 이미 pageTab이 있는 경우 깜빡이는 효과 적용
 						      var tabSpan = $(this).find(".tab_span");
@@ -257,22 +290,33 @@
 						      createdTabs.splice(index, 1);
 						    }
 						  }
-						}); 
+						//삭제}); 
 					
 					
 					
-						/* ajax 연결 */	
-							 $(document).ready(function() {
+			/* sideNav- jsp (ajax 연결 ) */	
+							 //삭제$(document).ready(function() { 
+
 								 //"발주내역서" 
 								 $("#purchase_order").click(purchasePageOpen);
 								 // "안전재고통계" 
 								 $("#chartPageButton").click(chartPageOpen);
 								 // "거래명세서"
 								 $("#spePageButton").click(spePageOpen); 
-								 // "구매이력"
+								 // "거래명세서" ---> 상세페이지
+								 //$("#").click(spe_DetailPageOpen); 
+								 // "담당자별구매이력"
 								 $("#purHisPageButton").click(purchaseHisPageOpen); 
+								 // "담당자별구매이력" --> 상세페이지
+								 //$("#").click(purchaseHis_DetailPageOpen); 
+								 // 공지사항
+								 $("#notice_anchor").click(noticePageOpen);
+								 
+								 
+								 
 						            // Function to open the purchase page and retrieve its content
 						            
+						            //발주내역서 조회
 						            function purchasePageOpen() {
 						                $.ajax({
 						                    url: "purchase", // URL of the purchase.jsp page
@@ -289,7 +333,7 @@
 						                });
 						            }
 						            
-						            
+						            //안전재고 통계
 						            function chartPageOpen() {
 						                $.ajax({
 						                    url: "chart", // URL of the purchase.jsp page
@@ -306,7 +350,7 @@
 						                });
 						            }
 						            
-						            
+						            //거래명세서
 						            function spePageOpen() {
 						                $.ajax({
 						                    url: "spe", // URL of the purchase.jsp page
@@ -323,7 +367,7 @@
 						                });
 						            }
 						            
-						            
+						            //담당자별 구매이력
 						            function purchaseHisPageOpen() {
 						                $.ajax({
 						                    url: "ph", // URL of the purchase.jsp page
@@ -339,7 +383,9 @@
 						                    }
 						                });
 						            }
-						            function purchase_detailPageOpen() {
+						           
+						            // 담당자별 구매이력 ---> 상세페이지
+						            function purchaseHis_DetailPageOpen() {
 						                $.ajax({
 						                    url: "ph_detail", // URL of the purchase.jsp page
 						                    type: "GET",
@@ -354,7 +400,9 @@
 						                    }
 						                });
 						            }
-						            function trading_detailPageOpen() {
+						            
+						         // 거래명세서 ----> 상세페이지
+						            function spe_DetailPageOpen() {
 						                $.ajax({
 						                    url: "ts", // URL of the purchase.jsp page
 						                    type: "GET",
@@ -369,8 +417,28 @@
 						                    }
 						                });
 						            }
-
+						            
+						            
+						            //공지사항 페이지 연결
+						            function noticePageOpen() {
+						                $.ajax({
+						                    url: "notice", // URL of the purchase.jsp page
+						                    type: "GET",
+						                    success: function(data) {
+						                        // Update the content of the chartContent element with the response from purchase.jsp
+						                        $("#mainContents").html(data);
+						                    },
+						                    error: function(xhr, status, error) {
+						                        alert("An error occurred while loading the page. Error: " + error);
+						                        console.log("XHR status: " + status);
+						                        console.log("Error details: " + error);
+						                    }
+						                });
+						            }
+						            
 						            // Attach the click event handler to the purchase_order element
-						           // $("#purchase_order").click(purchasePageOpen);
+						           
+						        //});
+			
 						        });
 </script>
