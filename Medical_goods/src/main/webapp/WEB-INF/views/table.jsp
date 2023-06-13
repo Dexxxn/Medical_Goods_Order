@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-	<div class="tableAll">
+		
+	<div class="tableAll" id="CheckboxTable">
 		<div class="basicB top">
 			<button>찾기</button>
 			<button>정렬</button>
 			<button>재고 불러오기</button>
+			<button id="modalShow" style="margin-left: 800px;">모달 열기</button>
 		</div>
 		<div style="width: 800px;">
 			<table class="table checkbox" id="publicTable" border="1">
@@ -55,8 +56,7 @@
 		<br><br>
 	</div>
 			
-	<button id="modalShow" style="margin-left: 280px;">모달 열기</button>
-			
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 

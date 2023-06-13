@@ -48,7 +48,6 @@ File: scss
 /******************* 
 Global Styles 
 *******************/
-@import url(../scss/icons/font-awesome/css/font-awesome.min.css);
 @import url(../css/spinners.css);
 @import url(../css/animate.css);
 * {

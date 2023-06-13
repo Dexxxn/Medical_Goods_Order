@@ -33,9 +33,9 @@ public class InventoryController {
 		// return is.select1(ivo) // 이렇게해도 되지만 서버 통신상태를 확인하기 위해서는 위 코드를 쓸것
 	}*/
 	
-	@RequestMapping(value = "/inventory-status", method = RequestMethod.GET)
+	@RequestMapping(value = "/table_only", method = RequestMethod.POST)
 	public ResponseEntity <?> select1(InventoryVO inven){
-		System.out.println(inven);
+		System.out.println(is.select1(inven));
 		return new ResponseEntity<>(is.select1(inven),HttpStatus.OK);// 
 	}
 	

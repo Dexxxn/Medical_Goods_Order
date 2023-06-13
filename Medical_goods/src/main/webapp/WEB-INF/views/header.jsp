@@ -142,7 +142,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">자산관리</span></a>
-                        	<span class="detailPage_nav" onclick="link('/modal')">재고현황-희,읽</span>
+                        	<span class="detailPage_nav" onclick="list('/table_only')">재고현황-희,읽</span>
                         	<span class="detailPage_nav" id="" >사용입력-희,읽</span> <!-- data-href="/usage-input" -->
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>

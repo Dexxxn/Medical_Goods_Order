@@ -21,7 +21,7 @@
 				<button>재고 불러오기</button>
 			</div>
 			<div>
-				<table class="table checkbox" id="publicTable" border="1">
+				<table class="table checkbox" id="" border="1">
 				    <thead>
 				        <tr>
 				            <th><input type="checkbox" name="checkbox" onclick="selectAll(this)"></th>
