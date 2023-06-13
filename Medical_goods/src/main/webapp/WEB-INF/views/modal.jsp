@@ -83,20 +83,4 @@ function selectAll(selectAll)  {
 	})
 };
 
-// 모달 열기
-$(document).ready(function() {
-	$("#modalShow").click(function() {
-		$(".modal1").show();
-		$(".modal-overlay").show();
-	});
-});
-
-// 모달 닫기
-$(document).ready(function() {
-	// x 아이콘 클릭 시 모달 닫기
-	$(".closeB").click(function() {
-		$(".modal1").hide();
-		$(".modal-overlay").hide();
-	});
-});
 </script>

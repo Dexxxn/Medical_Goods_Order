@@ -6,9 +6,9 @@
   
 <mapper namespace="com.ksh.mapper.InventoryMapper">
 	<select id="select1" resultType="com.ksh.model.InventoryVO">
+		<!-- 품목별로 가장 최신 데이터만 -->
 		SELECT *
 		FROM medical_goods_order.inventory
-		WHERE dept="병동A";
-		<!-- WHERE dept==session.name.dept -->
+        WHERE date = (SELECT MAX(date) FROM medical_goods_order.inventory)
 	</select>
 </mapper>

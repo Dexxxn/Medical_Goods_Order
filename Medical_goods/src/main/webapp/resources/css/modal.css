@@ -38,7 +38,7 @@ hr {
 }
 
 .basicB button{
-	margin: 4px;
+	margin: 8px 4px 4px 4px;
 }
 
 .pointB{
@@ -124,10 +124,17 @@ hr {
 	text-align: right;
 }
 
-.table.only td:nth-child(4){
+.table.only td:nth-child(4),
+.table.only td:nth-child(5),
+.table.only td:nth-child(6),
+.table.only td:nth-child(7),
+.table.only td:nth-child(8),
+.table.only td:nth-child(9){
 	text-align: right;
 }
 
-.table.only{
-	width: 790px;
+.table-container{
+	width: 1000px;
+ 	height: 570px;
+	overflow-y: scroll;
 }

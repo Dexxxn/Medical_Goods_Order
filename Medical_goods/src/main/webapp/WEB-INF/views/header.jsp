@@ -114,7 +114,7 @@
                         <!-- Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="hidden-md-down"><b>${logIn.name}</b>님 Have a good day!</span> </a>
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="hidden-md-down"><b>${login.name}</b>님 Have a good day!</span> </a>
                         </li>
                     </ul>
                 </div>
@@ -142,8 +142,8 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">자산관리</span></a>
-                        	<span class="detailPage_nav" onclick="list('/table_only')" id="table_only">재고현황-희,읽</span>
-                        	<span class="detailPage_nav" id="" >사용입력-희,읽</span> <!-- data-href="/usage-input" -->
+                        	<span class="detailPage_nav" onclick="invenList('/table_only')" id="invenList">재고현황-희,읽</span>
+                        	<span class="detailPage_nav" id="useList" >사용입력-희,읽</span> <!-- data-href="/usage-input" -->
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
                         	<span class="detailPage_nav" id="" >발주요청서-희,읽</span> <!--  data-href="/purchase-request"  -->
@@ -312,8 +312,9 @@
 								 // 공지사항
 								 $("#notice_anchor").click(noticePageOpen);
 								 //재고현황
-								 $("#table_only").click(table_onlyPageOpen);
-								 
+								 $("#invenList").click(invenListPageOpen);
+								//재고현황
+								 $("#useList").click(useListPageOpen);
 								 
 								 
 						            // Function to open the purchase page and retrieve its content
@@ -439,7 +440,7 @@
 						            }
 						            
 						            //재고현황 페이지 연결
-						            function table_onlyPageOpen() {
+						            function invenListPageOpen() {
 						                $.ajax({
 						                    url: "table_only", // URL of the purchase.jsp page
 						                    type: "GET",
@@ -454,6 +455,23 @@
 						                    }
 						                });
 						            }
+						            
+						            //물품 사용입력 페이지 연결
+						            function useListPageOpen() {
+						                $.ajax({
+						                    url: "table_only", // URL of the purchase.jsp page
+						                    type: "GET",
+						                    success: function(data) {
+						                        // Update the content of the chartContent element with the response from purchase.jsp
+						                        $("#mainContents").html(data);
+						                    },
+						                    error: function(xhr, status, error) {
+						                        alert("An error occurred while loading the page. Error: " + error);
+						                        console.log("XHR status: " + status);
+						                        console.log("Error details: " + error);
+						                    }
+						                });
+						            }						            
 						            
 						            // Attach the click event handler to the purchase_order element
 						           

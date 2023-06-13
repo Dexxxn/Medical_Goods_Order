@@ -6,9 +6,9 @@
 			<button>찾기</button>
 			<button>정렬</button>
 			<button>재고 불러오기</button>
-			<button id="modalShow" style="margin-left: 800px;">모달 열기</button>
+			<button class="modalShow" style="margin-left: 900px;">모달 열기</button>
 		</div>
-		<div style="width: 800px;">
+		<div class="table-container">
 			<table class="table checkbox" id="publicTable" border="1">
 			    <thead>
 			        <tr>
