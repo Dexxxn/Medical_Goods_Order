@@ -11,4 +11,9 @@
 		FROM medical_goods_order.inventory
         WHERE date = (SELECT MAX(date) FROM medical_goods_order.inventory)
 	</select>
+	
+	<select id="useList" resultType="com.ksh.model.InventoryVO">
+		SELECT *
+		FROM medical_goods_order.inventory
+	</select>
 </mapper>

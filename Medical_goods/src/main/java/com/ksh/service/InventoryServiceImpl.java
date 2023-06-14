@@ -17,4 +17,8 @@ public class InventoryServiceImpl implements InventoryService{
 	public ArrayList<InventoryVO> select1(InventoryVO inven) {
 		return im.select1(inven);
 	}
+	
+	public ArrayList<InventoryVO> useList(InventoryVO inven){
+		return im.useList(inven);
+	}
 }

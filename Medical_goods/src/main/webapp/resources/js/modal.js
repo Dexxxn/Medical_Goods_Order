@@ -61,7 +61,7 @@ function invenList(url) {
     });
 
 }
-/*
+
 // 물품 사용 입력
 function useList(url) {
     // Ajax 요청 보내기
@@ -93,4 +93,3 @@ function useList(url) {
     });
 
 }
-*/

@@ -1,6 +1,6 @@
 package com.ksh.model;
 
-public class InventoryVO {
+public class InventoryVO { 
 	private String dept;
 	private String item_name;
 	private String item_id;

@@ -37,7 +37,14 @@ public class InventoryController {
 	@RequestMapping(value = "/table_only", method = RequestMethod.POST)
 	public ResponseEntity <?> select1(InventoryVO inven){
 		System.out.println(is.select1(inven));
-		return new ResponseEntity<>(is.select1(inven),HttpStatus.OK);// 
+		return new ResponseEntity<>(is.select1(inven),HttpStatus.OK); 
+	}
+	
+	// 사용 수량 입력 리스트
+	@RequestMapping(value = "/useList", method = RequestMethod.POST)
+	public ResponseEntity <?> useList(InventoryVO inven){
+		System.out.println(is.useList(inven));
+		return new ResponseEntity<>(is.useList(inven),HttpStatus.OK); 
 	}
 	
 }

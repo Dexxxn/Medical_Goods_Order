@@ -7,4 +7,6 @@ import com.ksh.model.InventoryVO;
 public interface InventoryMapper {
 	
 	public ArrayList<InventoryVO> select1(InventoryVO inven);
+	
+	public ArrayList<InventoryVO> useList(InventoryVO inven);
 }

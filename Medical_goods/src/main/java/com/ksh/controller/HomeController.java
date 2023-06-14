@@ -103,5 +103,9 @@ public class HomeController {
 		return "modal_alert";
 	}
 	
+	@RequestMapping(value = "/useList", method = RequestMethod.GET)
+	public String useList() {
+		return "table_only";
+	}
 	
 }
