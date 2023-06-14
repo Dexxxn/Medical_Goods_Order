@@ -6,8 +6,7 @@
 	
 	<div id="formAll">
 
-		<div class="mainForm">
-		
+		<div class="mainForm">	
 			<div>
 				<label>사용일자</label>
 				<input id="searchDate" type="date">
@@ -30,13 +29,14 @@
 				<input type="text">
 			</div> -->
 		</div>
-	</div>
 		<div class="basicB top">
 			<button>찾기</button>
 			<button>정렬</button>
 			<button>재고 불러오기</button>
-			<button class="modalShow" style="margin-left: 900px;">모달 열기</button>
+			<button class="modalShow">모달 열기</button>
 		</div>
+	</div>
+
 </div> 
 
 <!-- main_contents_section 메인내용 들어갈 자리 끝 --> 

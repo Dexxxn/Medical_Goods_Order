@@ -47,9 +47,7 @@ hr {
 	border: 1px solid #034AA6;
 }
 
-.top{
-	margin-left: 280px;
-}
+
 
 .bottom{
 	position: fixed;
@@ -139,6 +137,6 @@ hr {
 
 .table-container{
 	width: 1000px;
- 	height: 570px;
+ 	height: 550px;
 	overflow-y: scroll;
 }
