@@ -10,19 +10,19 @@
 		
 			<div>
 				<label>사용일자</label>
-				<input type="date">
+				<input id="searchDate" type="date">
 			</div>
 				<div>
 				<label>진료과</label>
-				<input type="text">
+				<input id="dept" type="text">
 			</div>
 			<div>
 				<label>담당자</label>
-				<input type="text">
+				<input id="manager" type="text">
 			</div>
 			<div>
 				<label>특이사항</label>
-				<input type="text">
+				<input id="signi" type="text">
 			</div>
 <!-- 		이런식으로 div 추가/변경...
 			<div>
