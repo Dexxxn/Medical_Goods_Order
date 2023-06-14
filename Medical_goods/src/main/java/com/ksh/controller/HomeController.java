@@ -81,36 +81,34 @@ public class HomeController {
 		return "ph";
 	}
 
-	@RequestMapping(value = "/ph_detail", method = RequestMethod.GET)
-	public String ph1() {
-		return "ph1";
-	}
-	
-	
-	
+	/*
+	 * @RequestMapping(value = "/ph_detail", method = RequestMethod.GET) public
+	 * String ph1() { return "ph1"; }
+	 */
+
 	@RequestMapping(value = "/table", method = RequestMethod.GET)
 	public String table() {
 		return "table";
 	}
-	
+
 	@RequestMapping(value = "/table_only", method = RequestMethod.GET)
 	public String table_only() {
 		return "table_only";
 	}
-	
+
 	@RequestMapping(value = "/modal_alert", method = RequestMethod.GET)
 	public String modal_alert() {
 		return "modal_alert";
 	}
-	
+
 	@RequestMapping(value = "/useList", method = RequestMethod.GET)
 	public String useList() {
 		return "table_only";
 	}
 
-	//총무("발주계획서작성" 첫페이지로 이동)
-		@RequestMapping(value = "/purchasePlan", method = RequestMethod.GET)
-		public String orderPlanning() {
-			return "table";
-		}
+	// 총무("발주계획서작성" 첫페이지로 이동)
+	@RequestMapping(value = "/purchasePlan", method = RequestMethod.GET)
+	public String orderPlanning() {
+		return "table";
+	}
 }
