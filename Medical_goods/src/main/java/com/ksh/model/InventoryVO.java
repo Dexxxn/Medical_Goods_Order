@@ -12,6 +12,7 @@ public class InventoryVO {
 	private int quantity_used;
 	private int current_amount;
 	private int safe_stock_quantity;
+	private String significant;
 	
 	public String getDept() {
 		return dept;
@@ -79,12 +80,20 @@ public class InventoryVO {
 	public void setSafe_stock_quantity(int safe_stock_quantity) {
 		this.safe_stock_quantity = safe_stock_quantity;
 	}
+	public String getSignificant() {
+		return significant;
+	}
+	public void setSignificant(String significant) {
+		this.significant = significant;
+	}
+	
 	@Override
 	public String toString() {
 		return "InventoryVO [dept=" + dept + ", item_name=" + item_name + ", item_id=" + item_id + ", standard="
 				+ standard + ", unit=" + unit + ", date=" + date + ", enter_quantity=" + enter_quantity
 				+ ", available_stock=" + available_stock + ", quantity_used=" + quantity_used + ", current_amount="
-				+ current_amount + ", safe_stock_quantity=" + safe_stock_quantity + "]";
+				+ current_amount + ", safe_stock_quantity=" + safe_stock_quantity + ", significant=" + significant
+				+ "]";
 	}
 	
 }

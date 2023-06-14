@@ -47,6 +47,10 @@ hr {
 	border: 1px solid #034AA6;
 }
 
+.top{
+	margin-left: 280px;
+}
+
 .bottom{
 	position: fixed;
 	bottom: 0;

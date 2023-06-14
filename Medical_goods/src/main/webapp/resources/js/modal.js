@@ -62,7 +62,7 @@ function invenList(url) {
 
 }
 
-// 물품 사용 입력
+// 사용 입력 품목 리스트
 function useList(url) {
     // Ajax 요청 보내기
     $.ajax({
@@ -83,9 +83,13 @@ function useList(url) {
             str += "<td>" + data[i].item_id + "</td>";
             str += "<td>" + data[i].item_name + "</td>";
             str += "<td>" + data[i].unit + "</td>";
-            str += "<td>" + data[i].current_amount + "</td>";
+            str += "<td>" + data[i].quantity_used + "</td>";
+            str += "<td>" + data[i].significant + "</td>";
             str += "</tr>";
         }
+        
+        // thead에 열 추가
+        $(".table.only thead tr").append("<th>특이사항</th>");
         
         // tbody 값 대체
         $(".table.only tbody").html(str);

@@ -1,25 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ include file = "form.jsp" %>
 <%@ include file = "modal.jsp" %>
- 
+
+<form>
+<%@ include file = "form.jsp" %>
 <!-- checkbox가 없는 테이블 -->
 <div class="tableAll" id="onlyTable">
-	<div class="basicB top">
-		<button>찾기</button>
-		<button>정렬</button>
-		<button>재고 불러오기</button>
-		<button class="modalShow" style="margin-left: 900px;">모달 열기</button>
-	</div>
+
 	<div class="table-container">
 		<table class="table only" border="1">
 		    <thead>
 		        <tr>
-		            <th>물품 코드</th>
-		            <th>물품명</th>
+		            <th>의약품 코드</th>
+		            <th>의약품 명</th>
 		            <th>단위</th>
-		            <th>합계</th>
+		            <th>수량</th>
 		        </tr>
 		    </thead>
 		    <tbody>
@@ -49,6 +45,7 @@
 		<button>닫기</button>
 	</div>
 </div>
+</form>
 
 <script>
 	// 모달 열기
