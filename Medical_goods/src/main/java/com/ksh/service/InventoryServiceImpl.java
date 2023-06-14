@@ -13,7 +13,7 @@ public class InventoryServiceImpl implements InventoryService{
 
 	@Autowired
 	InventoryMapper im;
-	
+	 
 	public ArrayList<InventoryVO> select1(InventoryVO inven) {
 		return im.select1(inven);
 	}

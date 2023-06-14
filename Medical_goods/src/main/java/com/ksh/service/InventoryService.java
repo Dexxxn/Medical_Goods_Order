@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.ksh.model.InventoryVO;
 
-public interface InventoryService {
+public interface InventoryService { 
 	
 	// 전체 재고 현황
 	public ArrayList<InventoryVO> select1(InventoryVO inven);
