@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.ksh.mapper.OrdersMapper">
+
+	<!-- 진료부서별 ->> 발주요청 insert -->
+	<insert id="insertOrder" parameterType="java.util.List"> <!-- insertOrders 메소드를 이용해 리스트의 각 요소를 반복하여 쿼리를 실행하는 방식 -->  
+        <foreach collection="list" item="orders" separator=";">
+			INSERT INTO medical_goods_order.orders
+			VALUES(#{orders.dept}, #{orders.name}, #{orders.item_id}, #{orders.item_name},
+                   #{orders.supplier}, #{orders.standard}, #{orders.unit}, #{orders.unit_price},
+                   #{orders.order_quantity}, #{orders.supply_value}, #{orders.VAT},
+                   #{orders.Total_amount}, #{orders.significant}, #{orders.requestDate},
+                   #{orders.receiptDate}, null)
+			<!-- 부서 / 담당자 / 의약품코드 / 의약품명 / 공급업체 / 규격 / 단위(EA, BOX) / 단가 / 발주수량 / 공급가(단가*발주수량) / 부가세 / 1품목구매총액 / 의료품특이사항 / 요청일자 / 입고일자 / 총무과최종확인발주일자  -->	
+		 </foreach>
+    </insert>
+	<!-- insertOrders 쿼리 내부에 <foreach> 태그를 사용하여 리스트의 각 요소를 반복하여 쿼리를 실행합니다. collection="list"는 전달받은 리스트를 가리키는 것을 의미하며, item="orders"는 각 요소를 가리키는 변수 이름입니다. separator=";"는 각 쿼리를 구분하기 위해 사용되는 구분자입니다.
+
+이제 OrdersServiceImpl에서 om.insertOrders(ordersList)로 호출하면, 리스트의 각 요소를 반복하여 쿼리가 실행되어 데이터베이스에 한 번에 여러 개의 행이 삽입됩니다.  -->
+		
+	<!-- 총무과  <<- 발주요청 select -->	
+	 <!-- orders 테이블에서 모든 데이터를 가져오는 쿼리 -->
+    <select id="getAllOrders" resultType="com.ksh.model.OrdersVO">
+        SELECT * FROM medical_goods_order.orders
+        WHERE ;
+    </select>
+    
+</mapper>

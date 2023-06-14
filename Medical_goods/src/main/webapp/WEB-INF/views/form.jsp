@@ -2,9 +2,12 @@
     pageEncoding="UTF-8"%>
 
 <div id="main_contents_section"> <!-- 메인내용 들어갈 자리 시작 -->
+	<div id="page_title_section"><p id="title_name"></p></div>
+	
 	<div id="formAll">
-		<form>
+
 		<div class="mainForm">
+		
 			<div>
 				<label>사용일자</label>
 				<input type="date">
@@ -27,9 +30,16 @@
 				<input type="text">
 			</div> -->
 		</div>
-		</form>
 	</div>
-</div> <!-- main_contents_section 메인내용 들어갈 자리 끝 --> 
+		<div class="basicB top">
+			<button>찾기</button>
+			<button>정렬</button>
+			<button>재고 불러오기</button>
+			<button class="modalShow" style="margin-left: 900px;">모달 열기</button>
+		</div>
+</div> 
+
+<!-- main_contents_section 메인내용 들어갈 자리 끝 --> 
 
 <!--     
     <div id="main_contents_section"> 메인내용 들어갈 자리 시작
@@ -70,4 +80,9 @@
 
 <div id="chart_show"></div>
  -->
-	
+
+<style>
+ #page_title_section{margin:0 0 10px 290px; background-color:#f5f5f5; width:150px; height:25px; text-align:center;}
+ #title_name{font-size: 16px; font-weight:bold; line-height: 1.5;}
+</style>
+

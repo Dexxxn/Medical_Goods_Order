@@ -1,13 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-		
+	
+	<form>
+	<%@ include file = "form.jsp" %>
 	<div class="tableAll" id="CheckboxTable">
-		<div class="basicB top">
-			<button>찾기</button>
-			<button>정렬</button>
-			<button>재고 불러오기</button>
-			<button class="modalShow" style="margin-left: 900px;">모달 열기</button>
-		</div>
 		<div class="table-container">
 			<table class="table checkbox" id="publicTable" border="1">
 			    <thead>
@@ -55,9 +51,10 @@
 		</div>
 		<br><br>
 	</div>
-			
+</form>			
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/resources/js/order.js" type="text/javascript"></script> <!-- form.jsp 내용 변경 -->
 <script>
 
 	//checkbox 전체 선택 기능
@@ -100,4 +97,43 @@
 	        }
 	    });
 	}); */
-</script>	
+</script>	<!--     
+    <div id="main_contents_section"> 메인내용 들어갈 자리 시작
+		
+		<div id="mainframe">
+			<div class="posit">
+			<div class="connect">
+				<label class="label_margin">일자</label><input type="date" class="date_width" id="dateMargin">
+			</div>
+			<div class="connect">
+				<label class="label_margin">희망입고일자</label><input type="date" class="date_width">
+			</div>
+				
+				<div class="connect"><label class="label_margin">입고받을 진료과</label>
+					<select class="sel_h">
+						<option>선택</option>
+						<option>수술실</option>
+						<option>처치실</option>
+						<option>병동 A</option>
+						<option>병동 B</option>
+						<option>병동 C</option>
+					</select><input type="text" class="in_width" placeholder="병동A" readonly>
+				</div>
+				<div class="connect">
+				<label class="label_margin">발주담당자</label>
+					<select class="sel_h">
+						<option>선택</option>
+						<option>정기원</option>
+						<option>이성언</option>
+						<option>장희영</option>
+					</select><input type="text" class="in_width" placeholder="김민수" readonly>
+				</div>
+			</div>
+			
+		</div>mainframe 
+		
+	</div>main_contents_section 메인내용 들어갈 자리 끝 
+
+<div id="chart_show"></div>
+ -->
+	
