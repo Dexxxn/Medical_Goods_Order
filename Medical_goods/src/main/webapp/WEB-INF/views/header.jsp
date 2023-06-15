@@ -543,7 +543,8 @@
 						                        // Update the content of the chartContent element with the response from purchase.jsp
 						                        $("#mainContents").html(data);
 						                    	// 응답으로 받은 데이터로 page_title_section의 p태그의 innerHTML 업데이트
-						                        $("#title_name").html("발주계획서");
+						                        $("#form2_title_name").html("발주계획서");
+						                        $("#main_contents_section").remove();
 						                    },
 						                    error: function(xhr, status, error) {
 						                        alert("An error occurred while loading the page. Error: " + error);

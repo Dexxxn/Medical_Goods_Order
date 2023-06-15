@@ -1,5 +1,6 @@
 package com.ksh.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ksh.mapper.OrdersMapper;
+import com.ksh.model.InventoryVO;
 import com.ksh.model.OrdersVO;
 
 @Service
@@ -25,8 +27,12 @@ public class OrdersServiceImpl implements OrdersService{
     
     
  // 총무과  <<- 발주요청 select 
-    @Override
+   /* @Override
     public List<OrdersVO> getAllOrders() {
         return om.getAllOrders();
-    }
+    }*/
+    
+    public ArrayList<OrdersVO> requestList(OrdersVO orders) {
+		return om.requestList(orders);
+	}
 }

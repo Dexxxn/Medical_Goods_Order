@@ -3,12 +3,13 @@
 	
 	<form id="oo">
 	<%@ include file = "form.jsp" %>
+	<%@ include file = "form2.jsp" %>
 	<div class="tableAll" id="CheckboxTable">
 		<div class="table-container">
 			<table class="table checkbox" id="publicTable" border="1">
 			    <thead>
 			        <tr>
-			            <th><input type="checkbox" name="checkbox" name="checkbox" onclick="selectAll(this)"></th>
+			            <th><input type="checkbox" name="checkbox" onclick="selectAll(this)"></th>
 			            <th>의약품 코드</th>
 			            <th>의약품 명</th>
 			            <th>규격</th>

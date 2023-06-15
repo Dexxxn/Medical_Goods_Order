@@ -24,9 +24,15 @@
 		
 	<!-- 총무과  <<- 발주요청 select -->	
 	 <!-- orders 테이블에서 모든 데이터를 가져오는 쿼리 -->
-    <select id="getAllOrders" resultType="com.ksh.model.OrdersVO">
+    <!-- <select id="getAllOrders" resultType="com.ksh.model.OrdersVO">
         SELECT * FROM medical_goods_order.orders
         WHERE ;
+    </select> -->
+    
+    <select id="requestList" resultType="com.ksh.model.OrdersVO">
+        SELECT item_id, item_name, supplier, standard, unit,unit_price, order_quantity, supply_value, VAT, Total_amount, significant
+        FROM medical_goods_order.orders;
+        <!-- WHERE ; -->
     </select>
     
 </mapper>

@@ -3,10 +3,12 @@ package com.ksh.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 
 import com.ksh.model.OrdersVO;
 import com.ksh.service.OrdersService;
@@ -29,13 +31,19 @@ public class OrdersController {
     }
 	
 	// 총무과  <<- 발주요청 select여러건<List> 
-    @RequestMapping(value = "/get_orders", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/get_orders", method = RequestMethod.GET)
     public String getOrders(Model model) {
         List<OrdersVO> ordersList = os.getAllOrders();
         System.out.println("ordersList=" + ordersList);
         model.addAttribute("ordersList", ordersList);
         return "orders"; //~.jsp
-    }
+    }*/
+    
+    @RequestMapping(value = "/purchasePlan", method = RequestMethod.POST)
+	public ResponseEntity<?> requestList(OrdersVO orders) {
+		System.out.println(os.requestList(orders));
+		return new ResponseEntity<>(os.requestList(orders), HttpStatus.OK);
+	}
 	
 	
 }

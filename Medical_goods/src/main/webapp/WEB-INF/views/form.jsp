@@ -43,6 +43,6 @@
 <style>
 /* 페이지 제목 */
  #page_title_section{margin:0 0 10px 290px; background-color:#f5f5f5; width:150px; height:25px; text-align:center;}
- #title_name{font-size: 16px; font-weight:bold; line-height: 1.5;}
+ #title_name{font-size: 16px; font-weight:bold; line-height: 1.5; text-align: center;}
 </style>
 
