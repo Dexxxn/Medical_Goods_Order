@@ -1,20 +1,3 @@
-// 모달 열기
-$(document).ready(function() {
-	$(".modalShow").click(function() {
-		$(".modal1").show();
-		$(".modal-overlay").show();
-	});
-});
-
-// 모달 닫기
-$(document).ready(function() {
-	// x 아이콘 클릭 시 모달 닫기
-	$(".closeB").click(function() {
-		$(".modal1").hide();
-		$(".modal-overlay").hide();
-	});
-});
-
 // 재고 현황 리스트
 function invenList(url) {
     // Ajax 요청 보내기
@@ -26,7 +9,8 @@ function invenList(url) {
         cache: false
     }).done(function(data) {
         // Contents 영역 삭제
-
+    	$("#formAll").remove();
+    	
         // Contents 영역 교체
         console.log(data)
         var str = "";
@@ -75,6 +59,23 @@ function useList(url) {
         // Contents 영역 삭제
 
         // Contents 영역 교체
+    	$(".basicB.top").append("<input type='button' class='modalShow' value='등록'>");
+    	// 모달 열기
+    	$(document).ready(function() {
+    		$(".modalShow").click(function() {
+    			$(".modal1").show();
+    			$(".modal-overlay").show();
+    		});
+    	});
+    	// 모달 닫기
+    	$(document).ready(function() {
+    		// x 아이콘 클릭 시 모달 닫기
+    		$(".closeB").click(function() {
+    			$(".modal1").hide();
+    			$(".modal-overlay").hide();
+    		});
+    	});
+    	
         //console.log(data)
         var str = "";
         

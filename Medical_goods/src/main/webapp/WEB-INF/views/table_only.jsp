@@ -40,6 +40,7 @@
 		    </tbody>
 		</table>
 	</div>	
+	<hr>
 	<div class="basicB">
 		<button class="pointB">전체 적용</button>
 		<button>닫기</button>
