@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	
-	<form id="oo">
+<form id="oo">
 	<%@ include file = "form.jsp" %>
 	<%@ include file = "form2.jsp" %>
 	<div class="tableAll" id="CheckboxTable">

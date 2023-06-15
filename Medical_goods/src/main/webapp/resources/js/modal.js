@@ -59,10 +59,26 @@ function useList(url) {
         // Contents 영역 삭제
 
         // Contents 영역 교체
-    	$(".basicB.top").append("<input type='button' class='modalShow' value='등록'>");
-    	// 모달 열기
+    	$(".basicB.top").append("<input type='button' id='modalOpen' value='등록'>");
+        // 모달 창 열기
+        $(document).on("click", "#modalOpen", function() {
+            // 비동기식으로 모달 페이지를 불러와서 열기
+            $.ajax({
+                url: "/modal",
+                async: true,
+                cache: false
+            }).done(function(modalContent) {
+                // 모달 페이지를 추가한 후 열기
+                $("body").append(modalContent);
+                $(".modal1").modal("show");
+                $(".modal-overlay").modal("show");
+                // 삭제
+                $("#oo").remove();
+            });
+        });
+/*    	// 모달 열기
     	$(document).ready(function() {
-    		$(".modalShow").click(function() {
+    		$("#modal").click(function() {
     			$(".modal1").show();
     			$(".modal-overlay").show();
     		});
@@ -74,7 +90,7 @@ function useList(url) {
     			$(".modal1").hide();
     			$(".modal-overlay").hide();
     		});
-    	});
+    	});*/
     	
         //console.log(data)
         var str = "";

@@ -102,6 +102,17 @@ hr {
 	border-left: 1px solid #034AA6;
 }
 
+.main #main_contents_section, .main #page_title_section, .main #formAll, .main .tableAll{
+	margin: 0px;
+} 
+
+.main .table-container{
+	width: 740px;
+ 	height: 320px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
 .table{
 	width: 99%;
 	margin: 4px;
