@@ -106,9 +106,9 @@ public class HomeController {
 		return "table_only";
 	}
 
-	// 총무("발주계획서작성" 첫페이지로 이동)
-	@RequestMapping(value = "/purchasePlan", method = RequestMethod.GET)
-	public String orderPlanning() {
-		return "table";
-	}
+	//총무("발주계획서작성" 첫페이지로 이동)
+			@RequestMapping(value = "/purchasePlan", method = RequestMethod.GET)
+			public String orderPlanning() {
+				return "table"; 
+			}
 }

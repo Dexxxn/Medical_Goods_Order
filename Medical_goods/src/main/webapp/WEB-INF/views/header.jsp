@@ -152,7 +152,7 @@
                         	<span class="detailPage_nav" id="" >발주요청서-희,읽</span> <!--  data-href="/purchase-request"  -->
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
-                        	<span class="detailPage_nav" id="purchase_planning">발주계획서 작성</span>
+                        	<span class="detailPage_nav" id="purchase_planning" onclick="requestList('/purchasePlan')">발주계획서 작성</span>
                  <span class="detailPage_nav" id="purchase_order">발주내역서 조회</span>
                         	<span class="detailPage_nav" id="purHisPageButton">구매이력 조회</span>
                         </li>
@@ -482,6 +482,59 @@
 						            }	
 						            
 						            //발주계획서 작성(총무) 페이지 연결
+						          /*   function purchasePlanPageOpen() {
+						                $.ajax({
+						                    url: "/purchasePlan", // URL of the purchase.jsp page
+						                    type: "GET",
+						                    success: function(data) {
+						                        // Update the content of the chartContent element with the response from purchase.jsp
+						                        $("#mainContents").html(data);
+						                    	// 응답으로 받은 데이터로 page_title_section의 p태그의 innerHTML 업데이트
+						                        $("#title_name").html("발주계획서");
+						                    	
+						                      	// form.jsp의 내용을 가져옴
+						                        var modifiedContent = modifyFormContent(data);
+						                        
+						                        // Update the content of the formAll element with the modified content
+						                       // $("#form_wrap").html(modifiedContent);
+						                        
+						                        // Clear the existing content of form_wrap
+            									$("#oo").empty();
+            
+									            // Append the modified content to form_wrap
+									            $("#form_wrap").append(modifiedContent);
+						                        
+						                     // form.jsp의 내용을 수정하는 함수
+						                        function modifyFormContent(content) {
+						                            // content를 필요에 따라 수정
+						                            // 예시: <label> 내용 변경
+						                            content = content.replace("<label>사용일자</label>", "<label>일자</label>");
+						                            content = content.replace("<label>특이사항</label>", "<label>희망 입고일자</label>");
+						                            content = content.replace("<label>담당자</label>", "<label>발주 담당자</label>");
+						                            content = content.replace("<label>진료과</label>", "<label>입고받을 진료과</label>");
+						                            
+						                            // 예시: <input> type 속성 변경
+						                            content = content.replace('<input id="searchDate" type="date">', '<input id="searchDate" type="date">');
+						                            content = content.replace('<input id="dept" type="text">', '<input id="dept" type="select">');
+						                            content = content.replace('<input id="manager" type="text">', '<input id="manager" type="select">');
+						                            content = content.replace('<input id="signi" type="text">', '<input id="signi" type="date">');
+						                            
+						                            // 수정된 내용 반환
+						                            return content;
+						                        } 
+						                     
+						                     
+						                     
+						                    },
+						                    error: function(xhr, status, error) {
+						                        alert("페이지 로드 중 오류 발생. Error: " + error);
+						                        console.log("XHR status: " + status);
+						                        console.log("Error details: " + error);
+						                    }
+						                });
+						            }					 */	            
+						            
+						          //발주계획서 작성(총무) 페이지 연결
 						            function purchasePlanPageOpen() {
 						                $.ajax({
 						                    url: "/purchasePlan", // URL of the purchase.jsp page
@@ -498,9 +551,7 @@
 						                        console.log("Error details: " + error);
 						                    }
 						                });
-						            }						            
-						            
-						            
+						            }	
 						            
 						            // Attach the click event handler to the purchase_order element
 						           
