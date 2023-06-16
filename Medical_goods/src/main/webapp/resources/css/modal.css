@@ -140,3 +140,8 @@ hr {
  	height: 540px;
 	overflow-y: scroll;
 }
+
+.table input{
+	width: 40px;
+	text-align: right;
+}
