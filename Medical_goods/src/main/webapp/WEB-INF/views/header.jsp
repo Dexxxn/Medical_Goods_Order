@@ -52,7 +52,7 @@
 	<script src="/resources/js/chart.js" type="text/javascript"></script>
 <!-- 	<script src="/resources/js/ph.js" type="text/javascript"></script>  ph.jsp 상단에 표기 -->
 	<!-- 발주계획서 작성 js -->
-	<script src="/resources/js/order.js" type="text/javascript"></script>
+	 <script src="/resources/js/order.js" type="text/javascript"></script>
 
 </head>
 
@@ -152,7 +152,7 @@
                         	<span class="detailPage_nav" id="" >발주요청서-희,읽</span> <!--  data-href="/purchase-request"  -->
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
-                        	<span class="detailPage_nav" id="purchase_planning" onclick="requestList('/purchasePlan')">발주계획서 작성</span>
+                        	<span class="detailPage_nav" id="purchase_planning" >발주계획서 작성</span> <!-- onclick="requestList('/purchasePlan')" -->
                  <span class="detailPage_nav" id="purchase_order">발주내역서 조회</span>
                         	<span class="detailPage_nav" id="purHisPageButton">구매이력 조회</span>
                         </li>
@@ -544,7 +544,31 @@
 						                        $("#mainContents").html(data);
 						                    	// 응답으로 받은 데이터로 page_title_section의 p태그의 innerHTML 업데이트
 						                        $("#form2_title_name").html("발주계획서");
-						                        $("#main_contents_section").remove();
+						                        $("#main_contents_section").remove(); //form.jsp 삭제
+						                        
+						                        $("#publicTable thead").remove();
+						                        
+						                        var headerData = [
+						                        	  "의약품 코드", "의약품명", "구매처명", "규격", "단위", "단가", "발주수량", "공급가액", "부가세", "품목 총액",
+						                        	  "의약품별 요청 / 특이사항"
+						                        	];
+						                        
+						                     // 동적으로 thead의 열 추가
+						                        var $theadRow = $("<tr></tr>");
+						                        $theadRow.append("<th><input type='checkbox' name='checkbox' onclick='selectAll(this)'></th>");
+						                        for (var x = 0; x < headerData.length; x++) {
+						                          $theadRow.append("<th>" + headerData[x] + "</th>");
+						                        }
+						                        
+						                     // thead 추가
+						                        $("#publicTable").prepend("<thead></thead>");
+						                        $("#publicTable thead").append($theadRow);
+
+						                        $(".table-container").css({
+						                        	width: '1400px'
+						                        });  
+						                        
+						                    //});
 						                    },
 						                    error: function(xhr, status, error) {
 						                        alert("An error occurred while loading the page. Error: " + error);

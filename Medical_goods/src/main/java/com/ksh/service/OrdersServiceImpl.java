@@ -35,4 +35,9 @@ public class OrdersServiceImpl implements OrdersService{
     public ArrayList<OrdersVO> requestList(OrdersVO orders) {
 		return om.requestList(orders);
 	}
+    
+    //모달열기
+    public ArrayList<OrdersVO> getDataList(OrdersVO orders){
+    	return om.getDataList(orders);
+    }
 }

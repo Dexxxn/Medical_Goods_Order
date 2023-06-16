@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	
-<form id="oo">
+	<form id="oo">
+	<div class="form_container">
 	<%@ include file = "form.jsp" %>
+	</div>
 	<%@ include file = "form2.jsp" %>
 	<div class="tableAll" id="CheckboxTable">
 		<div class="table-container">
@@ -18,7 +20,8 @@
 			        </tr>
 			    </thead>
 			    <tbody>
-			        <tr>
+			     <tr><td colspan='12'>조회내역 없음</td></tr>
+<!-- 			        <tr>
 			            <td><input type="checkbox" name="checkbox"></td>
 			            <td>00001</td>
 			            <td>Prohaskdfafsdfsdfafa</td>
@@ -41,7 +44,7 @@
 			            <td>1box</td>
 			            <td>30</td>
 			            <td>유통기한 확인 요망</td>
-			        </tr>
+			        </tr> -->
 			    </tbody>
 			</table>
 		</div>
@@ -67,4 +70,22 @@
 		checkbox.checked = selectAll.checked;
 		})
 	};
+	
+	// 모달 열기
+	$(document).ready(function() {
+		$(".modalShow").click(function() {
+			$(".modal1").show();
+			$(".modal-overlay").show();
+		});
+	});
+	
+	// 모달 닫기
+	$(document).ready(function() {
+		// x 아이콘 클릭 시 모달 닫기
+		$(".closeB").click(function() {
+			$(".modal1").hide();
+			$(".modal-overlay").hide();
+		});
+	});
+
 </script>	

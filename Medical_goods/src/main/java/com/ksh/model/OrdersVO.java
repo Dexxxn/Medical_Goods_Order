@@ -11,14 +11,12 @@ public class OrdersVO {
 	private int unit_price; //단가
 	private int order_quantity; //발주수량
 	private int supply_value; //공급가액(면세금액)("단가 * 발주수량")
-	private int VAT; //부가세
-	private int Total_amount; //(1품목구매)총액
+	private int vat; //부가세
+	private int total_amount; //(1품목구매)총액
 	private String significant; //특이사항- "안전재고수 기준은 충족하였으나, 재고 불충분으로 발주 必"
 	private String requestDate; //발주요청일자
 	private String receiptDate; //입고일자
 	private String confirm; //총무과 최종확인발주일(date)
-	
-	
 	public String getDept() {
 		return dept;
 	}
@@ -79,17 +77,17 @@ public class OrdersVO {
 	public void setSupply_value(int supply_value) {
 		this.supply_value = supply_value;
 	}
-	public int getVAT() {
-		return VAT;
+	public int getVat() {
+		return vat;
 	}
-	public void setVAT(int vAT) {
-		VAT = vAT;
+	public void setVat(int vat) {
+		this.vat = vat;
 	}
 	public int getTotal_amount() {
-		return Total_amount;
+		return total_amount;
 	}
 	public void setTotal_amount(int total_amount) {
-		Total_amount = total_amount;
+		this.total_amount = total_amount;
 	}
 	public String getSignificant() {
 		return significant;
@@ -115,13 +113,15 @@ public class OrdersVO {
 	public void setConfirm(String confirm) {
 		this.confirm = confirm;
 	}
-	
 	@Override
 	public String toString() {
 		return "OrdersVO [dept=" + dept + ", name=" + name + ", item_id=" + item_id + ", item_name=" + item_name
 				+ ", supplier=" + supplier + ", standard=" + standard + ", unit=" + unit + ", unit_price=" + unit_price
-				+ ", order_quantity=" + order_quantity + ", supply_value=" + supply_value + ", VAT=" + VAT
-				+ ", Total_amount=" + Total_amount + ", significant=" + significant + ", requestDate=" + requestDate
+				+ ", order_quantity=" + order_quantity + ", supply_value=" + supply_value + ", vat=" + vat
+				+ ", total_amount=" + total_amount + ", significant=" + significant + ", requestDate=" + requestDate
 				+ ", receiptDate=" + receiptDate + ", confirm=" + confirm + "]";
 	}
+	
+	
+	
 }

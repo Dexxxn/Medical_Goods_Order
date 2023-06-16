@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 
-<form>
+<form id="table_only_form">
 <%@ include file = "form.jsp" %>
 <!-- checkbox가 없는 테이블 -->
 <div class="tableAll" id="onlyTable">

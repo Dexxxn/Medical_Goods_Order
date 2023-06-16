@@ -12,8 +12,8 @@
 			INSERT INTO medical_goods_order.orders
 			VALUES(#{orders.dept}, #{orders.name}, #{orders.item_id}, #{orders.item_name},
                    #{orders.supplier}, #{orders.standard}, #{orders.unit}, #{orders.unit_price},
-                   #{orders.order_quantity}, #{orders.supply_value}, #{orders.VAT},
-                   #{orders.Total_amount}, #{orders.significant}, #{orders.requestDate},
+                   #{orders.order_quantity}, #{orders.supply_value}, #{orders.vat},
+                   #{orders.total_amount}, #{orders.significant}, #{orders.requestDate},
                    #{orders.receiptDate}, null)
 			<!-- 부서 / 담당자 / 의약품코드 / 의약품명 / 공급업체 / 규격 / 단위(EA, BOX) / 단가 / 발주수량 / 공급가(단가*발주수량) / 부가세 / 1품목구매총액 / 의료품특이사항 / 요청일자 / 입고일자 / 총무과최종확인발주일자  -->	
 		 </foreach>
@@ -29,10 +29,19 @@
         WHERE ;
     </select> -->
     
+    
     <select id="requestList" resultType="com.ksh.model.OrdersVO">
-        SELECT item_id, item_name, supplier, standard, unit,unit_price, order_quantity, supply_value, VAT, Total_amount, significant
-        FROM medical_goods_order.orders;
-        <!-- WHERE ; -->
+        SELECT item_id, item_name, supplier, standard, unit,unit_price, order_quantity, supply_value, vat, total_amount, significant,name
+        FROM medical_goods_order.orders
+        WHERE dept= #{dept}
+        AND requestDate= #{requestDate}
+    </select>
+    
+    <!-- 모달 열기 -->
+    <select id="getDataList" resultType="com.ksh.model.OrdersVO">
+        SELECT requestDate,dept, name, supplier, item_name, receiptDate
+        FROM medical_goods_order.orders
+        
     </select>
     
 </mapper>

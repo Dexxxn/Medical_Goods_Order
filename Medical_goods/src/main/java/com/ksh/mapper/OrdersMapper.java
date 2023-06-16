@@ -12,4 +12,7 @@ public interface OrdersMapper {
 	// orders 테이블에서 모든 데이터를 가져오는 메서드
    // public List<OrdersVO> getAllOrders();
 	public ArrayList<OrdersVO> requestList(OrdersVO orders);
+	
+	//모달열기
+	public ArrayList<OrdersVO> getDataList(OrdersVO orders);
 }
