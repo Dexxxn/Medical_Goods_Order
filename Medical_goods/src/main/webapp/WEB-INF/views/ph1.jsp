@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="resources/js/ph.js" type="text/javascript"></script> 
  <%@ include file = "header.jsp" %> 
 <div class="page-wrapper">
 	<div class="ph1-1" style="padding:70px 25px">
@@ -53,6 +54,11 @@
     });
     var formattedTotalAmount = totalAmount.toLocaleString(); // 숫자를 천 단위마다 쉼표(,)로 구분하여 포맷팅
     document.getElementById("totalAmount").innerText = "총액: " + formattedTotalAmount + "원";
+    
+    var urlParams = new URLSearchParams(window.location.search);
+    var selectedName = urlParams.get("name");
+    var selectedDate = urlParams.get("date");
+    $("#purchaseDate").text(selectedName + "님 구매이력 (" + selectedDate + ")");
 </script>
 <style>
 td{padding:15px 66px;text-align:center;}

@@ -1,6 +1,7 @@
 package com.ksh.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,4 +36,17 @@ public class InventoryServiceImpl implements InventoryService {
 	public ArrayList<InventoryVO> getInventoryList() {
 		return im.getInventoryList();
 	}
+
+	public List<InventoryVO> si(String supplier, String name, String date) {
+		List<InventoryVO> inventoryList1 = im.si(supplier, name, date);
+		System.out.println(inventoryList1);
+
+		return inventoryList1;
+	}
+
+	@Override
+	public List<InventoryVO> getInventoryList1() {
+		return im.getInventoryList1();
+	}
+
 }

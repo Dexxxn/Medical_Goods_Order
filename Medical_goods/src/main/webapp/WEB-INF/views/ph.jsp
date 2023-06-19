@@ -48,4 +48,4 @@ td{padding:10px 20px}
 .btn{padding:5px 20px}
 .ph-3{padding-top:30px}
 </style>
-<%-- <%@ include file = "footer.jsp" %> --%>
+ <%-- <%@ include file = "footer.jsp" %>  --%>

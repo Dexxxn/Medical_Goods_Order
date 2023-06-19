@@ -19,7 +19,7 @@
         WHERE date = (SELECT MAX(date) FROM medical_goods_order.inventory)
 	</select>
 	
-	<resultMap id="phReusltMap" type="com.ksh.model.InventoryVO">
+	<resultMap id="phResultMap" type="com.ksh.model.InventoryVO">
         <result property="dept" column="dept" />
         <result property="item_name" column="item_name" />
         <result property="item_id" column="item_id" />
@@ -49,7 +49,7 @@
         </association>
     </resultMap>
 
-    <select id="ph" parameterType="java.util.Map" resultMap="phReusltMap">
+    <select id="ph" parameterType="java.util.Map" resultMap="phResultMap">
 	    SELECT i.*, iv.*
 	    FROM Medical_Goods_Order.inventory iv
 	    JOIN Medical_Goods_Order.items i ON iv.item_id = i.item_id
@@ -58,9 +58,52 @@
 	    AND iv.date = #{date}
 	</select>
     
-   <select id="getInventoryList" resultMap="phReusltMap">
+   <select id="getInventoryList" resultMap="phResultMap">
 	    SELECT iv.dept, iv.item_name, iv.item_id, iv.standard, iv.unit, iv.date, iv.name, iv.enter_quantity, iv.available_stock, iv.quantity_used, iv.current_amount, iv.safe_stock_quantity
 	    FROM Medical_Goods_Order.inventory iv
 	    JOIN Medical_Goods_Order.items i ON iv.item_id = i.item_id
+	</select>
+	<resultMap id="tsResultMap" type="com.ksh.model.InventoryVO">
+        <result property="dept" column="dept" />
+        <result property="item_name" column="item_name" />
+        <result property="item_id" column="item_id" />
+        <result property="standard" column="standard" />
+        <result property="unit" column="unit" />
+        <result property="date" column="date" />
+        <result property="name" column="name" />
+        <result property="enter_quantity" column="enter_quantity" />
+        <result property="available_stock" column="available_stock" />
+        <result property="quantity_used" column="quantity_used" />
+        <result property="current_amount" column="current_amount" />
+        <result property="safe_stock_quantity" column="safe_stock_quantity" />
+
+        <association property="items" javaType="com.ksh.model.itemsVO">
+            <result property="item_name" column="item_name" />
+            <result property="item_id" column="item_id" />
+            <result property="standard" column="standard" />
+            <result property="unit" column="unit" />
+            <result property="item_description" column="item_description" />
+            <result property="category" column="category" />
+            <result property="supplier" column="supplier" />
+            <result property="TEL" column="TEL" />
+            <result property="CRN" column="CRN" />
+            <result property="address" column="address" />
+            <result property="unit_price" column="unit_price" />
+            <result property="minimum_purchase_quantity" column="minimum_purchase_quantity" />
+        </association>
+    </resultMap>
+	<select id="si" parameterType="java.util.Map" resultMap="tsResultMap">
+    SELECT i.*, iv.*
+    FROM medical_goods_order.inventory iv
+    JOIN medical_goods_order.items i ON iv.item_id = i.item_id
+    WHERE i.supplier = #{supplier}
+    AND iv.name = #{name}
+    AND iv.date = #{date} 
+</select>
+	
+	<select id="getInventoryList1" resultMap="tsResultMap">
+	SELECT iv.dept, iv.item_name, iv.item_id, iv.standard, iv.unit, iv.date, iv.name, iv.enter_quantity, iv.available_stock, iv.quantity_used, iv.current_amount, iv.safe_stock_quantity
+	FROM medical_goods_order.inventory iv
+	JOIN medical_goods_order.items i ON iv.item_id = i.item_id
 	</select>
 </mapper>

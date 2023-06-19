@@ -1,6 +1,7 @@
 package com.ksh.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -58,6 +59,18 @@ public class InventoryController {
 		model.addAttribute("inventoryList", inventoryList);
 
 		return "ph1";
+	}
+
+	@RequestMapping(value = "/ts", method = RequestMethod.GET)
+	public String sTS(Model model, @RequestParam("supplier") String supplier, @RequestParam("name") String name,
+			@RequestParam("date") String date
+
+	) {
+
+		List<InventoryVO> inventoryList1 = is.si(supplier, name, date);
+		model.addAttribute("inventoryList1", inventoryList1);
+
+		return "ts";
 	}
 
 	/*

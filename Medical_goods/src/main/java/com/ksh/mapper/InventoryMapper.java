@@ -1,6 +1,7 @@
 package com.ksh.mapper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -15,4 +16,8 @@ public interface InventoryMapper {
 	ArrayList<InventoryVO> ph(@Param("dept") String dept, @Param("name") String name, @Param("date") String date);
 
 	ArrayList<InventoryVO> getInventoryList();
+
+	List<InventoryVO> si(@Param("supplier") String supplier, @Param("name") String name, @Param("date") String date);
+
+	List<InventoryVO> getInventoryList1();
 }

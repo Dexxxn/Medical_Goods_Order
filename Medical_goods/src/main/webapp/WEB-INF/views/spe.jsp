@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!-- 헤더 inclue 하면 안됨!!!  -->    
 <%-- <%@ include file = "header.jsp" %> --%>
-
+<script src="resources/js/ts.js" type="text/javascript"></script>
 <div class="page-wrapper">
 
 	<div class="container-a" style="padding: 70px 25px; ">
@@ -17,35 +17,26 @@
 				<table>
 					<tr><td class="tb-top"style="font-size:25px; color:#035AA6">Trading statement</td></tr>
 					<tr>
-						<td style="color:#035AA6">검색 일자</td>
-						<td><input class="date" type="date" name="startday" style="background-color:#f6f9fa"></td>												
-					</tr>
-					<tr>
-						<td style="color:#035AA6">물품코드</td>
-						<td><input type="text" style="background-color:#f6f9fa"></td>						
-					</tr>
-					<tr>
-						<td style="color:#035AA6">물품명</td>
-						<td><input type="text" style="background-color:#f6f9fa"></td>						
+						<td style="color:#035AA6">업체명</td>
+						<td><select id="supplierSelect" style="background-color:#f6f9fa" name="supplier">
+							  <option>선택</option>
+							  <option value="크리스탈지노믹스(주)">크리스탈지노믹스(주)</option>
+							  <option value="(주)인트로바이오파마">(주)인트로바이오파마</option>							  
+							</select></td>										
 					</tr>
 					<tr>
 						<td style="color:#035AA6">담당자</td>
-						<td><input type="text" style="background-color:#f6f9fa"></td>						
-					</tr>
+						<td><input type="text" id="select_name" style="background-color:#f6f9fa" name="name"></td>						
+					</tr>	
 					<tr>
-						<td style="color:#035AA6">카테고리</td>
-						<td><select id="categorySelect" style="background-color:#f6f9fa">
-							  <option value="all">전체</option>
-							  <option value="injection">주사</option>
-							  <option value="internal">내복</option>
-							  <option value="external">외용</option>
-							</select></td>										
-					</tr>
+						<td style="color:#035AA6">검색 일자</td>
+						<td><input class="date" type="date" name="startday" style="background-color:#f6f9fa"></td>												
+					</tr>				
 				</table>
 				
 			</div>
 			<div class="spe-1">
-		<a href="/ts">	<button class="btn" id="searchButton">검색</button></a> 			
+		<a href="#" id=searchLink1>	<button class="btn" id="searchButton">검색</button></a> 			
 		
 			</div>
 		</div>

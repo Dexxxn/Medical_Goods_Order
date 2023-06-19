@@ -1,6 +1,7 @@
 package com.ksh.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.ksh.model.InventoryVO;
 
@@ -15,4 +16,8 @@ public interface InventoryService {
 	public ArrayList<InventoryVO> ph(String dept, String name, String date);
 
 	ArrayList<InventoryVO> getInventoryList();
+
+	List<InventoryVO> si(String supplier, String name, String date);
+
+	List<InventoryVO> getInventoryList1();
 }
