@@ -31,10 +31,11 @@
     
     
     <select id="requestList" resultType="com.ksh.model.OrdersVO">
-        SELECT item_id, item_name, supplier, standard, unit,unit_price, order_quantity, supply_value, vat, total_amount, significant,name
+        SELECT item_id, item_name, supplier, standard, unit,unit_price, order_quantity, supply_value, vat, total_amount, significant, name, receiptDate
         FROM medical_goods_order.orders
         WHERE dept= #{dept}
         AND requestDate= #{requestDate}
+        Order By supplier;
     </select>
     
     <!-- 모달 열기 -->

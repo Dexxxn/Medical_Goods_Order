@@ -11,7 +11,7 @@
 			<table class="table checkbox" id="publicTable" border="1">
 			    <thead>
 			        <tr>
-			            <th><input type="checkbox" name="checkbox" onclick="selectAll(this)"></th>
+			            <th><input type="checkbox" name="checkbox" id="selectAllCheckbox" onclick="selectAll(this)"></th>
 			            <th>의약품 코드</th>
 			            <th>의약품 명</th>
 			            <th>규격</th>
@@ -50,7 +50,7 @@
 		</div>
 		<hr>
 		<div class="basicB">
-			<button class="pointB">전체 적용</button>
+			<button class="pointB" onclick="opendetailModal()">전체 적용</button> <!-- 부모창에서 자식창으로 값 전달 -->
 			<button>닫기</button>
 		</div>
 		<br><br>
@@ -61,15 +61,17 @@
 
 <script>
 
-	//checkbox 전체 선택 기능
-	function selectAll(selectAll)  {
-		const checkboxes 
-			= document.getElementsByName('checkbox');
-	  
-		checkboxes.forEach((checkbox) => {
-		checkbox.checked = selectAll.checked;
-		})
-	};
+
+//checkbox 전체 선택 기능
+function selectAll(selectAll)  {
+	const checkboxes 
+		= document.getElementsByName('checkbox');
+
+	checkboxes.forEach((checkbox) => {
+	checkbox.checked = selectAll.checked;
+	})
+};
+
 	
 	// 모달 열기
 	$(document).ready(function() {

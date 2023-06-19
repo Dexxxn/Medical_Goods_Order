@@ -13,14 +13,22 @@
 			</div>
 		</div>
 	<div class="main">
-			<form id="">
+			<form id="sendEmailForm">
 	
-	<div class="tableAll" id="CheckboxTable">
+	<div class="tableAll" id="requestListCheckbox">
 		<div class="table-container">
 			<table class="table checkbox" id="reqListTable" border="1">
 			    <thead>
 			        <tr>
-			            <th><input type="checkbox" name="checkbox" onclick="selectAll(this)"></th>
+			        <th>no</th>
+			        <th>구매처</th>
+			        <th>의약품코드</th>
+			        <th>의약품명</th>
+			        <th>단가</th>
+			        <th>발주수량</th>
+			        <th>품목 총액</th>
+			        <th>특이사항</th>
+			           <!--  <th><input type="checkbox" id="request_ckbox" name="checkbox1" onclick="selectAll()"></th>
 			            <th>요청일자</th>
 			            <th>요청한 진료과</th>
 			            <th>요청한 담당자</th>
@@ -28,12 +36,12 @@
 	  		            <th>의약품명</th>
 	  		            <th>희망입고일자</th>
 	  		            <th>수량합계</th>
-	  		            <th>종결여부</th>
+	  		            <th>종결여부</th> -->
 			        </tr>
 			    </thead>
 			    <tbody>
-			        <tr>
-			            <td><input type="checkbox" name="checkbox"></td>
+			        <!-- <tr>
+			            <td><input type="checkbox" name="checkbox1"></td>
 			            <td>2023-06-16</td>
 			            <td>A병동</td>
 			            <td>이성언</td>
@@ -44,7 +52,7 @@
 			            <td>종결</td>
 			        </tr>
 			        <tr>
-			            <td><input type="checkbox" name="checkbox"></td>
+			            <td><input type="checkbox" name="checkbox1"></td>
 			            <td>2023-06-16</td>
 			            <td>A병동</td>
 			            <td>이성언</td>
@@ -55,7 +63,7 @@
 			            <td>종결</td>
 			        </tr>
 			        <tr>
-			            <td><input type="checkbox" name="checkbox"></td>
+			            <td><input type="checkbox" name="checkbox1"></td>
 			            <td>2023-06-16</td>
 			            <td>A병동</td>
 			            <td>이성언</td>
@@ -64,13 +72,13 @@
 			            <td>2023-06-23</td>
 			            <td>1,200</td>
 			            <td>종결</td>
-			        </tr>
+			        </tr> -->
 			    </tbody>
 			</table>
 		</div>
 		<hr>
 		<div class="basicB">
-			<button class="pointB" id="selectRequestList">전체 적용</button>
+			<button class="pointB" id="selectRequestList" onclick="sendEmailAlert(supplier)">e-mail</button>
 			<button>닫기</button>
 		</div>
 		<br><br>
@@ -224,15 +232,41 @@ hr {
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+//버튼 클릭 시 폼 전송 방지
+$("button").click(function(event) {
+  event.preventDefault();
+});
 
-//checkbox 전체 선택 기능
-function selectAll(selectAll)  {
-	const checkboxes 
-		= document.getElementsByName('checkbox');
-  
-	checkboxes.forEach((checkbox) => {
-	checkbox.checked = selectAll.checked;
-	})
+
+
+//modal_alert 띄우기(이메일 전송 확인)
+function sendEmailAlert(supplier) {
+  $.ajax({
+    url: "modal_alert_sendEmail", // modal_alert.jsp 파일 경로
+    success: function(data) {
+	      $("#modalContainer").html(data);
+	      $(".modal-overlay").show();
+	      $(".modal1").show();
+	     
+	      // supplier 값을 활용하여 추가 작업 수행
+	      console.log("선택된 구매처: " + supplier); //콘솔에서 확인 완료
+	      
+	      
+	     /*  var mentText = '거래처 "' + supplier + '"로 메일을 전송하시겠습니까?';
+	      $(".ment").text(mentText);
+	      $(".ment").css("color", "blue"); */
+	      
+	      var mentText = '거래처 "<span style="color: blue;">' + supplier + '</span>"로 메일을 전송하시겠습니까?';
+	      $(".ment").html(mentText);
+	    }
+	  });
+	}
+
+	$(document).on("click", ".closeB", function() {
+	  $(".modal-overlay").hide();
+	  $(".modal1").hide();
+	}); 
 
 </script>

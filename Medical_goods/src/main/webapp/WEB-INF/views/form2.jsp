@@ -11,32 +11,24 @@
 				<label id="requestLabel">요청일자</label>
 				<input id="requestDate" class="textAlign" type="date" name="requestDate">
 			</div>
-			<div>
+		<!-- 	<div>
 				<label>희망 입고일자</label>
 				<input id="receiptDate" type="date" class="textAlign" name="receiptDate">
-			</div>
+				<input id="receiptDate" type="text" class="textAlign"  name="receiptDate" value="" readonly> 
+			</div> -->
 			<div>
 				<label>입고받을 진료과</label>
 				<select id="dept" name="dept" class="textAlign"><option>선택</option><option>병동A</option><option>병동B</option><option>병동C</option><option>처치실</option><option>수술실</option></select>
 			</div>
-			<div>
+		<%-- 	<div>
 				<label>담당자</label>
-				<input id="manager" class="textAlign"  readonly> <%-- value="${dept_manager_name.name}" --%>
-			</div>
-			<!-- <div>
-				<label>담당자</label>
-				<select id="manager" name="name" class="textAlign"><option></option><option></option></select>
-			</div> -->
-<!-- 		이런식으로 div 추가/변경...
-			<div>
-				<label>거래처</label>
-				<input type="text">
-			</div> -->
+				<input id="manager" type="text" class="textAlign"  name="name" value="" readonly> value="${dept_manager_name.name}"
+			</div> --%>
+
 		</div><!-- mainForm -->
 				<div class="basicB top">
 					<button id="form2_search" onclick="requestList()">찾기</button>
-					<button>거래처별 정렬</button>
-					<!-- <button>재고 불러오기</button> -->
+					<button>e-mail</button>
 					<button  onclick="openModal()">요청 조회</button> <!-- class="modalShow" -->
 					
 				</div>

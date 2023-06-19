@@ -42,27 +42,19 @@ public class OrdersController {
     
     //총무과 진료과별&요청일자 로 발주리스트 select
     @RequestMapping(value = "/purchasePlan", method = RequestMethod.POST)
-	public ResponseEntity<?> requestList(OrdersVO orders) {
+	public ResponseEntity<?> requestList(OrdersVO orders, Model model) {
     	System.out.println(orders);
 		System.out.println(os.requestList(orders));
-		//model.addAttribute("dept_manager_name", orders);
 		
-		/*	ArrayList<OrdersVO> or = os.requestList(orders);
-		if (or == null) {
-		    // 조회 데이터가 없는 경우
-		    model.addAttribute("msg", "조회 데이터 없음");
-		    // model.addAttribute("url", "table");
-		    
-		    // 클라이언트에게 alert 띄우는 JavaScript 코드
-		    String script = "<script>alert('조회 데이터 없음');</script>";
-		    model.addAttribute("script", script);
+		List<OrdersVO> requestList = os.requestList(orders);
+		model.addAttribute("orders", requestList);
 		
-		    return new ResponseEntity<>(os.requestList(orders), HttpStatus.OK);
-		}*/
-		
-		return new ResponseEntity<>(os.requestList(orders), HttpStatus.OK);
+		 return new ResponseEntity<>(requestList, HttpStatus.OK);
 	}
 	
+    
+    
+    
     @RequestMapping(value = "/requestListmodal", method = RequestMethod.GET) 
     public String modalOpen() {
     	return "requestListModal";
@@ -79,6 +71,30 @@ public class OrdersController {
 
         // 가져온 데이터를 JSON 형식으로 변환하여 응답합니다.
         return new ResponseEntity<>(os.getDataList(orders), HttpStatus.OK);
+    }
+    
+    //부모창 select한 값을 모달에서 띄우기(order.js)
+   /* @RequestMapping(value = "/final", method = RequestMethod.GET) 
+    public String openRequestListModal() {
+    	return "requestListModal";
+    }*/
+    
+    @RequestMapping(value = "/requestList", method = RequestMethod.POST) 
+    public String openRequestListModal() {
+    	return "requestListModal";
+    }
+    
+    //모달alert
+    @RequestMapping(value = "/modal_alert_sendEmail", method = RequestMethod.GET) 
+    public String sendEmail() {
+    	return "modal_alert";
+    }
+    
+    
+    //모달alert
+    @RequestMapping(value = "/modal_alert_ok", method = RequestMethod.GET) 
+    public String sendEmailOK() {
+    	return "modal_alert";
     }
     
 }
