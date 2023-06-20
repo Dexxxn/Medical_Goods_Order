@@ -126,12 +126,12 @@ hr {
 	text-align: right;
 }
 
-.table.only td:nth-child(4),
 .table.only td:nth-child(5),
 .table.only td:nth-child(6),
 .table.only td:nth-child(7),
 .table.only td:nth-child(8),
-.table.only td:nth-child(9){
+.table.only td:nth-child(9),
+.table.only td:nth-child(10){
 	text-align: right;
 }
 

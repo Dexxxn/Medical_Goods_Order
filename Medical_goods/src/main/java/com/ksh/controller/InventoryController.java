@@ -47,6 +47,21 @@ public class InventoryController {
 		System.out.println(is.useList(inven));
 		return new ResponseEntity<>(is.useList(inven), HttpStatus.OK);
 	}
+	
+	// 모달 전체 의약품 리스트
+	@RequestMapping(value = "/modal", method = RequestMethod.POST)
+	public ResponseEntity<?> modalList(InventoryVO inven) {
+		System.out.println(is.useList(inven));
+		return new ResponseEntity<>(is.useList(inven), HttpStatus.OK);
+	}
+	
+	 // 사용 수량 입력(insert)
+	 @RequestMapping(value = "/useInsert", method = RequestMethod.POST) public
+	 String useInsert(InventoryVO inven) {
+		 is.useInsert(inven); 
+		 System.out.println(inven);// 어떤 값을 받았는지 콘솔에서 확인
+		 return "redirect:/useList";
+	 }
 
 	@RequestMapping(value = "/ph_detail", method = RequestMethod.GET)
 	public String phDetail(Model model, @RequestParam("dept") String dept, @RequestParam("name") String name,
@@ -73,20 +88,6 @@ public class InventoryController {
 		return "ts";
 	}
 
-	/*
-	 * // 사용 수량 입력(insert)
-	 * 
-	 * @RequestMapping(value = "/useInsert", method = RequestMethod.POST) public
-	 * String useInsert(InventoryVO inven, HttpSession session, Model model) {
-	 * //is.useInsert(inven); System.out.println(inven);// 어떤 값을 받았는지 콘솔에서 확인
-	 * System.out.println(ms.useInsert(inven));// 로그인할때 입력한 정보가 null값인지 콘솔에서 확인
-	 * if(ms.logIn(inven) == null) { model.addAttribute("msg",
-	 * "정확한 아이디 또는 비밀번호를 입력하세요."); model.addAttribute("url", "/"); return "alert"; }
-	 * else { session.setAttribute("login", is.useInsert(inven)); String s_name =
-	 * ((InventoryVO) session.getAttribute("login")).getS_name();
-	 * model.addAttribute("msg", s_name + "님으로 로그인 되었습니다.");
-	 * model.addAttribute("url", "index"); return "alert"; // return "redirect:'/'"
-	 * 도 가능 -> redirect: '반드시 서버주소' } };
-	 */
+
 
 }

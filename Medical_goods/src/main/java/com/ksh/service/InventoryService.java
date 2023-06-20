@@ -12,7 +12,13 @@ public interface InventoryService {
 
 	// 사용 수량 입력 리스트
 	public ArrayList<InventoryVO> useList(InventoryVO inven);
-
+	
+	// 모달 전체 의약품 리스트
+	
+	
+	// 사용 수량 입력(insert)
+	public void useInsert(InventoryVO inven);
+	
 	public ArrayList<InventoryVO> ph(String dept, String name, String date);
 
 	ArrayList<InventoryVO> getInventoryList();

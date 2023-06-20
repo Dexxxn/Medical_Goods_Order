@@ -42,7 +42,7 @@
   	
   	<!-- 로그인 -->
 	<select id='logIn' resultType="com.ksh.model.UsersVO">
-		SELECT id, password, name
+		SELECT id, password, name, dept
   		FROM Medical_Goods_Order.Users
   		WHERE id=#{id} and password=#{password};
 	</select>  

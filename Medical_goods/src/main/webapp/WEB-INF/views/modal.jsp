@@ -6,7 +6,7 @@
 	<div class="modal-overlay"></div>
 	<div class="modal1" style="width:750px; height:550px;">
 		<div class="header">
-			상단 제목
+			<span class="modal_title">상단 제목</span>
 			<div style="display:flex;">
 				<div><i class="fas fa-thin fa-arrows-rotate"></i></div>
 				<div><i class="fas fa-light fa-x closeB"></i></div>
