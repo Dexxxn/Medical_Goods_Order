@@ -1,6 +1,3 @@
-var loginValue = '<%= session.getAttribute("login") %>';
-console.log(loginValue); // 세션의 'login' 변수 값 출력
-
 // 재고 현황 리스트
 function invenList(url) {
     // Ajax 요청 보내기
@@ -18,18 +15,39 @@ function invenList(url) {
         console.log(data)
         var str = "";
         
+        var currentAmountDeptA = [];
+        var currentAmountDeptB = [];
+        var currentAmountDeptC = [];
+        var currentAmountDeptD = [];
+        var currentAmountDeptE = [];
+        var currentAmountTotal = [];
+        
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].dept === '병동A') {
+                currentAmountDeptA.push(data[i].current_amount);
+            } else if (data[i].dept === '병동B') {
+                currentAmountDeptB.push(data[i].current_amount);
+            } else if (data[i].dept === '병동C') {
+                currentAmountDeptC.push(data[i].current_amount);
+            } else if (data[i].dept === '수술실') {
+                currentAmountDeptD.push(data[i].current_amount);
+            } else if (data[i].dept === '처치실') {
+                currentAmountDeptE.push(data[i].current_amount);
+            }
+        }
+        
         for (var i = 0; i < data.length; i++) {
             str += "<tr>";
-            str += "<td>" + data[i].item_id + "</td>";
-            str += "<td>" + data[i].item_name + "</td>";
-            str += "<td>" + data[i].standard + "</td>";
-            str += "<td>" + data[i].unit + "</td>";
-            str += "<td>" + data[i].current_amount + "</td>";
-            str += "<td>" + data[i].current_amount + "</td>";
-            str += "<td>" + data[i].current_amount + "</td>";
-            str += "<td>" + data[i].current_amount + "</td>";
-            str += "<td>" + data[i].current_amount + "</td>";
-            str += "<td>" + data[i].current_amount + "</td>";
+	            str += "<td>" + data[i].item_id + "</td>";
+	            str += "<td>" + data[i].item_name + "</td>";
+	            str += "<td>" + data[i].standard + "</td>";
+	            str += "<td>" + data[i].unit + "</td>";
+	            str += "<td><b>" + (currentAmountDeptA[i] + currentAmountDeptB[i] + currentAmountDeptC[i] + currentAmountDeptD[i] + currentAmountDeptE[i]) + "</b></td>";
+	            str += "<td>" + currentAmountDeptA[i] + "</td>";
+	            str += "<td>" + currentAmountDeptB[i] + "</td>";
+	            str += "<td>" + currentAmountDeptC[i] + "</td>";
+	            str += "<td>" + currentAmountDeptD[i] + "</td>";
+	            str += "<td>" + currentAmountDeptE[i] + "</td>";
             str += "</tr>";
         }
         
@@ -38,7 +56,12 @@ function invenList(url) {
         $(".table.only thead tr").append("<th>병동B</th>");
         $(".table.only thead tr").append("<th>병동C</th>");
         $(".table.only thead tr").append("<th>수술실</th>");
-        $(".table.only thead tr").append("<th>처치실</th>"); 	
+        $(".table.only thead tr").append("<th>처치실</th>");
+        // 테이블 요소 선택
+        var table = document.querySelector(".table"); 
+        var quantityHeader = table.querySelector("thead th:nth-child(5)"); // 수량 헤더 선택
+        quantityHeader.innerHTML = "합계";
+        
         // tbody 값 대체
         $(".table.only tbody").html(str);
         // 데이터가 많으니 길이 조정
