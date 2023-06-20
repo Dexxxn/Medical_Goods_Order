@@ -14,7 +14,8 @@
 	<p class="ment">거래처 "~~~"으로 메일을 &nbsp; 전송하시겠습니까?</p>
 		<div class="basicB bottom">
 			<hr style="display: block;">
-			<button class="pointB" onclick="okbutton()">확인</button>
+			<button class="pointB" id="defaultBtn" onclick="okbutton();">확인</button>
+			<button class="pointB" id="modalclose" onclick="modalClose();">확인</button>
 			<button class="closeB">취소</button>
 		</div>
 	</div>			
@@ -22,6 +23,7 @@
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+
 //버튼 클릭 시 폼 전송 방지
 $("button").click(function(event) {
   event.preventDefault();
@@ -42,10 +44,12 @@ $("button").click(function(event) {
 		// x 아이콘 클릭 시 모달 닫기
 		$(".closeB").click(function() {
 			$(".modal1").hide();
+			$(".modal-overlay").hide();//추가한 코드
 		});
+		
 	});
 	
-	
+
 	//이메일 전송완료 확인창
 	function okbutton() {
 		  $.ajax({
@@ -55,7 +59,9 @@ $("button").click(function(event) {
 			      $(".modal-overlay").show();
 			      $(".modal1").show();
 			      $(".ment").text("이메일 전송 완료"); //내용 변경
-			     
+			      
+			      	$("#modalclose").show(); // #modalclose 버튼 표시
+			        $("#defaultBtn").hide(); // 확인 버튼 숨기기
 			    }
 			  });
 			}
@@ -65,6 +71,12 @@ $("button").click(function(event) {
 			  $(".modal1").hide();
 			}); 
 	
+			
+	//"확인" 클릭시 모달창 닫기
+		function modalClose() {
+			$(".modal1").hide();
+			$(".modal-overlay").hide();
+		}
 </script>
 
 <style>
@@ -76,4 +88,5 @@ p.ment {
   font-size:20px; font-weight:bold;
 }
 /* .ment{margin:20px; font-size:20px; font-weight:bold;} */
+#modalclose{display:none;}
 </style>
