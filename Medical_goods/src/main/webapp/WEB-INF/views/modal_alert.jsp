@@ -89,18 +89,41 @@ $("button").click(function(event) {
 			      $("#publicTable tbody input[name='checkbox']:checked").closest("tr").css('background-color', 'blue');
 
 			      // Prepare data for server
-			      var itemIds = [];
+			    /*   var itemIds = [];
 			      $("#publicTable tbody input[name='checkbox']:checked").each(function() {
 			        var $row = $(this).closest("tr");
-			        var itemId = $row.find("td:eq(1)").text();  // adjust this line to get the actual item_id
-			        itemIds.push(itemId);
-			      });
+			        var item_id = $row.find("td:eq(1)").text();  // adjust this line to get the actual item_id
+			        itemIds.push(item_id);
+			      }); */
+			      
+			      var selectedItems = []; // 선택된 체크박스 값들을 저장할 배열
+			      // 선택된 체크박스 요소들을 탐색
+				  $("#publicTable tbody input[name='checkbox']:checked").each(function() {
+				    var $row = $(this).closest("tr");
+				    var item = {
+				      item_id: $row.find("td:eq(1)").text(),
+				      item_name: $row.find("td:eq(2)").text(),
+				      supplier: $row.find("td:eq(3)").text(),
+				      standard: $row.find("td:eq(4)").text(),
+				      unit: $row.find("td:eq(5)").text(),
+				      unit_price: $row.find("td:eq(6)").text(),
+				      order_quantity: $row.find("td:eq(7)").text(),
+				      supply_value: $row.find("td:eq(8)").text(),
+				      vat: $row.find("td:eq(9)").text(),
+				      total_amount: $row.find("td:eq(10)").text(),
+				      name: $row.find("td:eq(11)").text(),
+				      receiptDate: $row.find("td:eq(12)").text(),
+				      significant: $row.find("td:eq(13)").text()
+				    };
+				    selectedItems.push(item); // 선택된 체크박스 값을 배열에 추가
+				  });
+			      
 			      
 			      // Send AJAX request to server to update DB
 			      $.ajax({
 			        url: "/updateOrders",  // adjust this line to the actual server URL
 			        type: "POST",
-			        data: JSON.stringify(itemIds),
+			        data: JSON.stringify(selectedItems), //서버로던질 리스트
 			        contentType: "application/json",
 			        success: function(response) {
 			          console.log("DB Update Success");

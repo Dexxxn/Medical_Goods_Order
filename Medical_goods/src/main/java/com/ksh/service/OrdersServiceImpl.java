@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ksh.mapper.OrdersMapper;
-import com.ksh.model.InventoryVO;
 import com.ksh.model.OrdersVO;
 
 @Service
@@ -25,13 +24,7 @@ public class OrdersServiceImpl implements OrdersService{
         }
     }
     
-    
- // 총무과  <<- 발주요청 select 
-   /* @Override
-    public List<OrdersVO> getAllOrders() {
-        return om.getAllOrders();
-    }*/
-    
+    // 총무과  <<- 발주요청 select
     public ArrayList<OrdersVO> requestList(OrdersVO orders) {
 		return om.requestList(orders);
 	}
@@ -42,20 +35,10 @@ public class OrdersServiceImpl implements OrdersService{
     }
     
     
-    //------------------
-    public void updateConfirm(List<OrdersVO> selectedItems) {
-        for (OrdersVO order : selectedItems) {
-          // DB에서 해당하는 데이터를 찾아서 confirm 열을 업데이트하는 작업 수행
-         /* 
-          * OrdersVO existingOrder = om.findOrderByItemDetails(order.getDept(), order.getRequestDate(), order.getItem_id());
-          if (existingOrder != null) {
-            existingOrder.setConfirm("Y");
-            */
-            om.updateConfirm(order);
-         // }
-        }
-      }
-    
+ 
+    public void updateConfirmDateForItems(List<OrdersVO> orders) {
+    	om.updateConfirmDateForItems(orders);
+    }
     
     
     

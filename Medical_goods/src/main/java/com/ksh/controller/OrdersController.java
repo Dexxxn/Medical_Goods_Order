@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -79,38 +80,18 @@ public class OrdersController {
     	return "modal_alert";
     }
     
-    
     //모달alert
     @RequestMapping(value = "/modal_alert_ok", method = RequestMethod.GET) 
     public String sendEmailOK() {
     	return "modal_alert";
     }
     
-  //여러개의 체크된 값들을 서버로 보내기 confirm열 하나에만 insert--------------------------------------------------------------------------------- 
-    
-  /*  @RequestMapping(value= "/insert_confirm", method = RequestMethod.POST)
-    public ResponseEntity<String> handleSelectedItems(@RequestBody List<OrdersVO> selectedItems) {
-        // 선택된 체크박스 값들에 대한 처리 로직을 구현합니다.
-        // selectedItems 리스트를 이용하여 DB에 저장하고 confirm 열을 업데이트하는 등의 작업을 수행합니다.
 
-    	
-    	os.updateConfirm(selectedItems);
-    	
-        // 처리가 성공적으로 이루어졌을 경우 응답
-        return ResponseEntity.ok("Data received successfully");
-      }
-    */
     
-    //modal_alert.jsp에 okbutton()
-  /*  @RequestMapping(value= "/updateOrders", method = RequestMethod.POST)
-    public ResponseEntity<Void> updateOrders(@RequestBody List<String> itemIds) {
-        try {
-            os.updateConfirmDateForItems(itemIds);
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            // Log the exception here
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-    */
+  //modal_alert.jsp에 okbutton()
+     @PostMapping("/updateOrders")
+     public void updateOrders(@RequestBody List<OrdersVO> orders) {
+         System.out.println("list=" + orders);
+     	os.updateConfirmDateForItems(orders);
+     }
 }

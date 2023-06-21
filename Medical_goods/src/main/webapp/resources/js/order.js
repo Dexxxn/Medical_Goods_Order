@@ -26,7 +26,7 @@ function requestList() {
           str += "<td><input type='checkbox' name='checkbox'></td>"; // 체크박스 추가
           str += "<td>" + data[i].item_id + "</td>"; //의약품코드
           str += "<td>" + data[i].item_name + "</td>"; //의약품명
-          str += "<td>" + data[i].supplier + "</td>"; //구매처명
+          str += "<td>" + data[i].supplier+ "</td>"; //구매처명
           str += "<td>" + data[i].standard + "</td>"; //규격
           str += "<td>" + data[i].unit + "</td>"; //단위(EA / BOX)
           str += "<td>" + data[i].unit_price + "</td>"; //단가
