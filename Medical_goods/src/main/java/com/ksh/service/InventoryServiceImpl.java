@@ -31,6 +31,14 @@ public class InventoryServiceImpl implements InventoryService {
 		im.useInsert(inven);
 	}
 	
+	public ArrayList<InventoryVO> orderList(InventoryVO inven){
+		return im.orderList(inven);
+	};
+	
+	
+	
+	
+	
 	@Override
 	public ArrayList<InventoryVO> ph(String dept, String name, String date) {
 		// 서버에서 데이터 조회

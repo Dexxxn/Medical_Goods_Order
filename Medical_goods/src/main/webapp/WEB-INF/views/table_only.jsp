@@ -15,7 +15,8 @@
 		            <th>의약품 명</th>
 		            <th>규격</th>
 		            <th>단위</th>
-		            <th>수량</th>
+   		            <th>수량</th>
+  		            <th>특이사항</th>		            
 		        </tr>
 		    </thead>
 		    <tbody>
@@ -27,7 +28,7 @@
 	</div>	
 	<hr>
 	<div class="basicB">
-		<input class="pointB" type="button" value="전체 적용">
+		<input class="pointB submit" type="button" value="전체 적용">
 		<input class="closeB" type="button" value="닫기">
 	</div>
 </div>

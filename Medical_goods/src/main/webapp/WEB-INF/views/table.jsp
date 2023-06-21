@@ -17,8 +17,7 @@
 			            <th>의약품 코드</th>
 			            <th>의약품 명</th>
 			            <th>규격</th>
-	   		            <th>수량</th>
-	  		            <th>특이사항</th>
+			            <th>단위</th>
 			        </tr>
 			    </thead>
 			    <tbody>

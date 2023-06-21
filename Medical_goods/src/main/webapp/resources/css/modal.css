@@ -38,7 +38,7 @@ hr {
 }
 
 .basicB button{
-	margin: 4px;
+	margin: 4px 4px 0px 4px;
 }
 
 .pointB{
@@ -47,7 +47,9 @@ hr {
 	border: 1px solid #034AA6;
 }
 
-
+.top{
+	margin: 4px;
+}
 
 .bottom{
 	position: fixed;
@@ -78,6 +80,14 @@ hr {
     display: none;
   }
 
+.modal1 .basicB{
+	margin-left: 4px;
+}
+
+.modal1 .title_name{
+	margin: 4px 0px 10px 10px;
+}
+
 .header{
 	display: flex;
 	justify-content: space-between;
@@ -97,7 +107,7 @@ hr {
 
 .main .table-container{
 	width: 740px;
- 	height: 325px;
+ 	height: 340px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
@@ -113,25 +123,15 @@ hr {
 	padding: 3px 10px;
 	background-color: #F2F2F2;
 }
-
+ 
 .table td{
-	padding: 3px;
+	padding: 4px;
 }
-
 .table.checkbox td:first-child{
 	text-align: center;
 }
 
-.table.checkbox td:nth-child(5){
-	text-align: right;
-}
-
-.table.only td:nth-child(5),
-.table.only td:nth-child(6),
-.table.only td:nth-child(7),
-.table.only td:nth-child(8),
-.table.only td:nth-child(9),
-.table.only td:nth-child(10){
+.table .quantity{
 	text-align: right;
 }
 

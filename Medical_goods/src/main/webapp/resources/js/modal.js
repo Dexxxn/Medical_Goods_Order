@@ -42,12 +42,12 @@ function invenList(url) {
 	            str += "<td>" + data[i].item_name + "</td>";
 	            str += "<td>" + data[i].standard + "</td>";
 	            str += "<td>" + data[i].unit + "</td>";
-	            str += "<td><b>" + (currentAmountDeptA[i] + currentAmountDeptB[i] + currentAmountDeptC[i] + currentAmountDeptD[i] + currentAmountDeptE[i]) + "</b></td>";
-	            str += "<td>" + currentAmountDeptA[i] + "</td>";
-	            str += "<td>" + currentAmountDeptB[i] + "</td>";
-	            str += "<td>" + currentAmountDeptC[i] + "</td>";
-	            str += "<td>" + currentAmountDeptD[i] + "</td>";
-	            str += "<td>" + currentAmountDeptE[i] + "</td>";
+	            str += "<td class='quantity'><b>" + (currentAmountDeptA[i] + currentAmountDeptB[i] + currentAmountDeptC[i] + currentAmountDeptD[i] + currentAmountDeptE[i]) + "</b></td>";
+	            str += "<td class='quantity'>" + currentAmountDeptA[i] + "</td>";
+	            str += "<td class='quantity'>" + currentAmountDeptB[i] + "</td>";
+	            str += "<td class='quantity'>" + currentAmountDeptC[i] + "</td>";
+	            str += "<td class='quantity'>" + currentAmountDeptD[i] + "</td>";
+	            str += "<td class='quantity'>" + currentAmountDeptE[i] + "</td>";
             str += "</tr>";
         }
         
@@ -57,10 +57,14 @@ function invenList(url) {
         $(".table.only thead tr").append("<th>병동C</th>");
         $(".table.only thead tr").append("<th>수술실</th>");
         $(".table.only thead tr").append("<th>처치실</th>");
+        
         // 테이블 요소 선택
         var table = document.querySelector(".table"); 
         var quantityHeader = table.querySelector("thead th:nth-child(5)"); // 수량 헤더 선택
         quantityHeader.innerHTML = "합계";
+        
+        var quantityHeader = table.querySelector("thead th:nth-child(6)");
+        $(quantityHeader).remove();
         
         // tbody 값 대체
         $(".table.only tbody").html(str);
@@ -107,28 +111,21 @@ function useList() {
                 str += "<td>" + data[i].item_name + "</td>";
                 str += "<td>" + data[i].standard + "</td>";
                 str += "<td>" + data[i].unit + "</td>";
-                str += "<td id='quantityUsedCell'>" + data[i].quantity_used + "</td>";
+                str += "<td id='quantityUsedCell' class='quantity'>" + data[i].quantity_used + "</td>";
                 str += "<td>" + data[i].significant + "</td>";
                 str += "</tr>";
             }
         }
-        
-        // thead에 열 추가 (추가되지 않도록 조건 확인)
-        var $theadRow = $(".table.only thead tr");
-        if ($theadRow.find("th").length === 5) {
-            $theadRow.append("<th>특이사항</th>");
-        }
-           
+      
         // tbody 값 대체
         $(".table.only tbody").html(str);
-        
-      
+           
         
     });
 
 }
 
-//물품 사용입력 페이지 연결
+// 모달 열기
 $(document).on("click", "#modalOpen", function() {
     $.ajax({
         url: "/modal", // URL of the purchase.jsp page
@@ -136,8 +133,6 @@ $(document).on("click", "#modalOpen", function() {
         success: function(data) {
             // Update the content of the chartContent element with the response from purchase.jsp
         	$("body").append(data);
-        	// 응답으로 받은 데이터로 page_title_section의 p태그의 innerHTML 업데이트
-            $("#title_name").html("자가사용입력");
         },
         error: function(xhr, status, error) {
             alert("An error occurred while loading the page. Error: " + error);
@@ -148,6 +143,12 @@ $(document).on("click", "#modalOpen", function() {
 })
 
 //모달 열기 버튼 클릭 이벤트 핸들러
+
+    // 선택한 날짜 가져오기
+    var selectedDate = $(".modal1 #searchDate").val();
+    // 사용 입력 품목 리스트 조회 URL
+    //var url = "/useList?date=" + encodeURIComponent(selectedDate) + "&dept=" + encodeURIComponent(selectedDept); // 예시 URL
+
 $(document).on("click", "#modalOpen", function() {     
     if ($(".modal1").length > 0) {
         // 기존 모달 창을 닫고 삭제
@@ -186,7 +187,7 @@ $(document).on("click", "#modalOpen", function() {
             str1 += "<td>" + data[i].item_name + "</td>";
             str1 += "<td>" + data[i].standard + "</td>";
             str1 += "<td>" + data[i].unit + "</td>";
-            str1 += "<td id='quantityUsedCell'>" + data[i].quantity_used + "</td>";
+            str1 += "<td id='quantityUsedCell' class='quantity'>" + data[i].quantity_used + "</td>";
             str1 += "<td>" + data[i].significant + "</td>";
             str1 += "</tr>";
         }
@@ -195,8 +196,7 @@ $(document).on("click", "#modalOpen", function() {
         $(".modal_title").html("자가사용입력");
         //
         $(".modal1 #title_name").html("자가사용입력>사용수량등록");
-        // thead에 열 추가
-        $(".modal1 .table.only thead tr").append("<th>특이사항</th>");
+        
         // tbody 값 대체
         $(".modal1 .table.only tbody").html(str1);
         // 사용수량 셀을 입력 요소로 변경
@@ -207,13 +207,82 @@ $(document).on("click", "#modalOpen", function() {
         $(".modal1 .basicB .pointB").html("<input class='pointB submit' type='button' value='전체 적용' formaction='/useInsert'>");
         $(".modal1 .basicB .closeB").html("<input class='closeB' type='button' value='닫기'>");
 
-        $(".modal .submit").click(function() {
-        	$("#table_only_form").submit();
-            $(".modal1").remove();
-            $(".modal-overlay").remove();
-            // 부모 창 새로고침
-            //window.location.reload();
+        $(".modal1 .submit").click(function() {
+            if (confirm(selectedDate + " 해당 일자의 사용수량을 등록하시겠습니까?")) {
+                // 확인 버튼을 눌렀을 때 실행되는 코드
+            	//$("#table_only_form").submit();
+                //$(".modal1").remove();
+                //$(".modal-overlay").remove();
+                // 부모 창 새로고침
+                //window.location.reload();
+            } else {
+                // 아니오 버튼을 눌렀을 때 실행되는 코드
+                // 아무 동작 없음
+            }
+
         });
     });
 });
 
+// 발주요청 품목 리스트
+function orderList() {
+/*    // 선택한 날짜 가져오기
+    var selectedDate = $("#searchDate").val();
+    // 선택한 부서 가져오기
+    var selectedDept = $("#dept").val(); // 예시에서는 'dept'라는 id를 가진 요소로 가정
+    
+    // 사용 입력 품목 리스트 조회 URL
+    var url = "/useList?date=" + encodeURIComponent(selectedDate) + "&dept=" + encodeURIComponent(selectedDept); // 예시 URL
+*/
+    // Ajax 요청 보내기
+    $.ajax({
+        url: "/modal",
+        async: true,
+        type: "POST",
+        dataType: "json", // 데이터 형식을 JSON으로 설정
+        cache: false
+    }).done(function(data) {
+        // Contents 영역 삭제
+    	$(".form_container2").remove();
+    	
+        // Contents 영역 교체
+        console.log(data)
+        var str = "";
+        
+        if (data.length === 0) {
+            str = '<tr><td colspan="6" style="text-align:center;">조회 결과가 없습니다.</td></tr>';
+        } else {
+            for (var i = 0; i < data.length; i++) {
+                str += "<tr>";
+                str += "<td><input type='checkbox' name='checkbox'></td>";
+                str += "<td>" + data[i].item_id + "</td>";
+                str += "<td>" + data[i].item_name + "</td>";
+                str += "<td>" + data[i].standard + "</td>";
+                str += "<td>" + data[i].unit + "</td>";
+                
+                // 현재고 < 안전재고면 배경 붉게
+                if (data[i].current_amount <= data[i].safe_stock_quantity) {
+                    str += "<td class='quantity' style='background-color: #FFA7A7;'>" + data[i].current_amount + "</td>";
+                } else {
+                    str += "<td class='quantity'>" + data[i].current_amount + "</td>";
+                }
+                
+                str += "<td class='quantity'>" + data[i].safe_stock_quantity + "</td>";
+                str += "<td>" + data[i].significant + "</td>";
+                str += "</tr>";
+            }
+        }
+        
+        // thead에 열 추가
+        $(".table.checkbox thead tr").append("<th>현 재고</th>");
+        $(".table.checkbox thead tr").append("<th>안전재고</th>");
+        $(".table.checkbox thead tr").append("<th>특이사항</th>");
+           
+        // tbody 값 대체
+        $(".table.checkbox tbody").html(str);
+        
+      
+        
+    });
+
+}

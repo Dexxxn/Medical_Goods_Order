@@ -62,7 +62,19 @@ public class InventoryController {
 		 System.out.println(inven);// 어떤 값을 받았는지 콘솔에서 확인
 		 return "redirect:/useList";
 	 }
+	 
+	// 발주요청 리스트
+	@RequestMapping(value = "/orderList", method = RequestMethod.POST)
+	public ResponseEntity<?> orderList(InventoryVO inven) {
+		System.out.println(is.orderList(inven));
+		return new ResponseEntity<>(is.orderList(inven), HttpStatus.OK);
+	}	 
 
+	 
+	 
+	 
+	 
+	 
 	@RequestMapping(value = "/ph_detail", method = RequestMethod.GET)
 	public String phDetail(Model model, @RequestParam("dept") String dept, @RequestParam("name") String name,
 			@RequestParam("date") String date) {

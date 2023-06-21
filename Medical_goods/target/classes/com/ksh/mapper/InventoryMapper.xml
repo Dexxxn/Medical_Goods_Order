@@ -32,6 +32,18 @@
 		VALUES()
 	</insert>
 	
+	<select id="orderList" resultType="com.ksh.model.InventoryVO">
+		<!-- 품목별로 가장 최신 데이터만/날짜 -->
+		SELECT *
+		FROM medical_goods_order.inventory 
+        WHERE current_amount &lt; safe_stock_quantity
+        AND dept="병동B"
+	</select>
+	
+	
+	
+	
+	
 	<resultMap id="phResultMap" type="com.ksh.model.InventoryVO">
         <result property="dept" column="dept" />
         <result property="item_name" column="item_name" />

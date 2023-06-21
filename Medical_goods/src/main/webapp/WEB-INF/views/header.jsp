@@ -145,11 +145,11 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">자산관리</span></a>
-                        	<span class="detailPage_nav" onclick="invenList('/table_only')" id="invenList">재고현황-희,읽</span>
-                        	<span class="detailPage_nav" id="useList" onclick="useList()">사용입력-희,읽</span> <!-- data-href="/usage-input" -->
+                        	<span class="detailPage_nav" onclick="invenList('/table_only')" id="invenList">재고현황조회</span>
+                        	<span class="detailPage_nav" id="useList" onclick="useList()">사용입력 및 조회</span> <!-- data-href="/usage-input" -->
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
-                        	<span class="detailPage_nav" id="orderList">발주요청서 작성-희,읽</span> <!--  data-href="/purchase-request"  -->
+                        	<span class="detailPage_nav" id="orderList" onclick="orderList()">발주요청서</span> <!--  data-href="/purchase-request"  -->
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
                         	<span class="detailPage_nav" id="purchase_planning" >발주계획서 작성</span> <!-- onclick="requestList('/purchasePlan')" -->

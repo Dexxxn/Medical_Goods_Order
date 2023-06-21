@@ -17,6 +17,11 @@ public interface InventoryMapper {
 	
 	public void useInsert(InventoryVO inven);
 	
+	public ArrayList<InventoryVO> orderList(InventoryVO inven);
+	
+	
+	
+	
 	ArrayList<InventoryVO> ph(@Param("dept") String dept, @Param("name") String name, @Param("date") String date);
 
 	ArrayList<InventoryVO> getInventoryList();
