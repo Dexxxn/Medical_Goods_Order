@@ -1,6 +1,5 @@
 package com.ksh.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -31,14 +31,7 @@ public class OrdersController {
         return "redirect:/";
     }
 	
-	// 총무과  <<- 발주요청 select여러건<List> 
-    /*@RequestMapping(value = "/get_orders", method = RequestMethod.GET)
-    public String getOrders(Model model) {
-        List<OrdersVO> ordersList = os.getAllOrders();
-        System.out.println("ordersList=" + ordersList);
-        model.addAttribute("ordersList", ordersList);
-        return "orders"; //~.jsp
-    }*/
+	
     
     //총무과 진료과별&요청일자 로 발주리스트 select
     @RequestMapping(value = "/purchasePlan", method = RequestMethod.POST)
@@ -53,7 +46,7 @@ public class OrdersController {
 	}
 	
     
-    
+   
     
     @RequestMapping(value = "/requestListmodal", method = RequestMethod.GET) 
     public String modalOpen() {
@@ -73,11 +66,7 @@ public class OrdersController {
         return new ResponseEntity<>(os.getDataList(orders), HttpStatus.OK);
     }
     
-    //부모창 select한 값을 모달에서 띄우기(order.js)
-   /* @RequestMapping(value = "/final", method = RequestMethod.GET) 
-    public String openRequestListModal() {
-    	return "requestListModal";
-    }*/
+   
     
     @RequestMapping(value = "/requestList", method = RequestMethod.POST) 
     public String openRequestListModal() {
@@ -97,4 +86,31 @@ public class OrdersController {
     	return "modal_alert";
     }
     
+  //여러개의 체크된 값들을 서버로 보내기 confirm열 하나에만 insert--------------------------------------------------------------------------------- 
+    
+  /*  @RequestMapping(value= "/insert_confirm", method = RequestMethod.POST)
+    public ResponseEntity<String> handleSelectedItems(@RequestBody List<OrdersVO> selectedItems) {
+        // 선택된 체크박스 값들에 대한 처리 로직을 구현합니다.
+        // selectedItems 리스트를 이용하여 DB에 저장하고 confirm 열을 업데이트하는 등의 작업을 수행합니다.
+
+    	
+    	os.updateConfirm(selectedItems);
+    	
+        // 처리가 성공적으로 이루어졌을 경우 응답
+        return ResponseEntity.ok("Data received successfully");
+      }
+    */
+    
+    //modal_alert.jsp에 okbutton()
+  /*  @RequestMapping(value= "/updateOrders", method = RequestMethod.POST)
+    public ResponseEntity<Void> updateOrders(@RequestBody List<String> itemIds) {
+        try {
+            os.updateConfirmDateForItems(itemIds);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            // Log the exception here
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+    */
 }

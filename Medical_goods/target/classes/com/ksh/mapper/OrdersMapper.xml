@@ -31,7 +31,7 @@
     
     
     <select id="requestList" resultType="com.ksh.model.OrdersVO">
-        SELECT item_id, item_name, supplier, standard, unit,unit_price, order_quantity, supply_value, vat, total_amount, significant, name, receiptDate
+        SELECT item_id, item_name, supplier, standard, unit,unit_price, order_quantity, supply_value, vat, total_amount, significant, name, receiptDate ,confirm
         FROM medical_goods_order.orders
         WHERE dept= #{dept}
         AND requestDate= #{requestDate}
@@ -41,8 +41,17 @@
     <!-- 모달 열기 -->
     <select id="getDataList" resultType="com.ksh.model.OrdersVO">
         SELECT requestDate,dept, name, supplier, item_name, receiptDate
-        FROM medical_goods_order.orders
+        FROM medical_goods_order.orders;
         
     </select>
+    
+    <!-- confirm 열에 insert하기 now()  -->
+    <update id="updateConfirm">
+    	UPDATE orders
+ 		SET confirm = NOW()
+ 		WHERE dept = #{dept}
+    	AND requestDate = #{requestDate}
+    	AND item_Id = #{item_Id};
+    </update>
     
 </mapper>

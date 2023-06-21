@@ -22,7 +22,7 @@
 			        </tr>
 			    </thead>
 			    <tbody>
-			     <tr><td colspan='12'>조회내역 없음</td></tr>
+			     <tr><td colspan='13'>조회내역 없음</td></tr>
 <!-- 			        <tr>
 			            <td><input type="checkbox" name="checkbox"></td>
 			            <td>00001</td>
@@ -54,6 +54,7 @@
 		<div class="basicB">
 			<button class="pointB" onclick="opendetailModal()">전체 적용</button> <!-- 부모창에서 자식창으로 값 전달 -->
 			<button>닫기</button>
+			<button onclick="insertConfirm()">발주 완료</button>
 		</div>
 		<br><br>
 	</div>

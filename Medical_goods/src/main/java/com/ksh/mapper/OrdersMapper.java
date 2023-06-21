@@ -1,6 +1,7 @@
 package com.ksh.mapper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.ksh.model.OrdersVO;
 
@@ -15,4 +16,10 @@ public interface OrdersMapper {
 	
 	//모달열기
 	public ArrayList<OrdersVO> getDataList(OrdersVO orders);
+	
+	//confirm열 하나에만 insert------------------------------
+	
+	public void updateConfirm(OrdersVO orders);
+	
+	
 }

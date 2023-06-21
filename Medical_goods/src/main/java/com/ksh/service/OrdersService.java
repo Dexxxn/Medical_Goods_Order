@@ -17,4 +17,6 @@ public interface OrdersService {
 	// 모달 열기
 	 public ArrayList<OrdersVO> getDataList(OrdersVO orders);
 	 
+	 //confirm열 하나에만 insert-----------------
+	 public void updateConfirm(List<OrdersVO> selectedItems);
 }

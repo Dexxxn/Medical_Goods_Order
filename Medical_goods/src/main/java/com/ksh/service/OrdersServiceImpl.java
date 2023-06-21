@@ -40,4 +40,23 @@ public class OrdersServiceImpl implements OrdersService{
     public ArrayList<OrdersVO> getDataList(OrdersVO orders){
     	return om.getDataList(orders);
     }
+    
+    
+    //------------------
+    public void updateConfirm(List<OrdersVO> selectedItems) {
+        for (OrdersVO order : selectedItems) {
+          // DB에서 해당하는 데이터를 찾아서 confirm 열을 업데이트하는 작업 수행
+         /* 
+          * OrdersVO existingOrder = om.findOrderByItemDetails(order.getDept(), order.getRequestDate(), order.getItem_id());
+          if (existingOrder != null) {
+            existingOrder.setConfirm("Y");
+            */
+            om.updateConfirm(order);
+         // }
+        }
+      }
+    
+    
+    
+    
 }

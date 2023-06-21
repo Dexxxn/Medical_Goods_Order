@@ -49,9 +49,9 @@ $("button").click(function(event) {
 		
 	});
 	
-
+//+++++++++++++++++++++++++++++++++++++++++++++++++아래에 기능추가(DB업데이트 및 색깔 변화)
 	//이메일 전송완료 확인창
-	function okbutton() {
+	/* function okbutton() {
 		  $.ajax({
 		    url: "modal_alert_ok", // modal_alert.jsp 파일 경로
 		    success: function(data) {
@@ -69,14 +69,91 @@ $("button").click(function(event) {
 			$(document).on("click", ".closeB", function() {
 			  $(".modal-overlay").hide();
 			  $(".modal1").hide();
-			}); 
+			  
+			});  */
 	
+			//이메일 전송완료 확인창
+			function okbutton() {
+			  $.ajax({
+			    url: "modal_alert_ok", // modal_alert.jsp 파일 경로
+			    success: function(data) {
+			      $("#modalContainer").html(data);
+			      $(".modal-overlay").show();
+			      $(".modal1").show();
+			      $(".ment").text("이메일 전송 완료"); //내용 변경
+			      
+			      $("#modalclose").show(); // #modalclose 버튼 표시
+			      $("#defaultBtn").hide(); // 확인 버튼 숨기기
+
+			      // Apply color change
+			      $("#publicTable tbody input[name='checkbox']:checked").closest("tr").css('background-color', 'blue');
+
+			      // Prepare data for server
+			      var itemIds = [];
+			      $("#publicTable tbody input[name='checkbox']:checked").each(function() {
+			        var $row = $(this).closest("tr");
+			        var itemId = $row.find("td:eq(1)").text();  // adjust this line to get the actual item_id
+			        itemIds.push(itemId);
+			      });
+			      
+			      // Send AJAX request to server to update DB
+			      $.ajax({
+			        url: "/updateOrders",  // adjust this line to the actual server URL
+			        type: "POST",
+			        data: JSON.stringify(itemIds),
+			        contentType: "application/json",
+			        success: function(response) {
+			          console.log("DB Update Success");
+			        },
+			        error: function(jqXHR, textStatus, errorThrown) {
+			          console.log("DB Update Failed: ", textStatus);
+			        }
+			      });
+			    }
+			  });
+			}
+
+			$(document).on("click", ".closeB", function() {
+			  $(".modal-overlay").hide();
+			  $(".modal1").hide();
+			});
 			
-	//"확인" 클릭시 모달창 닫기
-		function modalClose() {
+//--------------------------------------------------------------------------------
+	//"확인" 클릭시 모달창 닫고 색깔 변화!!! (보류..)
+/* 		function modalClose() {
 			$(".modal1").hide();
 			$(".modal-overlay").hide();
-		}
+			
+//start		// 체크된 체크박스 항목을 다른 테이블로 이동하여 구분하여 뷰에 표시
+			  var $publicTable = $("#publicTable tbody");
+			  var $selectedTable = $("#selectedTable tbody");
+
+			  $selectedTable.empty(); // 이전에 선택된 항목들을 비우기
+
+			  $publicTable.find("input[name='checkbox']:checked").each(function() {
+			    var $row = $(this).closest("tr");
+
+			    // 선택된 항목을 복사하여 다른 테이블로 이동
+			    var $newRow = $row.clone();
+			    $selectedTable.append($newRow);
+
+			    // 선택된 항목의 스타일 변경
+			    $row.css("background-color", "#FAEBD7");
+			    $row.find("input[name='checkbox']").remove();
+			  });
+
+			  // 선택된 항목들을 구분하는 행 추가
+			  var $selectedRow = $("<tr></tr>");
+			  $selectedRow.append("<td colspan='13' style='background-color: #FAEBD7;'>선택된 항목</td>");
+			  $selectedTable.prepend($selectedRow);
+			  
+			  
+//end	
+		} */
+	
+	
+	
+	
 </script>
 
 <style>
