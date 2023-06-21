@@ -101,9 +101,16 @@ public class HomeController {
 		return "modal_alert";
 	}
 
+	// 수량입력 품목 리스트
 	@RequestMapping(value = "/useList", method = RequestMethod.GET)
 	public String useList() {
 		return "table_only";
+	}
+	
+	// 발주요청서 리스트
+	@RequestMapping(value = "/orderList", method = RequestMethod.GET)
+	public String orderRequest() {
+		return "table";
 	}
 
 	// 총무("발주계획서작성" 첫페이지로 이동)

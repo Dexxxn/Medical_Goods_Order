@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	
-	<form id="oo">
+<form id="table_form">
 	<div class="form_container">
-	<%@ include file = "form.jsp" %>
+		<%@ include file = "form.jsp" %>
 	</div>
-	<%@ include file = "form2.jsp" %>
+	<div class="form_container2">
+		<%@ include file = "form2.jsp" %>
+	</div>
 	<div class="tableAll" id="CheckboxTable">
 		<div class="table-container">
 			<table class="table checkbox" id="publicTable" border="1">

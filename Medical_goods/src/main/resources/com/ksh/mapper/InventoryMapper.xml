@@ -19,12 +19,12 @@
         WHERE date=#{date} AND dept=#{dept}
 	</select>
 	
-	<select id="modal" resultType="com.ksh.model.InventoryVO">
+	<select id="modalList" resultType="com.ksh.model.InventoryVO">
 		<!-- 품목별로 가장 최신 데이터만/날짜 -->
 		SELECT *
 		FROM medical_goods_order.inventory 
         WHERE date = (SELECT MAX(date) FROM medical_goods_order.inventory)
-        AND date=#{date}
+        AND dept="병동B"
 	</select>
 	
 	<insert id="useInsert">

@@ -13,6 +13,8 @@ public interface InventoryMapper {
 
 	public ArrayList<InventoryVO> useList(InventoryVO inven);
 
+	public ArrayList<InventoryVO> modalList(InventoryVO inven);
+	
 	public void useInsert(InventoryVO inven);
 	
 	ArrayList<InventoryVO> ph(@Param("dept") String dept, @Param("name") String name, @Param("date") String date);

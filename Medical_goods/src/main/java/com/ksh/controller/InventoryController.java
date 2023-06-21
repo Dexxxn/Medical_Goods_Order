@@ -51,8 +51,8 @@ public class InventoryController {
 	// 모달 전체 의약품 리스트
 	@RequestMapping(value = "/modal", method = RequestMethod.POST)
 	public ResponseEntity<?> modalList(InventoryVO inven) {
-		System.out.println(is.useList(inven));
-		return new ResponseEntity<>(is.useList(inven), HttpStatus.OK);
+		System.out.println(is.modalList(inven));
+		return new ResponseEntity<>(is.modalList(inven), HttpStatus.OK);
 	}
 	
 	 // 사용 수량 입력(insert)

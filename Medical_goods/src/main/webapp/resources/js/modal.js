@@ -12,7 +12,7 @@ function invenList(url) {
     	$("#formAll").remove();
     	
         // Contents 영역 교체
-        console.log(data)
+        //console.log(data)
         var str = "";
         
         var currentAmountDeptA = [];
@@ -95,7 +95,7 @@ function useList() {
         // Contents 영역 삭제
 
         // Contents 영역 교체
-        //console.log(data)
+        console.log(data)
         var str = "";
         
         if (data.length === 0) {
@@ -122,32 +122,75 @@ function useList() {
         // tbody 값 대체
         $(".table.only tbody").html(str);
         
+      
+        
     });
 
 }
 
+//물품 사용입력 페이지 연결
+$(document).on("click", "#modalOpen", function() {
+    $.ajax({
+        url: "/modal", // URL of the purchase.jsp page
+        type: "GET",
+        success: function(data) {
+            // Update the content of the chartContent element with the response from purchase.jsp
+        	$("body").append(data);
+        	// 응답으로 받은 데이터로 page_title_section의 p태그의 innerHTML 업데이트
+            $("#title_name").html("자가사용입력");
+        },
+        error: function(xhr, status, error) {
+            alert("An error occurred while loading the page. Error: " + error);
+            console.log("XHR status: " + status);
+            console.log("Error details: " + error);
+        }
+    });		
+})
+
 //모달 열기 버튼 클릭 이벤트 핸들러
 $(document).on("click", "#modalOpen", function() {     
+    if ($(".modal1").length > 0) {
+        // 기존 모달 창을 닫고 삭제
+        $(".modal1").hide();
+        $(".modal-overlay").hide();
+        $(".modal1").remove();
+        $(".modal-overlay").remove();
+    }
     // 비동기식으로 모달 페이지를 불러와서 열기
     $.ajax({
         url: "/modal",
+        type: "POST",
+        dataType: "json",
         async: true,
         cache: false
-    }).done(function(modalContent) {
-        // 모달 닫고 요소 삭제(모달 재생성을 위해)
-        $(".modal1").remove(); // 기존 모달 페이지 삭제
-        $(".modal-overlay").remove(); // 기존 모달 오버레이 삭제
+    }).done(function(data) {
+    	console.log(data)
+    	
         // 모달 페이지를 추가한 후 열기
-        $("body").append(modalContent);
         $(".modal1").show();
         $(".modal-overlay").show();
         // 모달 닫고 요소 삭제(모달 재생성위해)
-        	$(".closeB").click(function() {
+        $(".closeB").click(function() {
         	$(".modal1").hide();
             $(".modal-overlay").hide();
         });
         // table.jsp 삭제
-        $("#oo").remove();
+        $("#table_form").remove();
+        $(".modal1 .basicB.top input").remove();
+        
+        var str1 = "";
+        
+        for (var i = 0; i < data.length; i++) {
+            str1 += "<tr>";
+            str1 += "<td>" + data[i].item_id + "</td>";
+            str1 += "<td>" + data[i].item_name + "</td>";
+            str1 += "<td>" + data[i].standard + "</td>";
+            str1 += "<td>" + data[i].unit + "</td>";
+            str1 += "<td id='quantityUsedCell'>" + data[i].quantity_used + "</td>";
+            str1 += "<td>" + data[i].significant + "</td>";
+            str1 += "</tr>";
+        }
+        
         //
         $(".modal_title").html("자가사용입력");
         //
@@ -155,7 +198,7 @@ $(document).on("click", "#modalOpen", function() {
         // thead에 열 추가
         $(".modal1 .table.only thead tr").append("<th>특이사항</th>");
         // tbody 값 대체
-        $(".modal1 .table.only tbody").html(str);
+        $(".modal1 .table.only tbody").html(str1);
         // 사용수량 셀을 입력 요소로 변경
         $(".modal1 #quantityUsedCell").html("<input type='text' name='quantity_used' value='0'>");
         
@@ -169,25 +212,8 @@ $(document).on("click", "#modalOpen", function() {
             $(".modal1").remove();
             $(".modal-overlay").remove();
             // 부모 창 새로고침
-            window.location.reload();
+            //window.location.reload();
         });
     });
 });
 
-/*    	
-// 모달 열기
-$(document).ready(function() {
-	$("#modal").click(function() {
-		$(".modal1").show();
-		$(".modal-overlay").show();
-	});
-});
-// 모달 닫기
-$(document).ready(function() {
-	// x 아이콘 클릭 시 모달 닫기
-	$(".closeB").click(function() {
-		$(".modal1").hide();
-		$(".modal-overlay").hide();
-	});
-});
-*/

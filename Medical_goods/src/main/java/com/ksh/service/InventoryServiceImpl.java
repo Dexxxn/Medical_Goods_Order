@@ -23,6 +23,10 @@ public class InventoryServiceImpl implements InventoryService {
 		return im.useList(inven);
 	}
 
+	public ArrayList<InventoryVO> modalList(InventoryVO inven) {
+		return im.modalList(inven);
+	}
+	
 	public void useInsert(InventoryVO inven) {
 		im.useInsert(inven);
 	}

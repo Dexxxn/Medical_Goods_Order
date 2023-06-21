@@ -149,7 +149,7 @@
                         	<span class="detailPage_nav" id="useList" onclick="useList()">사용입력-희,읽</span> <!-- data-href="/usage-input" -->
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
-                        	<span class="detailPage_nav" id="" >발주요청서-희,읽</span> <!--  data-href="/purchase-request"  -->
+                        	<span class="detailPage_nav" id="orderList">발주요청서 작성-희,읽</span> <!--  data-href="/purchase-request"  -->
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
                         	<span class="detailPage_nav" id="purchase_planning" >발주계획서 작성</span> <!-- onclick="requestList('/purchasePlan')" -->
@@ -313,11 +313,13 @@
 								 //$("#").click(purchaseHis_DetailPageOpen); 
 								 // 공지사항
 								 $("#notice_anchor").click(noticePageOpen);
-								 //재고현황
+								 // 재고현황
 								 $("#invenList").click(invenListPageOpen);
-								//재고현황
+								 // 사용수량입력
 								 $("#useList").click(useListPageOpen);
-								//발주계획서 작성
+								 // 발주요청서 작성
+								 $("#orderList").click(orderRequestPageOpen);
+								 //발주계획서 작성
 								 $("#purchase_planning").click(purchasePlanPageOpen);
 								 
 								 
@@ -472,6 +474,25 @@
 						                        $("#mainContents").html(data);
 						                    	// 응답으로 받은 데이터로 page_title_section의 p태그의 innerHTML 업데이트
 						                        $("#title_name").html("자가사용입력");
+						                    },
+						                    error: function(xhr, status, error) {
+						                        alert("An error occurred while loading the page. Error: " + error);
+						                        console.log("XHR status: " + status);
+						                        console.log("Error details: " + error);
+						                    }
+						                });
+						            }	
+						            
+						            // 발주요청서 페이지 연결
+						            function orderRequestPageOpen() {
+						                $.ajax({
+						                    url: "/orderList", // URL of the purchase.jsp page
+						                    type: "GET",
+						                    success: function(data) {
+						                        // Update the content of the chartContent element with the response from purchase.jsp
+						                        $("#mainContents").html(data);
+						                    	// 응답으로 받은 데이터로 page_title_section의 p태그의 innerHTML 업데이트
+						                        $("#title_name").html("발주요청서");
 						                    },
 						                    error: function(xhr, status, error) {
 						                        alert("An error occurred while loading the page. Error: " + error);
