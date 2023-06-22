@@ -37,9 +37,7 @@
 			</table>
 			</div>			
 		</div>
-		<div class="ph1-5">
-		<a href="/ph"><button class="btn" id="backButton">뒤로가기</button></a>
-		</div>
+		
 	</div>
 </div>
 <script>
