@@ -18,7 +18,10 @@ public interface OrdersMapper {
 	public ArrayList<OrdersVO> getDataList(OrdersVO orders);
 	
 
-	 public void updateConfirmDateForItems(@Param("list") List<OrdersVO> orders);
+	 //public void updateConfirmDateForItems(@Param("list") List<OrdersVO> orders);
+	//각각의 OrdersVO를 개별적으로 처리하고 있어서, 중복된 SQL문이 생성되고 오류 발생 중...
+	
+	void updateConfirmDateForItem(OrdersVO order);
 	
 	
 }

@@ -42,8 +42,8 @@
     
 
     <!-- confirm 열에 insert하기 now()  -->
-     <update id="updateConfirmDateForItems" parameterType="java.util.List"> 
-	          <foreach item="item" collection="list" separator=";"> <!-- 'list'라는 이름으로 OrdersVO 목록을 받아와서 'foreach'구문을 사용하여 각각의 OrdersVO에 대해 UPDATE 쿼리 실행. ';'사용해서 구분. open,close 속성은 필요없음. -->
+     <!-- <update id="updateConfirmDateForItems" parameterType="java.util.List"> 
+	          <foreach item="item" collection="list" separator=";"> 'list'라는 이름으로 OrdersVO 목록을 받아와서 'foreach'구문을 사용하여 각각의 OrdersVO에 대해 UPDATE 쿼리 실행. ';'사용해서 구분. open,close 속성은 필요없음.
 		        UPDATE medical_goods_order.orders
 		        SET confirm = NOW()
 		        WHERE item_id= #{item.item_id}
@@ -51,7 +51,28 @@
 		        AND supplier= #{item.supplier}
 		        AND name= #{item.name}
 	   		 </foreach>
-    </update>
+    </update> -->
+    <!--  
+     <update id="updateConfirmDateForItems" parameterType="java.util.List">
+  <foreach item="item" collection="list">
+    UPDATE medical_goods_order.orders
+    SET confirm = NOW()
+    WHERE item_id = #{item.item_id}
+      AND receiptDate = #{item.receiptDate}
+      AND supplier = #{item.supplier}
+      AND name = #{item.name}
+  </foreach>
+</update> -->
+     
+     <update id="updateConfirmDateForItem" parameterType="com.ksh.model.OrdersVO">
+  UPDATE medical_goods_order.orders
+  SET confirm = NOW()
+  WHERE item_id = #{item_id}
+    <!-- AND receiptDate = #{receiptDate} -->
+    AND supplier = #{supplier}
+    AND name = #{name}
+</update>
+     
      
      
     <!--  <update id="updateConfirmDateForItems" parameterType="java.util.List">

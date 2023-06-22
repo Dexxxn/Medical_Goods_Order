@@ -37,7 +37,7 @@ function requestList() {
           str += "<td>" + data[i].name + "</td>";//1품목총액(공급가액 + 부가세)
           str += "<td>" + data[i].receiptDate + "</td>";//1품목총액(공급가액 + 부가세)
           str += "<td>" + (data[i].significant || "") + "</td>";//의약품별 요청 및 특이사항 //DB에서 해당 데이터가 null상태면 공백으로!
-          str += "<td>" +  (data[i].confirm || "") + "</td>";
+          str += "<td id='status'>" +  (data[i].confirm || "") + "</td>"; //진행상태
           str += "</tr>";
       }
       

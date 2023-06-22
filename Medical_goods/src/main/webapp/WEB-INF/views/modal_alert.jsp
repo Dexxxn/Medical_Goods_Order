@@ -85,16 +85,8 @@ $("button").click(function(event) {
 			      $("#modalclose").show(); // #modalclose 버튼 표시
 			      $("#defaultBtn").hide(); // 확인 버튼 숨기기
 
-			      // Apply color change
-			      $("#publicTable tbody input[name='checkbox']:checked").closest("tr").css('background-color', 'blue');
-
-			      // Prepare data for server
-			    /*   var itemIds = [];
-			      $("#publicTable tbody input[name='checkbox']:checked").each(function() {
-			        var $row = $(this).closest("tr");
-			        var item_id = $row.find("td:eq(1)").text();  // adjust this line to get the actual item_id
-			        itemIds.push(item_id);
-			      }); */
+			
+			    
 			      
 			      var selectedItems = []; // 선택된 체크박스 값들을 저장할 배열
 			      // 선택된 체크박스 요소들을 탐색
@@ -118,6 +110,8 @@ $("button").click(function(event) {
 				    selectedItems.push(item); // 선택된 체크박스 값을 배열에 추가
 				  });
 			      
+			      //여기시도-성공!!!
+				  $("#publicTable tbody input[name='checkbox']:checked").closest("tr").find("input[name='checkbox']").remove().end().css('background-color', '#FAEBD7');
 			      
 			      // Send AJAX request to server to update DB
 			      $.ajax({
@@ -126,20 +120,25 @@ $("button").click(function(event) {
 			        data: JSON.stringify(selectedItems), //서버로던질 리스트
 			        contentType: "application/json",
 			        success: function(response) {
-			          console.log("DB Update Success");
-			        },
-			        error: function(jqXHR, textStatus, errorThrown) {
-			          console.log("DB Update Failed: ", textStatus);
+			        	  console.log("DB Update Success");
+			        	  
+	
+			              
+			            },
+			            error: function(jqXHR, textStatus, errorThrown) {
+			              console.log("DB Update Failed: ", textStatus);
+			            }
+			          });
 			        }
 			      });
 			    }
-			  });
-			}
 
-			$(document).on("click", ".closeB", function() {
-			  $(".modal-overlay").hide();
-			  $(".modal1").hide();
-			});
+			    $(document).on("click", ".closeB", function() {
+			      $(".modal-overlay").hide();
+			      $(".modal1").hide();
+			    });
+
+			
 			
 //--------------------------------------------------------------------------------
 	//"확인" 클릭시 모달창 닫고 색깔 변화!!! (보류..)
