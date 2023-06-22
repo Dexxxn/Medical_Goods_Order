@@ -27,8 +27,8 @@
 		</table>
 	</div>	
 	<hr>
-	<div class="basicB">
-		<input class="pointB submit" type="button" value="전체 적용">
+	<div class="basicB modalBtn">
+		<input class="pointB" type="button" value="확인">
 		<input class="closeB" type="button" value="닫기">
 	</div>
 </div>

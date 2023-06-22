@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div id="main_contents_section"> <!-- 메인내용 들어갈 자리 시작 -->
 	<div id="page_title_section"><p id="title_name"></p></div>
 	
 	<div id="formAll">
 <div id="form_wrap">
-		<div class="mainForm">	
+		<div class="mainForm">
 			<div>
 				<label>사용일자</label>
 				<input id="searchDate" type="date" name="date">
@@ -21,7 +22,7 @@
 			</div>
 			<div>
 				<label>특이사항</label>
-				<input id="signi" type="text" name="significant" >
+				<input id="signi" type="text" >
 			</div>
 <!-- 		이런식으로 div 추가/변경...
 			<div>

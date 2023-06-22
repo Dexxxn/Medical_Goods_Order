@@ -1,5 +1,9 @@
 package com.ksh.model;
 
+import java.util.ArrayList;
+
+
+
 public class InventoryVO {
 	private String dept;
 	private String item_name;
@@ -13,8 +17,9 @@ public class InventoryVO {
 	private int current_amount;
 	private int safe_stock_quantity;
 	private String significant;
-	private itemsVO items;
 	private String name;
+	
+	private ArrayList<FormVO> formvo;
 
 	public String getDept() {
 		return dept;
@@ -119,13 +124,14 @@ public class InventoryVO {
 	public void setSignificant(String significant) {
 		this.significant = significant;
 	}
-
-	public itemsVO getItems() {
-		return items;
+	
+	
+	public ArrayList<FormVO> getFormvo() {
+		return formvo;
 	}
 
-	public void setItems(itemsVO items) {
-		this.items = items;
+	public void setFormvo(ArrayList<FormVO> formvo) {
+		this.formvo = formvo;
 	}
 
 	@Override
@@ -134,7 +140,6 @@ public class InventoryVO {
 				+ standard + ", unit=" + unit + ", date=" + date + ", enter_quantity=" + enter_quantity
 				+ ", available_stock=" + available_stock + ", quantity_used=" + quantity_used + ", current_amount="
 				+ current_amount + ", safe_stock_quantity=" + safe_stock_quantity + ", significant=" + significant
-				+ ", itemsVO=" + items + ", name=" + name + "]";
+				+ ", name=" + name + ", formvo=" + formvo + "]";
 	}
-
 }

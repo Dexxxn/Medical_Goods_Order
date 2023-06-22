@@ -24,12 +24,12 @@
 		SELECT *
 		FROM medical_goods_order.inventory 
         WHERE date = (SELECT MAX(date) FROM medical_goods_order.inventory)
-        AND dept="병동B"
+        AND dept=#{dept}
 	</select>
 	
 	<insert id="useInsert">
 		INSERT into medical_goods_order.inventory
-		VALUES()
+		VALUES(#{dept}, #{item_name}, #{item_id}, #{standard}, #{unit}, #{date}, 0, 0, #{quantity_used}, 0, 0, #{name}, #{significant});
 	</insert>
 	
 	<select id="orderList" resultType="com.ksh.model.InventoryVO">
@@ -39,6 +39,9 @@
         WHERE current_amount &lt; safe_stock_quantity
         AND dept="병동B"
 	</select>
+	
+	
+	
 	
 	<select id="getAllItems" resultType="java.lang.String">
 	    SELECT DISTINCT item_name FROM medical_goods_order.inventory

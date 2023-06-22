@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.ksh.model.FormVO;
 import com.ksh.model.InventoryVO;
 
 public interface InventoryMapper {
@@ -19,6 +20,9 @@ public interface InventoryMapper {
 
 	public ArrayList<InventoryVO> orderList(InventoryVO inven);
 
+	public void useInsert(FormVO formvo);
+	
+	
 	ArrayList<InventoryVO> ph(@Param("dept") String dept, @Param("name") String name, @Param("date") String date);
 
 	ArrayList<InventoryVO> getInventoryList();

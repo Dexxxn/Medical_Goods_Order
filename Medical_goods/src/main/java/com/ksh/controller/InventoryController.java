@@ -50,29 +50,29 @@ public class InventoryController {
 		System.out.println(is.useList(inven));
 		return new ResponseEntity<>(is.useList(inven), HttpStatus.OK);
 	}
-
+	
 	// 모달 전체 의약품 리스트
 	@RequestMapping(value = "/modal", method = RequestMethod.POST)
 	public ResponseEntity<?> modalList(InventoryVO inven) {
 		System.out.println(is.modalList(inven));
 		return new ResponseEntity<>(is.modalList(inven), HttpStatus.OK);
 	}
-
-	// 사용 수량 입력(insert)
-	@RequestMapping(value = "/useInsert", method = RequestMethod.POST)
-	public String useInsert(InventoryVO inven) {
-		is.useInsert(inven);
-		System.out.println(inven);// 어떤 값을 받았는지 콘솔에서 확인
-		return "redirect:/useList";
-	}
-
+	 // 사용 수량 입력(insert)
+	 @RequestMapping(value = "/useInsert", method = RequestMethod.POST) 
+	 public String useInsert(InventoryVO inven) {
+		 is.useInsert(inven); 
+		 System.out.println(inven);// 어떤 값을 받았는지 콘솔에서 확인
+		 return "redirect:/useList";
+	 }
+	 
 	// 발주요청 리스트
 	@RequestMapping(value = "/orderList", method = RequestMethod.POST)
 	public ResponseEntity<?> orderList(InventoryVO inven) {
 		System.out.println(is.orderList(inven));
 		return new ResponseEntity<>(is.orderList(inven), HttpStatus.OK);
-	}
-
+	}	 
+	
+	
 	@RequestMapping(value = "/ph_detail", method = RequestMethod.GET)
 	public String phDetail(Model model, @RequestParam("dept") String dept, @RequestParam("name") String name,
 			@RequestParam("date") String date) {

@@ -87,7 +87,7 @@ function useList() {
     
     // 사용 입력 품목 리스트 조회 URL
     var url = "/useList?date=" + encodeURIComponent(selectedDate) + "&dept=" + encodeURIComponent(selectedDept); // 예시 URL
-
+    
     // Ajax 요청 보내기
     $.ajax({
         url: url,
@@ -99,7 +99,7 @@ function useList() {
         // Contents 영역 삭제
 
         // Contents 영역 교체
-        console.log(data)
+        //console.log(data)
         var str = "";
         
         if (data.length === 0) {
@@ -143,13 +143,7 @@ $(document).on("click", "#modalOpen", function() {
 })
 
 //모달 열기 버튼 클릭 이벤트 핸들러
-
-    // 선택한 날짜 가져오기
-    var selectedDate = $(".modal1 #searchDate").val();
-    // 사용 입력 품목 리스트 조회 URL
-    //var url = "/useList?date=" + encodeURIComponent(selectedDate) + "&dept=" + encodeURIComponent(selectedDept); // 예시 URL
-
-$(document).on("click", "#modalOpen", function() {     
+$(document).on("click", "#modalOpen", function() {
     if ($(".modal1").length > 0) {
         // 기존 모달 창을 닫고 삭제
         $(".modal1").hide();
@@ -157,13 +151,21 @@ $(document).on("click", "#modalOpen", function() {
         $(".modal1").remove();
         $(".modal-overlay").remove();
     }
+    
+
+	// 선택한 부서 가져오기
+	var selectedDept = $("#dept").val();
+	// 사용 입력 품목 리스트 조회 URL
+	var url = "/modal?dept=" + encodeURIComponent(selectedDept); // 예시 URL
+	
     // 비동기식으로 모달 페이지를 불러와서 열기
     $.ajax({
-        url: "/modal",
+        url: url,
         type: "POST",
         dataType: "json",
         async: true,
         cache: false
+        
     }).done(function(data) {
     	console.log(data)
     	
@@ -183,14 +185,26 @@ $(document).on("click", "#modalOpen", function() {
         
         for (var i = 0; i < data.length; i++) {
             str1 += "<tr>";
-            str1 += "<td>" + data[i].item_id + "</td>";
-            str1 += "<td>" + data[i].item_name + "</td>";
-            str1 += "<td>" + data[i].standard + "</td>";
-            str1 += "<td>" + data[i].unit + "</td>";
-            str1 += "<td id='quantityUsedCell' class='quantity'>" + data[i].quantity_used + "</td>";
-            str1 += "<td>" + data[i].significant + "</td>";
+            str1 += "<td><input type='hidden' name='formvo["+i+"].item_id' value='"+data[i].item_id+"'>" + data[i].item_id + "</td>";
+            str1 += "<td><input type='hidden' name='formvo["+i+"].item_name' value='"+data[i].item_name+"'>" + data[i].item_name + "</td>";
+            str1 += "<td><input type='hidden' name='formvo["+i+"].standard' value='"+data[i].standard+"'>" + data[i].standard + "</td>";
+            str1 += "<td><input type='hidden' name='formvo["+i+"].unit' value='"+data[i].unit+"'>" + data[i].unit + "</td>";
+            str1 += "<td id='quantityUsedCell' class='quantity'>" +
+            		"<input type='text' name='formvo["+i+"].quantity_used' value='0'></td>";
+            str1 += "<td><input type='text' name='formvo["+i+"].significant'></td>";
             str1 += "</tr>";
         }
+
+        
+/*        str1 += "<tr>";
+        str1 += "<td><input type='hidden' name='item_id' value='"+data[0].item_id+"'>" + data[0].item_id + "</td>";
+        str1 += "<td><input type='hidden' name='item_name' value='"+data[0].item_name+"'>" + data[0].item_name + "</td>";
+        str1 += "<td><input type='hidden' name='standard' value='"+data[0].standard+"'>" + data[0].standard + "</td>";
+        str1 += "<td><input type='hidden' name='unit' value='"+data[0].unit+"'>" + data[0].unit + "</td>";
+        str1 += "<td id='quantityUsedCell' class='quantity'>" +
+        		"<input type='text' name='quantity_used' value='0'></td>";
+        str1 += "<td><input type='text' name='significant'></td>";
+        str1 += "</tr>";*/
         
         //
         $(".modal_title").html("자가사용입력");
@@ -199,22 +213,22 @@ $(document).on("click", "#modalOpen", function() {
         
         // tbody 값 대체
         $(".modal1 .table.only tbody").html(str1);
-        // 사용수량 셀을 입력 요소로 변경
-        $(".modal1 #quantityUsedCell").html("<input type='text' name='quantity_used' value='0'>");
-        
         
 
-        $(".modal1 .basicB .pointB").html("<input class='pointB submit' type='button' value='전체 적용' formaction='/useInsert'>");
-        $(".modal1 .basicB .closeB").html("<input class='closeB' type='button' value='닫기'>");
+        $(".modal1 .modalBtn").html("<input class='pointB submit' type='button' value='전체 적용'><input class='closeB' type='button' value='닫기'>");
+        
 
         $(".modal1 .submit").click(function() {
-            if (confirm(selectedDate + " 해당 일자의 사용수량을 등록하시겠습니까?")) {
+
+            // 선택한 날짜 가져오기
+            var selectedDate = $(".modal1 #searchDate").val();
+            
+        	if (confirm(selectedDate + " 해당 일자의 사용수량을 등록하시겠습니까?")) {
                 // 확인 버튼을 눌렀을 때 실행되는 코드
-            	//$("#table_only_form").submit();
-                //$(".modal1").remove();
-                //$(".modal-overlay").remove();
-                // 부모 창 새로고침
-                //window.location.reload();
+        		$(".modal1 #table_only_form").attr("method", "POST"); // POST로 설정
+        		$(".modal1 #table_only_form").attr("action", "/useInsert").submit(); // 폼 제출
+                $(".modal1").remove();
+                $(".modal-overlay").remove();
             } else {
                 // 아니오 버튼을 눌렀을 때 실행되는 코드
                 // 아무 동작 없음
@@ -234,9 +248,14 @@ function orderList() {
     // 사용 입력 품목 리스트 조회 URL
     var url = "/useList?date=" + encodeURIComponent(selectedDate) + "&dept=" + encodeURIComponent(selectedDept); // 예시 URL
 */
+	// 선택한 부서 가져오기
+	var selectedDept = $("#dept").val();
+	// 사용 입력 품목 리스트 조회 URL
+	var url = "/modal?dept=" + encodeURIComponent(selectedDept); // 예시 URL
+		
     // Ajax 요청 보내기
     $.ajax({
-        url: "/modal",
+        url: url,
         async: true,
         type: "POST",
         dataType: "json", // 데이터 형식을 JSON으로 설정
