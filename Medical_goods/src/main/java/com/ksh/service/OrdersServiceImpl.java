@@ -35,17 +35,12 @@ public class OrdersServiceImpl implements OrdersService{
     }
     
     
- 
-    /*public void updateConfirmDateForItems(List<OrdersVO> orders) {
-    	om.updateConfirmDateForItems(orders);
-    }*/
-    
+	 // 발주완료 항목 confirm열 update
     public void updateConfirmDateForItems(List<OrdersVO> orders) {
         for (OrdersVO order : orders) {
             om.updateConfirmDateForItem(order);
         }
     }
     
-    
-    
+
 }

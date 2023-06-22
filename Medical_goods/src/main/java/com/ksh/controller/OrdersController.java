@@ -21,7 +21,6 @@ public class OrdersController {
 	OrdersService os;
 	
 	// 진료부서별 ->> 발주요청 insert
-	
     @RequestMapping(value = "/purchase_request", method = RequestMethod.POST)
     public String purchaseRequest(List<OrdersVO> ordersList) {
         System.out.println("aaaaa");	
@@ -46,8 +45,7 @@ public class OrdersController {
 		 return new ResponseEntity<>(requestList, HttpStatus.OK);
 	}
 	
-    
-   
+      
     
     @RequestMapping(value = "/requestListmodal", method = RequestMethod.GET) 
     public String modalOpen() {
@@ -59,11 +57,7 @@ public class OrdersController {
     public ResponseEntity<?> getDataList(OrdersVO orders) {
     	System.out.println(orders);
     	System.out.println(os.getDataList(orders));
-        // 데이터를 DB에서 가져오는 로직을 구현합니다. 
-        // 가져온 데이터를 YourDataModel 타입의 리스트로 가정하겠습니다.
-        //List<OrdersVO> dataList = os.getDataList(OrdersVO orders);
-
-        // 가져온 데이터를 JSON 형식으로 변환하여 응답합니다.
+      
         return new ResponseEntity<>(os.getDataList(orders), HttpStatus.OK);
     }
     

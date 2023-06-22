@@ -15,6 +15,6 @@ public interface OrdersService {
 	// 모달 열기
 	 public ArrayList<OrdersVO> getDataList(OrdersVO orders);
 	 
-	 
+	 // 발주완료 항목 confirm열 update
 	 public void updateConfirmDateForItems(List<OrdersVO> orders);
 }

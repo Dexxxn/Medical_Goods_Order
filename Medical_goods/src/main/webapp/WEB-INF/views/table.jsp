@@ -29,22 +29,6 @@
 			            <td>3box</td>
 			            <td>30</td>
 			            <td>유통기한 확인 요망</td>
-			        </tr>
-			        <tr>
-			            <td><input type="checkbox" name="checkbox"></td>
-			            <td>00002</td>
-			            <td>Prohaska</td>
-			            <td>1box</td>
-			            <td>30</td>
-			            <td>유통기한 확인 요망</td>
-			        </tr>
-			        <tr>
-			            <td><input type="checkbox" name="checkbox"></td>
-			            <td>00003</td>
-			            <td>Prohaska</td>
-			            <td>1box</td>
-			            <td>30</td>
-			            <td>유통기한 확인 요망</td>
 			        </tr> -->
 			    </tbody>
 			</table>
@@ -62,8 +46,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-
-
 //checkbox 전체 선택 기능
 function selectAll(selectAll)  {
 	const checkboxes 
@@ -92,4 +74,4 @@ function selectAll(selectAll)  {
 		});
 	});
 
-</script>	
+</script>

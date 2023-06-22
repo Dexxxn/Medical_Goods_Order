@@ -22,8 +22,12 @@ function requestList() {
       
      var str = "";
       for (var i = 0; i < data.length; i++) {
-          str += "<tr>";
-          str += "<td><input type='checkbox' name='checkbox'></td>"; // 체크박스 추가
+    	  var confirmStatus = data[i].confirm || ""; // 진행상태 값 가져오기
+    	  var checkboxStyle = (confirmStatus !== "") ? "display:none" : ""; // 진행상태 값이 있는 경우 체크박스 숨기기
+    	  var backgroundColor = (confirmStatus !== "") ? "#f5f5f5" : ""; // 진행상태 값이 있는 경우 배경색 설정
+    	    
+    	  str += "<tr style='background-color: " + backgroundColor + "'>"; // 배경색 설정
+    	  str += "<td><input type='checkbox' name='checkbox' style='" + checkboxStyle + "'></td>"; // 체크박스 추가
           str += "<td>" + data[i].item_id + "</td>"; //의약품코드
           str += "<td>" + data[i].item_name + "</td>"; //의약품명
           str += "<td>" + data[i].supplier+ "</td>"; //구매처명
@@ -37,7 +41,7 @@ function requestList() {
           str += "<td>" + data[i].name + "</td>";//1품목총액(공급가액 + 부가세)
           str += "<td>" + data[i].receiptDate + "</td>";//1품목총액(공급가액 + 부가세)
           str += "<td>" + (data[i].significant || "") + "</td>";//의약품별 요청 및 특이사항 //DB에서 해당 데이터가 null상태면 공백으로!
-          str += "<td id='status'>" +  (data[i].confirm || "") + "</td>"; //진행상태
+          str += "<td id='status'>" + confirmStatus + "</td>"; // 진행상태
           str += "</tr>";
       }
       
@@ -139,7 +143,6 @@ function opendetailModal() {
   
   
   
-  
   // AJAX를 통해 선택된 체크박스 값들을 모달로 전송
   $.ajax({
     url: "/requestList", // 모달로 전송할 URL
@@ -153,7 +156,6 @@ function opendetailModal() {
     // ...
 	  console.log(response)
 	  
-
 	  $("#modalContainer").html(response);
 	  $(".modal-overlay").show();
 	  $(".requestListModal").show();
@@ -166,9 +168,7 @@ function opendetailModal() {
 	    var totalQuantity = 0; // 총 수량을 저장할 변수
 	    var totalPrice = 0; // 총액을 저장할 변수
 	    
-	    
-	  
-		   
+
 	    for (var i = 0; i < selectedItems.length; i++) {
 	      var item = selectedItems[i];
 	      
@@ -202,22 +202,16 @@ function opendetailModal() {
 	    	}
 	    
 	    $reqListTable.append($totalRow); // 테이블에 총 수량과 총액을 추가하는 행 추가
-	    
-	    
 
-	
 	    
 	    // 버튼 클릭 시 sendEmailAlert() 함수 실행
 	    var emailButton = document.getElementById("selectRequestList");
 	    emailButton.onclick = function() {
 	      sendEmailAlert(selectedSupplier);
 	    };  
-	 
-	    
 
   });
 }
-
 
 
 
@@ -243,8 +237,7 @@ function warning() {
 	  $(".modal1").hide();
 	}); 
 	
-	
-	
+
 
 	//체크박스 선택 없이 전체적용 버튼 클릭하면 modal_alert 띄우기
 	function nonechecked() {
@@ -299,72 +292,3 @@ function warning() {
 					  $(".modal-overlay").hide();
 					  $(".modal1").hide();
 					}); 
-//--------------------------------------------------------------------------------
-	// 	DB 서버로 데이터를 보내고 'confirm' 열에 'ok'를 insert (table.jsp 에 버튼 있음)
-	/*	function insertConfirm(){
-			// 데이터를 담을 객체 생성
-			var selectedItems = []; // 선택된 체크박스 값들을 저장할 배열
-				
-			 // 선택된 체크박스 요소들을 탐색
-			  $("#publicTable tbody input[name='checkbox']:checked").each(function() {
-			    var $row = $(this).closest("tr");
-			    var item = {
-			      item_id: $row.find("td:eq(1)").text(),
-			      item_name: $row.find("td:eq(2)").text(),
-			      supplier: $row.find("td:eq(3)").text(),
-			      standard: $row.find("td:eq(4)").text(),
-			      unit: $row.find("td:eq(5)").text(),
-			      unit_price: $row.find("td:eq(6)").text(),
-			      order_quantity: $row.find("td:eq(7)").text(),
-			      supply_value: $row.find("td:eq(8)").text(),
-			      vat: $row.find("td:eq(9)").text(),
-			      total_amount: $row.find("td:eq(10)").text(),
-			      name: $row.find("td:eq(11)").text(),
-			      receiptDate: $row.find("td:eq(12)").text(),
-			      significant: $row.find("td:eq(13)").text()
-			    };
-			    selectedItems.push(item); // 선택된 체크박스 값을 배열에 추가
-			  });
-
-			  // 체크된 체크박스가 없을 경우 동작하지 않도록 처리
-			  if (selectedItems.length === 0) {
-			    return;
-			  }
-
-			  // AJAX를 통해 선택된 체크박스 값들을 서버로 전송
-			  $.ajax({
-			    url: "insert_confirm", // 데이터를 처리할 서버 파일 경로
-			    type: "POST",
-			    dataType: "json",
-			    data: JSON.stringify(selectedItems), // 선택된 체크박스 값을 JSON 형식으로 전송
-			    contentType: "application/json",
-			    cache: false,
-			    success: function(response) {
-			      if (response.success) {
-			        // 서버에서의 처리가 성공적으로 이루어진 경우
-			        // 여기서 추가로 열을 추가하고 'Y'를 표시할 수 있습니다.
-			        var $selectedTable = $("#selectedTable");
-			        
-			        // 선택된 항목들을 구분하는 행 추가
-			        var $selectedRow = $("<tr></tr>");
-			        $selectedRow.append("<td colspan='14' style='background-color: #FAEBD7;'>선택된 항목</td>");
-			        $selectedTable.prepend($selectedRow);
-			        
-			        // 진행상태 열에 'Y'로 표시
-			        $.each(selectedItems, function(index, item) {
-			          var $row = $("<tr></tr>");
-			          $row.append("<td>" + item.item_id + "</td>");
-			          // 나머지 열 추가
-			          $row.append("<td>Y</td>");
-			          $selectedTable.append($row);
-			        });
-			      }
-			    },
-			    error: function(xhr, status, error) {
-			      // AJAX 요청이 실패한 경우의 처리
-			      console.log("Error:", error);
-			    }
-			  });
-			}
-		*/
-		

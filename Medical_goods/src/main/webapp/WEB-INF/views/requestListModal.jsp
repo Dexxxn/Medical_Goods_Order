@@ -22,9 +22,7 @@
 			        <tr><th>no</th><th>구매처</th><th>의약품코드</th><th>의약품명</th><th>단가</th><th>발주수량</th><th>품목 총액</th><th>특이사항</th></tr>
 			    </thead>
 			    <tbody>
-			        <!-- <tr><td><input type="checkbox" name="checkbox1"></td><td>2023-06-16</td><td>A병동</td><td>이성언</td><td>(주)화이자</td><td>네오트레이스 외 14건</td><td>2023-06-23</td>
-			            <td>1,200</td><td>종결</td>
-			        </tr>-->
+			        <!-- <tr><td><input type="checkbox" name="checkbox1"></td><td>2023-06-16</td><td>A병동</td><td>이성언</td><td>(주)화이자</td><td>네오트레이스 외 14건</td><td>2023-06-23</td><td>1,200</td><td>종결</td></tr>-->
 			    </tbody>
 			</table>
 		</div>
@@ -92,8 +90,7 @@ function sendEmailAlert(supplier) {
 	      $(".modal1").show();
 	     
 	      // supplier 값을 활용하여 추가 작업 수행
-	      console.log("선택된 구매처: " + supplier); //콘솔에서 확인 완료
-	      
+	     // console.log("선택된 구매처: " + supplier); //콘솔에서 확인 완료
 	      
 	      var mentText = '거래처 <span style="color: blue;">' + supplier + '</span>로 메일을 전송하시겠습니까?';
 	      $(".ment").html(mentText).css({"width": "73%"});
