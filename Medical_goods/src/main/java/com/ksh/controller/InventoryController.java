@@ -8,10 +8,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ksh.model.InventoryVO;
 import com.ksh.service.InventoryService;
 
@@ -47,34 +50,29 @@ public class InventoryController {
 		System.out.println(is.useList(inven));
 		return new ResponseEntity<>(is.useList(inven), HttpStatus.OK);
 	}
-	
+
 	// 모달 전체 의약품 리스트
 	@RequestMapping(value = "/modal", method = RequestMethod.POST)
 	public ResponseEntity<?> modalList(InventoryVO inven) {
 		System.out.println(is.modalList(inven));
 		return new ResponseEntity<>(is.modalList(inven), HttpStatus.OK);
 	}
-	
-	 // 사용 수량 입력(insert)
-	 @RequestMapping(value = "/useInsert", method = RequestMethod.POST) public
-	 String useInsert(InventoryVO inven) {
-		 is.useInsert(inven); 
-		 System.out.println(inven);// 어떤 값을 받았는지 콘솔에서 확인
-		 return "redirect:/useList";
-	 }
-	 
+
+	// 사용 수량 입력(insert)
+	@RequestMapping(value = "/useInsert", method = RequestMethod.POST)
+	public String useInsert(InventoryVO inven) {
+		is.useInsert(inven);
+		System.out.println(inven);// 어떤 값을 받았는지 콘솔에서 확인
+		return "redirect:/useList";
+	}
+
 	// 발주요청 리스트
 	@RequestMapping(value = "/orderList", method = RequestMethod.POST)
 	public ResponseEntity<?> orderList(InventoryVO inven) {
 		System.out.println(is.orderList(inven));
 		return new ResponseEntity<>(is.orderList(inven), HttpStatus.OK);
-	}	 
+	}
 
-	 
-	 
-	 
-	 
-	 
 	@RequestMapping(value = "/ph_detail", method = RequestMethod.GET)
 	public String phDetail(Model model, @RequestParam("dept") String dept, @RequestParam("name") String name,
 			@RequestParam("date") String date) {
@@ -100,6 +98,55 @@ public class InventoryController {
 		return "ts";
 	}
 
+	@GetMapping("/getDataServlet")
+	public ResponseEntity<String> getData(@RequestParam("dept") String dept) {
+		try {
+			// 안전재고수량이 많은 상위 다섯 가지 물품 가져오기
+			List<String> items = is.top5(dept);
 
+			// 날짜 데이터 가져오기
+			List<String> labels = is.getDateData(dept, items.get(0));
+
+			// 데이터를 JSON 형식으로 구성
+			StringBuilder jsonBuilder = new StringBuilder();
+			jsonBuilder.append("{");
+			jsonBuilder.append("\"labels\":").append(new ObjectMapper().writeValueAsString(labels)).append(",");
+			jsonBuilder.append("\"datasets\": [");
+
+			// 각 물품에 대한 데이터셋 구성
+			for (int i = 0; i < items.size(); i++) {
+				String item_name = items.get(i);
+				List<Integer> quantities = is.qd(dept, item_name);
+
+				jsonBuilder.append("{");
+				jsonBuilder.append("\"label\":\"").append(item_name).append("\",");
+				jsonBuilder.append("\"data\":").append(new ObjectMapper().writeValueAsString(quantities)).append(",");
+				jsonBuilder.append("\"borderColor\":\"").append(getRandomColor()).append("\",");
+				jsonBuilder.append("\"backgroundColor\":\"").append(getRandomColor()).append("33\"");
+				jsonBuilder.append("}");
+
+				if (i < items.size() - 1) {
+					jsonBuilder.append(",");
+				}
+			}
+
+			jsonBuilder.append("]");
+			jsonBuilder.append("}");
+
+			return new ResponseEntity<>(jsonBuilder.toString(), HttpStatus.OK);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	private String getRandomColor() {
+		String letters = "0123456789ABCDEF";
+		StringBuilder color = new StringBuilder("#");
+		for (int i = 0; i < 6; i++) {
+			color.append(letters.charAt((int) Math.floor(Math.random() * 16)));
+		}
+		return color.toString();
+	}
 
 }

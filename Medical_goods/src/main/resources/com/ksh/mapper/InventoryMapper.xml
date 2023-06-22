@@ -40,7 +40,26 @@
         AND dept="병동B"
 	</select>
 	
+	<select id="getAllItems" resultType="java.lang.String">
+	    SELECT DISTINCT item_name FROM medical_goods_order.inventory
+	</select>
+
+	<select id="getItemsByDept" resultType="java.lang.String">
+	    SELECT DISTINCT item_name FROM medical_goods_order.inventory WHERE dept = #{dept}
+	</select>
 	
+	<select id="getDateData" resultType="java.lang.String">
+	    SELECT DISTINCT date FROM medical_goods_order.inventory WHERE dept = #{dept} AND item_name = #{item_name}
+	</select>
+	
+	<select id="qd" resultType="java.lang.Integer">
+	    SELECT quantity_used FROM medical_goods_order.inventory WHERE dept = #{dept} AND item_name = #{item_name}
+	</select>
+	
+	<select id="top5" resultType="java.lang.String">
+    SELECT DISTINCT item_name FROM medical_goods_order.inventory WHERE dept = #{dept}
+    ORDER BY safe_stock_quantity DESC LIMIT 5
+</select>
 	
 	
 	

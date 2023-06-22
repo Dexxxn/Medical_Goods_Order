@@ -14,14 +14,11 @@ public interface InventoryMapper {
 	public ArrayList<InventoryVO> useList(InventoryVO inven);
 
 	public ArrayList<InventoryVO> modalList(InventoryVO inven);
-	
+
 	public void useInsert(InventoryVO inven);
-	
+
 	public ArrayList<InventoryVO> orderList(InventoryVO inven);
-	
-	
-	
-	
+
 	ArrayList<InventoryVO> ph(@Param("dept") String dept, @Param("name") String name, @Param("date") String date);
 
 	ArrayList<InventoryVO> getInventoryList();
@@ -29,4 +26,14 @@ public interface InventoryMapper {
 	List<InventoryVO> si(@Param("supplier") String supplier, @Param("name") String name, @Param("date") String date);
 
 	List<InventoryVO> getInventoryList1();
+
+	List<String> getAllItems();
+
+	List<String> getItemsByDept(@Param("dept") String dept);
+
+	List<String> getDateData(@Param("dept") String dept, @Param("item_name") String item_name);
+
+	List<Integer> qd(@Param("dept") String dept, @Param("item_name") String item_name);
+
+	List<String> top5(@Param("dept") String dept);
 }

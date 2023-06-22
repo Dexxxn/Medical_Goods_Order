@@ -435,7 +435,13 @@ Text Colors
 
 .text-info {
   color: #20aee3 !important; }
+  
+.text-h1 {
+  color: #55d224 !important; }
 
+.text-h2 {
+  color: #b224d2 !important; }
+  
 .text-inverse {
   color: #2f3d4a !important; }
 
