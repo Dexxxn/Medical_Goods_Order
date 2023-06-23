@@ -26,27 +26,26 @@ public class InventoryServiceImpl implements InventoryService {
 	public ArrayList<InventoryVO> modalList(InventoryVO inven) {
 		return im.modalList(inven);
 	}
-	
+
 	public void useInsert(InventoryVO inven) {
-		
-		inven.getFormvo().forEach(formvo->{
-			System.out.println("service="+formvo);
-			
+
+		inven.getFormvo().forEach(formvo -> {
+			System.out.println("service=" + formvo);
+
 			// InventoryVO에 있는 dept를 가져와서 FormVO에 있는 dept에 저장
 			formvo.setDept(inven.getDept());
 			// InventoryVO에 있는 date를 가져와서 FormVO에 있는 date에 저장
 			formvo.setDate(inven.getDate());
 			// InventoryVO에 있는 name를 가져와서 FormVO에 있는 name에 저장
 			formvo.setName(inven.getName());
-			
+
 			im.useInsert(formvo);
 		});
 	}
-	
-	public ArrayList<InventoryVO> orderList(InventoryVO inven){
+
+	public ArrayList<InventoryVO> orderList(InventoryVO inven) {
 		return im.orderList(inven);
 	};
-
 
 	@Override
 	public ArrayList<InventoryVO> ph(String dept, String name, String date) {

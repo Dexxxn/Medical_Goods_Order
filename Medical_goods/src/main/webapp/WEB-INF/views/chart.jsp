@@ -154,6 +154,7 @@
                         backgroundColor: randomColors[i] + "33"
                     };
                     datasets.push(dataset);
+                    
                 }
 
                 // 그래프 그리기
