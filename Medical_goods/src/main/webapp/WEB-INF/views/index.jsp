@@ -6,12 +6,12 @@
 
 	<!-- ajax로 내용 들어올 자리 -->
 	<div id="mainContents">
-		 <%@ include file = "form.jsp" %> 
+		<%--  <%@ include file = "form.jsp" %> 
 		 <%@ include file = "table.jsp" %>
 		 <%@ include file = "table_only.jsp" %>
-		 <%@ include file = "modal.jsp" %> 
+		 <%@ include file = "modal.jsp" %>  --%>
 	
-	</div> <!-- Placeholder for the content of purchase.jsp -->
+	</div> 
 
 
  <%@ include file = "footer.jsp" %> 
