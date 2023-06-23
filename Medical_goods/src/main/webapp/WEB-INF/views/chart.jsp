@@ -120,6 +120,17 @@
     }
 
     function showChart(department) {
+    	
+    	var userDepartment = "${sessionScope.department}"; // 세션에 저장된 사용자의 병동 정보 가져오기
+        console.log("페이지에서 가져온 병동 정보: " + userDepartment);
+
+        // 병동 권한 확인
+        if (userDepartment !== department) {
+        	alert("해당 부서에 대한 권한이 없습니다.");
+            // 사용자의 병동과 선택한 병동이 일치하지 않는 경우 그래프를 보여주지 않습니다.
+            return;
+        }
+        
         $.ajax({
             url: "getDataServlet",
             method: "GET",

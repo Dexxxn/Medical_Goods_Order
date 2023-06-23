@@ -223,10 +223,11 @@
 			<h1>Welcome</h1>
 			<!-- 로그인 폼 -->
 			<form id="loginForm" action="/login" method="post">
-				<input type="text" name="id" placeholder="Username">
-				<input type="password" name="password" placeholder="Password">
-				<button type="submit" id="login-button">Login</button>
-			</form>
+            <input type="text" name="id" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="hidden" id="department" name="department">  <!-- 사용자의 병동 정보를 저장할 hidden input -->
+            <button type="submit" id="login-button">Login</button>
+        </form>
 		</div>
 	  	<!-- 버블 애니메이션 -->  
 		<ul class="bg-bubbles">
@@ -244,13 +245,14 @@
 	</div>
 
 	<script>
-		$("#login-button").click(function(event){
-			event.preventDefault();
-		  
-		  $("#loginForm").fadeOut(500);
-		  $('.wrapper').addClass('form-success');
-		  $("#loginForm").submit();
-		});
-	</script>
+    $("#login-button").click(function(event){
+        event.preventDefault();
+        var department = "${sessionScope.department}";
+        $("#department").val(department); // 사용자의 병동 정보를 hidden input에 저장
+        $("#loginForm").fadeOut(500);
+        $('.wrapper').addClass('form-success');
+        $("#loginForm").submit();
+    });
+</script>
 </body>
 </html>
