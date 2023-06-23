@@ -5,6 +5,7 @@
  <script src="resources/js/ph.js" type="text/javascript"></script> 
 
 
+
 <div class="page-wrapper">
 	<div class="ph-1" style="padding:70px 25px">
 			<h3 class="text-themecolor" style="line-height:40px; font-size:21px; margin-top:30px; margin-bottom:30px;">담당자 별 구매이력 조회</h3>

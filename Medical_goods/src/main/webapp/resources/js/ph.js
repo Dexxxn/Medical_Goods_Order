@@ -5,6 +5,7 @@ $(document).ready(function() {
     list({ dept: deptValue });
   });
 
+  
   function list(param) {
     var dept = param.dept;
     $.getJSON("/ph/" + dept + ".json", function(data) {
