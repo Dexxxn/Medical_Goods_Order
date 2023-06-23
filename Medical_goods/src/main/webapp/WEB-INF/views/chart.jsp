@@ -125,11 +125,30 @@
         console.log("페이지에서 가져온 병동 정보: " + userDepartment);
 
         // 병동 권한 확인
-        if (userDepartment !== department) {
-        	alert("해당 부서에 대한 권한이 없습니다.");
-            // 사용자의 병동과 선택한 병동이 일치하지 않는 경우 그래프를 보여주지 않습니다.
-            return;
+         if (userDepartment !== department) {
+        var departmentName;
+        switch (department) {
+            case '병동A':
+                departmentName = "병동 A";
+                break;
+            case '병동B':
+                departmentName = "병동 B";
+                break;
+            case '병동C':
+                departmentName = "병동 C";
+                break;
+            case '처치실':
+                departmentName = "처치실";
+                break;
+            case '수술실':
+                departmentName = "수술실";
+                break;
+            default:
+                departmentName = department;
         }
+        alert(departmentName + "에 대한 열람 권한이 없습니다.");
+        return;
+    }
         
         $.ajax({
             url: "getDataServlet",

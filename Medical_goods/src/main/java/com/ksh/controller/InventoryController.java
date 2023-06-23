@@ -63,7 +63,7 @@ public class InventoryController {
 	public String useInsert(InventoryVO inven) {
 		is.useInsert(inven);
 		System.out.println(inven);// 어떤 값을 받았는지 콘솔에서 확인
-		return "redirect:/useList";
+		return "index";
 	}
 
 	// 발주요청 리스트
