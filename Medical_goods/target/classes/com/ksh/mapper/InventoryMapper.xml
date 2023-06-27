@@ -11,7 +11,7 @@
 		FROM medical_goods_order.inventory 
         WHERE date = (SELECT MAX(date) FROM medical_goods_order.inventory)
     </select>
-	
+	 
 	<select id="useList" resultType="com.ksh.model.InventoryVO">
 		<!-- 날짜/진료과목 -->
 		SELECT *
