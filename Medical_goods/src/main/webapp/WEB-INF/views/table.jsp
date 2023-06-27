@@ -34,7 +34,7 @@
 			</table>
 		</div>
 		<hr>
-		<div class="basicB">
+		<div class="basicB order">
 			<button class="pointB" onclick="opendetailModal()">전체 적용</button> <!-- 부모창에서 자식창으로 값 전달 -->
 			<button>닫기</button>
 			<button onclick="insertConfirm()">발주 완료</button>

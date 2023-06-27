@@ -56,6 +56,11 @@ public class HomeController {
 		return "modal";
 	}
 
+	@RequestMapping(value = "/orderModal", method = RequestMethod.GET)
+	public String orderModal() {
+		return "modal";
+	}
+	
 	@RequestMapping(value = "/notice", method = RequestMethod.GET)
 	public String notice() {
 		return "notice";
@@ -108,7 +113,7 @@ public class HomeController {
 	}
 	
 	// 발주요청서 리스트
-	@RequestMapping(value = "/orderList", method = RequestMethod.GET)
+	@RequestMapping(value = "/orderRequest", method = RequestMethod.GET)
 	public String orderRequest() {
 		return "table";
 	}

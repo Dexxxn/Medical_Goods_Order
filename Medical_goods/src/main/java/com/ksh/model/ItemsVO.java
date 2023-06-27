@@ -1,6 +1,6 @@
 package com.ksh.model;
 
-public class itemsVO {
+public class ItemsVO {
 	private String item_name;
 	private String item_id;
 	private String standard;

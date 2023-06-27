@@ -149,7 +149,7 @@
                         	<span class="detailPage_nav" id="useList" onclick="useList()">사용입력 및 조회</span> <!-- data-href="/usage-input" -->
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">발주관리</span></a>
-                        	<span class="detailPage_nav" id="orderList" onclick="orderList()">발주요청서</span> <!--  data-href="/purchase-request"  -->
+                        	<span class="detailPage_nav" id="orderRequest" onclick="orderRequest()">발주요청서</span> <!--  data-href="/purchase-request"  -->
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
                         	<span class="detailPage_nav" id="purchase_planning" >발주계획서 작성</span> <!-- onclick="requestList('/purchasePlan')" -->
@@ -318,7 +318,7 @@
 								 // 사용수량입력
 								 $("#useList").click(useListPageOpen);
 								 // 발주요청서 작성
-								 $("#orderList").click(orderRequestPageOpen);
+								 $("#orderRequest").click(orderRequestPageOpen);
 								 //발주계획서 작성
 								 $("#purchase_planning").click(purchasePlanPageOpen);
 								 
@@ -486,7 +486,7 @@
 						            // 발주요청서 페이지 연결
 						            function orderRequestPageOpen() {
 						                $.ajax({
-						                    url: "/orderList", // URL of the purchase.jsp page
+						                    url: "/orderRequest", // URL of the purchase.jsp page
 						                    type: "GET",
 						                    success: function(data) {
 						                        // Update the content of the chartContent element with the response from purchase.jsp

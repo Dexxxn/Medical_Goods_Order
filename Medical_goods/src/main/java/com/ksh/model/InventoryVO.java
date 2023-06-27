@@ -16,7 +16,16 @@ public class InventoryVO {
 	private int safe_stock_quantity;
 	private String significant;
 	private String name;
-	private itemsVO items;
+	private ItemsVO items;
+	private ItemsVO itemsVO;
+
+	public ItemsVO getItemsVO() {
+		return itemsVO;
+	}
+
+	public void setItemsVO(ItemsVO itemsVO) {
+		this.itemsVO = itemsVO;
+	}
 
 	private ArrayList<FormVO> formvo;
 
@@ -132,11 +141,11 @@ public class InventoryVO {
 		this.formvo = formvo;
 	}
 
-	public itemsVO getItems() {
+	public ItemsVO getItems() {
 		return items;
 	}
 
-	public void setItems(itemsVO items) {
+	public void setItems(ItemsVO items) {
 		this.items = items;
 	}
 
@@ -146,7 +155,7 @@ public class InventoryVO {
 				+ standard + ", unit=" + unit + ", date=" + date + ", enter_quantity=" + enter_quantity
 				+ ", available_stock=" + available_stock + ", quantity_used=" + quantity_used + ", current_amount="
 				+ current_amount + ", safe_stock_quantity=" + safe_stock_quantity + ", significant=" + significant
-				+ ", name=" + name + ", items=" + items + ", formvo=" + formvo + "]";
+				+ ", name=" + name + ", items=" + items + ", itemsVO=" + itemsVO + ", formvo=" + formvo + "]";
 	}
 
 }
