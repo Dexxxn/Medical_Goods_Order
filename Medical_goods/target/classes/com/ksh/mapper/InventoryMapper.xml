@@ -40,7 +40,7 @@
         AND dept="병동B"
 	</select>
 	
-	
+	 
 	
 	
 	<select id="getAllItems" resultType="java.lang.String">
