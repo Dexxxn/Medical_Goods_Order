@@ -153,11 +153,11 @@
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">구매관리</span></a>
                         	<span class="detailPage_nav" id="purchase_planning" >발주계획서 작성</span> <!-- onclick="requestList('/purchasePlan')" -->
-                 <span class="detailPage_nav" id="purchase_order">발주내역서 조회</span>
+                 <!-- <span class="detailPage_nav" id="purchase_order">발주내역서 조회</span> -->
                         	<span class="detailPage_nav" id="purHisPageButton">구매이력 조회</span>
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">서류관리</span></a>
-                 <span class="detailPage_nav" id="spePageButton">거래 명세서-원</span>
+                 <span class="detailPage_nav" id="spePageButton">거래 명세서</span>
                         </li>
                         <li> <a class="waves-effect waves-dark" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">조정관리</span></a>
                   <span class="detailPage_nav"  id="chartPageButton">안전재고통계</span>
