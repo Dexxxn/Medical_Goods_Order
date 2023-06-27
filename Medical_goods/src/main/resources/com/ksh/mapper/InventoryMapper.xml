@@ -46,7 +46,7 @@
 	<select id="getAllItems" resultType="java.lang.String">
 	    SELECT DISTINCT item_name FROM medical_goods_order.inventory
 	</select>
-
+ 
 	<select id="getItemsByDept" resultType="java.lang.String">
 	    SELECT DISTINCT item_name FROM medical_goods_order.inventory WHERE dept = #{dept}
 	</select>
