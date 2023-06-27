@@ -4,6 +4,7 @@
 //}
 
 // 재고 현황 리스트
+// 재고 현황 리스트
 function invenList(url) {
     // Ajax 요청 보내기
     $.ajax({
@@ -14,70 +15,90 @@ function invenList(url) {
         cache: false
     }).done(function(data) {
         // Contents 영역 삭제
-    	$("#formAll").remove();
-    	
-        // Contents 영역 교체
-        //console.log(data)
-        var str = "";
-        
-        var currentAmountDeptA = [];
-        var currentAmountDeptB = [];
-        var currentAmountDeptC = [];
-        var currentAmountDeptD = [];
-        var currentAmountDeptE = [];
-        var currentAmountTotal = [];
-        
+        $("#formAll").remove();
+
+        // 중복된 물품을 하나의 행에 표시하기 위한 객체 생성
+        var itemStocks = {};
+
+        // 부서별 재고를 계산하여 itemStocks 객체에 저장
         for (var i = 0; i < data.length; i++) {
-            if (data[i].dept === '병동A') {
-                currentAmountDeptA.push(data[i].current_amount);
-            } else if (data[i].dept === '병동B') {
-                currentAmountDeptB.push(data[i].current_amount);
-            } else if (data[i].dept === '병동C') {
-                currentAmountDeptC.push(data[i].current_amount);
-            } else if (data[i].dept === '수술실') {
-                currentAmountDeptD.push(data[i].current_amount);
-            } else if (data[i].dept === '처치실') {
-                currentAmountDeptE.push(data[i].current_amount);
+            var itemId = data[i].item_id;
+            var itemName = data[i].item_name;
+            var standard = data[i].standard;
+            var unit = data[i].unit;
+            var dept = data[i].dept;
+            var currentAmount = data[i].current_amount;
+
+            if (!itemStocks[itemName]) {
+                itemStocks[itemName] = {
+                    itemCode: itemId,
+                    standard: standard,
+                    unit: unit,
+                    deptA: 0,
+                    deptB: 0,
+                    deptC: 0,
+                    deptD: 0,
+                    deptE: 0
+                };
+            }
+
+            if (dept === '병동A') {
+                itemStocks[itemName].deptA += currentAmount;
+            } else if (dept === '병동B') {
+                itemStocks[itemName].deptB += currentAmount;
+            } else if (dept === '병동C') {
+                itemStocks[itemName].deptC += currentAmount;
+            } else if (dept === '수술실') {
+                itemStocks[itemName].deptD += currentAmount;
+            } else if (dept === '처치실') {
+                itemStocks[itemName].deptE += currentAmount;
             }
         }
-        
-        for (var i = 0; i < data.length; i++) {
+
+        // Contents 영역 교체
+        var str = "";
+
+        // 중복된 물품을 하나의 행에 표시하고 해당 물품이 있는 부서에 대해서만 재고를 표시
+        for (var itemName in itemStocks) {
+            var item = itemStocks[itemName];
+            var totalAmount = item.deptA + item.deptB + item.deptC + item.deptD + item.deptE;
+
             str += "<tr>";
-	            str += "<td>" + data[i].item_id + "</td>";
-	            str += "<td>" + data[i].item_name + "</td>";
-	            str += "<td>" + data[i].standard + "</td>";
-	            str += "<td>" + data[i].unit + "</td>";
-	            str += "<td class='quantity'><b>" + (currentAmountDeptA[i] + currentAmountDeptB[i] + currentAmountDeptC[i] + currentAmountDeptD[i] + currentAmountDeptE[i]) + "</b></td>";
-	            str += "<td class='quantity'>" + currentAmountDeptA[i] + "</td>";
-	            str += "<td class='quantity'>" + currentAmountDeptB[i] + "</td>";
-	            str += "<td class='quantity'>" + currentAmountDeptC[i] + "</td>";
-	            str += "<td class='quantity'>" + currentAmountDeptD[i] + "</td>";
-	            str += "<td class='quantity'>" + currentAmountDeptE[i] + "</td>";
+            str += "<td>" + item.itemCode + "</td>";
+            str += "<td>" + itemName + "</td>";
+            str += "<td>" + item.standard + "</td>";
+            str += "<td>" + item.unit + "</td>";
+            str += "<td class='quantity'>" + totalAmount + "</td>";
+            str += "<td class='quantity'>" + (item.deptA || 0) + "</td>";
+            str += "<td class='quantity'>" + (item.deptB || 0) + "</td>";
+            str += "<td class='quantity'>" + (item.deptC || 0) + "</td>";
+            str += "<td class='quantity'>" + (item.deptD || 0) + "</td>";
+            str += "<td class='quantity'>" + (item.deptE || 0) + "</td>";
             str += "</tr>";
         }
-        
+
         // thead에 열 추가
         $(".table.only thead tr").append("<th>병동A</th>");
         $(".table.only thead tr").append("<th>병동B</th>");
         $(".table.only thead tr").append("<th>병동C</th>");
         $(".table.only thead tr").append("<th>수술실</th>");
         $(".table.only thead tr").append("<th>처치실</th>");
-        
+
         // 테이블 요소 선택
-        var table = document.querySelector(".table"); 
+        var table = document.querySelector(".table");
         var quantityHeader = table.querySelector("thead th:nth-child(5)"); // 수량 헤더 선택
         quantityHeader.innerHTML = "합계";
-        
+
         var quantityHeader = table.querySelector("thead th:nth-child(6)");
         $(quantityHeader).remove();
-        
+
         // tbody 값 대체
         $(".table.only tbody").html(str);
         // 데이터가 많으니 길이 조정
         $(".table-container").css({
-        	width: '1200px'
+            width: '1200px'
         });
-        
+
     });
 
 }
