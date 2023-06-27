@@ -46,7 +46,7 @@ public class InventoryServiceImpl implements InventoryService {
 	
 	public ArrayList<InventoryVO> orderModal(InventoryVO inven){
 		return im.orderModal(inven);
-	};
+	}; 
 	
 	public ArrayList<InventoryVO> orderList(InventoryVO inven){
 		return im.orderList(inven);
