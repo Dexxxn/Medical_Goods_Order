@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ksh.model.InventoryVO;
+import com.ksh.model.OrdersVO;
 import com.ksh.service.InventoryService;
 
 @Controller
@@ -50,28 +51,51 @@ public class InventoryController {
 		System.out.println(is.useList(inven));
 		return new ResponseEntity<>(is.useList(inven), HttpStatus.OK);
 	}
-
+	
 	// 모달 전체 의약품 리스트
 	@RequestMapping(value = "/modal", method = RequestMethod.POST)
 	public ResponseEntity<?> modalList(InventoryVO inven) {
 		System.out.println(is.modalList(inven));
 		return new ResponseEntity<>(is.modalList(inven), HttpStatus.OK);
 	}
-
 	// 사용 수량 입력(insert)
-	@RequestMapping(value = "/useInsert", method = RequestMethod.POST)
+	@RequestMapping(value = "/useInsert", method = RequestMethod.POST) 
 	public String useInsert(InventoryVO inven) {
-		is.useInsert(inven);
+		is.useInsert(inven); 
 		System.out.println(inven);// 어떤 값을 받았는지 콘솔에서 확인
-		return "index";
+		return "redirect:/index";
 	}
-
-	// 발주요청 리스트
+	 
+	// 발주요청 페이지
+	@RequestMapping(value = "/orderRequest", method = RequestMethod.POST)
+	public ResponseEntity<?> orderRequest(InventoryVO inven) {
+		//System.out.println(is.modalList(inven));
+		return new ResponseEntity<>(is.modalList(inven), HttpStatus.OK);
+	}	
+	
+	// 발주요청 모달
+	@RequestMapping(value = "/orderModal", method = RequestMethod.POST)
+	public ResponseEntity<?> orderModal(InventoryVO inven) {
+		//System.out.println(is.orderModal(inven));
+		return new ResponseEntity<>(is.orderModal(inven), HttpStatus.OK);
+	}
+	
+	// 발주요청 
 	@RequestMapping(value = "/orderList", method = RequestMethod.POST)
 	public ResponseEntity<?> orderList(InventoryVO inven) {
-		System.out.println(is.orderList(inven));
+		//System.out.println(is.orderList(inven));
 		return new ResponseEntity<>(is.orderList(inven), HttpStatus.OK);
 	}
+	
+	// 발주요청 
+	@RequestMapping(value = "/orderInsert", method = RequestMethod.POST)
+	public String orderInsert(OrdersVO orders) {
+		is.orderInsert(orders);
+		System.out.println(orders);
+		return "redirect:/index";
+	}
+	
+	
 
 	@RequestMapping(value = "/ph_detail", method = RequestMethod.GET)
 	public String phDetail(Model model, @RequestParam("dept") String dept, @RequestParam("name") String name,

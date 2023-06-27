@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ksh.mapper.InventoryMapper;
 import com.ksh.model.InventoryVO;
+import com.ksh.model.OrdersVO;
 
 @Service
 public class InventoryServiceImpl implements InventoryService {
@@ -26,26 +27,46 @@ public class InventoryServiceImpl implements InventoryService {
 	public ArrayList<InventoryVO> modalList(InventoryVO inven) {
 		return im.modalList(inven);
 	}
-
+	
 	public void useInsert(InventoryVO inven) {
-
-		inven.getFormvo().forEach(formvo -> {
-			System.out.println("service=" + formvo);
-
+		
+		inven.getFormvo().forEach(formvo->{
+			System.out.println("service="+formvo);
+			
 			// InventoryVO에 있는 dept를 가져와서 FormVO에 있는 dept에 저장
 			formvo.setDept(inven.getDept());
 			// InventoryVO에 있는 date를 가져와서 FormVO에 있는 date에 저장
 			formvo.setDate(inven.getDate());
 			// InventoryVO에 있는 name를 가져와서 FormVO에 있는 name에 저장
 			formvo.setName(inven.getName());
-
+			
 			im.useInsert(formvo);
 		});
 	}
-
-	public ArrayList<InventoryVO> orderList(InventoryVO inven) {
+	
+	public ArrayList<InventoryVO> orderModal(InventoryVO inven){
+		return im.orderModal(inven);
+	};
+	
+	public ArrayList<InventoryVO> orderList(InventoryVO inven){
 		return im.orderList(inven);
 	};
+
+	public void orderInsert(OrdersVO orders) {
+		
+		orders.getFormordervo().forEach(form2vo->{
+			System.out.println("service="+form2vo);
+			
+			// InventoryVO에 있는 dept를 가져와서 FormVO에 있는 dept에 저장
+			form2vo.setDept(orders.getDept());
+			// InventoryVO에 있는 date를 가져와서 FormVO에 있는 date에 저장
+			form2vo.setRequestDate(orders.getRequestDate());
+			// InventoryVO에 있는 name를 가져와서 FormVO에 있는 name에 저장
+			form2vo.setName(orders.getName());
+			
+			im.orderInsert(form2vo);
+		});
+	}
 
 	@Override
 	public ArrayList<InventoryVO> ph(String dept, String name, String date) {

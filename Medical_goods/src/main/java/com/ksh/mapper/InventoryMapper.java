@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.ksh.model.Form2VO;
 import com.ksh.model.FormVO;
 import com.ksh.model.InventoryVO;
 
@@ -17,10 +18,14 @@ public interface InventoryMapper {
 	public ArrayList<InventoryVO> modalList(InventoryVO inven);
 
 	public void useInsert(InventoryVO inven);
+	
+	public void useInsert(FormVO formvo);
 
+	public ArrayList<InventoryVO> orderModal(InventoryVO inven);
+	
 	public ArrayList<InventoryVO> orderList(InventoryVO inven);
 
-	public void useInsert(FormVO formvo);
+	public void orderInsert(Form2VO form2vo);
 
 	ArrayList<InventoryVO> ph(@Param("dept") String dept, @Param("name") String name, @Param("date") String date);
 

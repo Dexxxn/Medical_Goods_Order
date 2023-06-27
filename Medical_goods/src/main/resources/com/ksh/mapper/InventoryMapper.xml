@@ -26,11 +26,49 @@
         WHERE date = (SELECT MAX(date) FROM medical_goods_order.inventory)
         AND dept=#{dept}
 	</select>
-	
-	<insert id="useInsert">
-		INSERT into medical_goods_order.inventory
-		VALUES(#{dept}, #{item_name}, #{item_id}, #{standard}, #{unit}, #{date}, 0, 0, #{quantity_used}, 0, 0, #{name}, #{significant});
+
+	<insert id="useInsert" parameterType="com.ksh.model.InventoryVO">
+		<!-- SELECT 쿼리를 사용하여 값을 조회 -->
+		<selectKey keyProperty="current_amount,safe_stock_quantity" resultType="com.ksh.model.InventoryVO" order="BEFORE">
+		SELECT current_amount, safe_stock_quantity
+		FROM medical_goods_order.inventory
+		WHERE dept = #{dept} AND item_id = #{item_id}
+		ORDER BY date DESC
+		LIMIT 1
+		</selectKey>
+		
+		<!-- INSERT 쿼리를 사용하여 데이터 삽입 -->
+		INSERT INTO medical_goods_order.inventory (dept, item_name, item_id, standard, unit, date, enter_quantity, available_stock, quantity_used, current_amount, safe_stock_quantity, name, significant)
+		VALUES (#{dept}, #{item_name}, #{item_id}, #{standard}, #{unit}, #{date}, 0, 0, #{quantity_used}, #{current_amount} - #{quantity_used}, #{safe_stock_quantity}, #{name}, #{significant})
 	</insert>
+	
+	<resultMap type="com.ksh.model.ItemsVO" id="ItemsVO">
+	    <result column="supplier" property="supplier"/>
+	    <result column="unit_price" property="unit_price"/>
+	    <result column="minimum_purchase_quantity" property="minimum_purchase_quantity"/>
+	</resultMap>
+	<resultMap type="com.ksh.model.InventoryVO" id="Inven">
+	    <result column="dept" property="dept"/>
+	    <result column="name" property="name"/>
+	    <result column="item_id" property="item_id"/>
+	    <result column="item_name" property="item_name"/>
+	    <result column="standard" property="standard"/>
+	    <result column="unit" property="unit"/>
+	    <result column="date" property="date"/>
+	    <result column="quantity_used" property="quantity_used"/>
+	    <result column="current_amount" property="current_amount"/>
+	    <result column="safe_stock_quantity" property="safe_stock_quantity"/>
+	    <result column="significant" property="significant"/>
+	    <collection property="itemsVO" resultMap="ItemsVO"/>
+	</resultMap>
+	<select id="orderModal" parameterType="com.ksh.model.InventoryVO" resultMap="Inven">
+	    <!-- 품목별로 가장 최신 데이터만/날짜 -->
+	    SELECT inven.*, i.supplier, i.unit_price, i.minimum_purchase_quantity
+	    FROM medical_goods_order.inventory AS inven
+	    JOIN medical_goods_order.items AS i ON inven.item_id = i.item_id
+	    WHERE inven.date = (SELECT MAX(date) FROM medical_goods_order.inventory)
+	    AND inven.dept = #{dept}
+	</select>
 	
 	<select id="orderList" resultType="com.ksh.model.InventoryVO">
 		<!-- 품목별로 가장 최신 데이터만/날짜 -->
@@ -39,6 +77,11 @@
         WHERE current_amount &lt; safe_stock_quantity
         AND dept="병동B"
 	</select>
+	
+	<insert id="orderInsert">
+		INSERT INTO medical_goods_order.orders
+		VALUES (#{dept}, #{name}, #{item_id}, #{item_name}, #{supplier}, #{standard}, #{unit}, #{unit_price}, #{order_quantity}, (#{unit_price} * #{order_quantity}), (#{unit_price} * #{order_quantity})*0.1, (#{unit_price} * #{order_quantity})+((#{unit_price} * #{order_quantity})*0.1), #{significant}, #{requestDate}, null, null)
+	</insert>
 	
 	 
 	
@@ -80,7 +123,7 @@
         <result property="current_amount" column="current_amount" />
         <result property="safe_stock_quantity" column="safe_stock_quantity" />
 
-        <association property="items" javaType="com.ksh.model.itemsVO">
+        <association property="items" javaType="com.ksh.model.ItemsVO">
             <result property="item_name" column="item_name" />
             <result property="item_id" column="item_id" />
             <result property="standard" column="standard" />
@@ -124,7 +167,7 @@
         <result property="current_amount" column="current_amount" />
         <result property="safe_stock_quantity" column="safe_stock_quantity" />
 
-        <association property="items" javaType="com.ksh.model.itemsVO">
+        <association property="items" javaType="com.ksh.model.ItemsVO">
             <result property="item_name" column="item_name" />
             <result property="item_id" column="item_id" />
             <result property="standard" column="standard" />

@@ -1,10 +1,6 @@
 package com.ksh.model;
 
-import java.util.ArrayList;
-
-public class OrdersVO {
-	private String dept; //부서
-	private String name; //담당자
+public class Form2VO {
 	private String item_id; //의약품코드
 	private String item_name; //의약품명
 	private String supplier; //구매처명
@@ -17,28 +13,11 @@ public class OrdersVO {
 	private int total_amount; //(1품목구매)총액
 	private String significant; //특이사항- "안전재고수 기준은 충족하였으나, 재고 불충분으로 발주 必"
 	private String requestDate; //발주요청일자
-	private String receiptDate; //입고일자
 	private String confirm; //총무과 최종확인발주일(date)
-	private ArrayList<Form2VO> formordervo;
 	
-	public ArrayList<Form2VO> getFormordervo() {
-		return formordervo;
-	}
-	public void setFormordervo(ArrayList<Form2VO> formordervo) {
-		this.formordervo = formordervo;
-	}
-	public String getDept() {
-		return dept;
-	}
-	public void setDept(String dept) {
-		this.dept = dept;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	private String dept;
+	private String name;
+	private String receiptDate; //입고일자
 	public String getItem_id() {
 		return item_id;
 	}
@@ -111,28 +90,38 @@ public class OrdersVO {
 	public void setRequestDate(String requestDate) {
 		this.requestDate = requestDate;
 	}
-	public String getReceiptDate() {
-		return receiptDate;
-	}
-	public void setReceiptDate(String receiptDate) {
-		this.receiptDate = receiptDate;
-	}
 	public String getConfirm() {
 		return confirm;
 	}
 	public void setConfirm(String confirm) {
 		this.confirm = confirm;
 	}
+	public String getDept() {
+		return dept;
+	}
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getReceiptDate() {
+		return receiptDate;
+	}
+	public void setReceiptDate(String receiptDate) {
+		this.receiptDate = receiptDate;
+	}
 	@Override
 	public String toString() {
-		return "OrdersVO [dept=" + dept + ", name=" + name + ", item_id=" + item_id + ", item_name=" + item_name
-				+ ", supplier=" + supplier + ", standard=" + standard + ", unit=" + unit + ", unit_price=" + unit_price
-				+ ", order_quantity=" + order_quantity + ", supply_value=" + supply_value + ", vat=" + vat
-				+ ", total_amount=" + total_amount + ", significant=" + significant + ", requestDate=" + requestDate
-				+ ", receiptDate=" + receiptDate + ", confirm=" + confirm + ", formordervo=" + formordervo + "]";
+		return "Form2VO [item_id=" + item_id + ", item_name=" + item_name + ", supplier=" + supplier + ", standard="
+				+ standard + ", unit=" + unit + ", unit_price=" + unit_price + ", order_quantity=" + order_quantity
+				+ ", supply_value=" + supply_value + ", vat=" + vat + ", total_amount=" + total_amount
+				+ ", significant=" + significant + ", requestDate=" + requestDate + ", confirm=" + confirm + ", dept="
+				+ dept + ", name=" + name + ", receiptDate=" + receiptDate + "]";
 	}
-
-	
 	
 	
 }
