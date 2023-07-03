@@ -55,7 +55,7 @@ function invenList(url) {
         }
 
         // Contents 영역 교체
-        var str = "";
+        var str = ""; 
 
         // 중복된 물품을 하나의 행에 표시하고 해당 물품이 있는 부서에 대해서만 재고를 표시
         for (var itemName in itemStocks) {
