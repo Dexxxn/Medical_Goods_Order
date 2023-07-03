@@ -1,9 +1,8 @@
-//// 천의 자리 콤마찍기
-//function numberWithCommas(number) {
-//	  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-//}
+// 천의 자리 콤마찍기
+function numberWithCommas(number) {
+	  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
-// 재고 현황 리스트
 // 재고 현황 리스트
 function invenList(url) {
     // Ajax 요청 보내기
@@ -367,7 +366,7 @@ function orderRequest() {
                 str += "<td>" + data[i].unit + "</td>";
                 
                 str += "<td>" + data[i].itemsVO.supplier + "</td>";
-                str += "<td class='quantity'>" + data[i].itemsVO.unit_price + "</td>";
+                str += "<td class='quantity'>" + numberWithCommas(data[i].itemsVO.unit_price) + "</td>";
                 str += "<td class='quantity'>" + data[i].itemsVO.minimum_purchase_quantity + "</td>";
                 
                 // 현재고 < 안전재고면 배경 붉게
@@ -383,6 +382,7 @@ function orderRequest() {
             }
         }
         
+        $(".basicB.top").append("<input type='button' value='조회' style='margin: 4px;'>");
         $(".basicB.top").append("<input type='button' value='안전재고 이하 선택'>");
         
         // thead에 열 추가
@@ -456,7 +456,7 @@ $(document).on("click", "#orderModalOpen", function() {
             str1 += "<td><input type='hidden' name='formordervo["+i+"].standard' value='"+selectedItems[i].standard+"'>" + selectedItems[i].standard + "</td>";
             str1 += "<td><input type='hidden' name='formordervo["+i+"].unit' value='"+selectedItems[i].unit+"'>" + selectedItems[i].unit + "</td>";
             str1 += "<td><input type='hidden' name='formordervo["+i+"].supplier' value='"+selectedItems[i].supplier+"'>" + selectedItems[i].supplier + "</td>"; 
-            str1 += "<td class='quantity'><input type='hidden' name='formordervo["+i+"].unit_price' value='"+selectedItems[i].unit_price+"' >" + selectedItems[i].unit_price + "</td>";
+            str1 += "<td class='quantity'><input type='hidden' name='formordervo["+i+"].unit_price' value='"+numberWithCommas(selectedItems[i].unit_price)+"' >" + selectedItems[i].unit_price + "</td>";
             str1 += "<td class='quantity'><input type='hidden'>" + selectedItems[i].minimum_purchase_quantity + "</td>";
             str1 += "<td class='quantity'><input type='hidden'>" + selectedItems[i].current_amount + "</td>";
             str1 += "<td class='quantity'><input type='hidden'>" + selectedItems[i].safe_stock_quantity + "</td>";
